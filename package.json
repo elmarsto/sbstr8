@@ -1,7 +1,7 @@
 {
   "name": "elmarsto-blog",
   "description": "A Basic blog based on @jpedroschmitz lovely typescript starter, mixed with the @ibaslogic blog starter.",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "private": true,
   "author": "@elmarsto",
   "license": "MIT",
