@@ -26,12 +26,17 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/react": "2.5.5",
+    "@emotion/react": "11.10.6",
+    "@emotion/styled": "11.10.6",
     "@mdx-js/loader": "2.3.0",
     "@mdx-js/react": "2.3.0",
     "@next/mdx": "13.2.4",
     "@types/rss": "0.0.30",
+    "@visx/visx": "3.1.2",
     "date-fns": "2.29.3",
     "feed": "4.2.2",
+    "framer-motion": "10.10.0",
     "gray-matter": "4.0.3",
     "grey-matter": "0.0.0",
     "next": "13.2.4",
@@ -42,7 +47,8 @@
     "rehype-autolink-headings": "6.1.1",
     "rehype-img-size": "1.0.1",
     "rehype-slug": "5.1.0",
-    "rss": "1.2.2"
+    "rss": "1.2.2",
+    "storybook": "6.5.16"
   },
   "devDependencies": {
     "@commitlint/cli": "17.5.0",
