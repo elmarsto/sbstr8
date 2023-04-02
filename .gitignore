@@ -43,3 +43,5 @@ next-env.d.ts
 /public/rss.xml
 /public/rss.json
 
+
+/.vscode/

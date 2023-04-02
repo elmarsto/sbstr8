@@ -1,23 +1,18 @@
-<div align="center"><strong>A powerful, simple blog engine for NextJS</strong></div>
+<div align="center"><strong>What is the Martrix?</strong></div>
 
-<div align="center">
-  <sub>Remixed by <a href="https://github.com/elmarsto/">Elmarsto</a> using parts from 
-   <a href="https://twitter.com/jpedroschmitz">João Pedro</a> and <a href="https://twitter.com/ibaslogic">Ibaslogic</a>
+ - A maximalist, modern starter for interactive storytelling and blogging.
+ - Initially a remix <a href="https://twitter.com/ibaslogic">Ibaslogic</a>’s excellent blog starter, but in Typescript, and founded on the stunning Typescript/Next/React starter by <a href="https://twitter.com/jpedroschmitz">João Pedro</a>.
+ - Super early **ALPHA** grade code. YMMV.  I’m doing this because no one else has. 
 </div>
-
-<br />
-
-Basically I combined two awesome things. It wasn't hard, just tricky.
-
 ## Features
 
 ### From Ibaslogic
  - Basic blog functions
  - RSS, RSS-JSON, and Atom feeds
- - mdx support
- - metadata support
- - image thumbnailing
- - reading time support
+ - Support for `mdx` (Markdown + JSX) support
+ - Metadata support
+ - Image thumbnailing
+ - Reading time support
 
 ### From João Pedro
 - ⚡️ Next.js 13
@@ -33,8 +28,16 @@ Basically I combined two awesome things. It wasn't hard, just tricky.
 - ⚙️ EditorConfig - Consistent coding styles across editors and IDEs
 - 🗂 Path Mapping — Import components or images using the `@` prefix
 
-### From elsewhere
- - Support for [Mirrorful](https://github.com/Mirrorful/mirrorful) theming
+### From all over
+ - [Mirrorful](https://github.com/Mirrorful/mirrorful) theming
+ - [Storybook](https://github.com/storybookjs/storybook) tooling for component development
+ - [Visx](https://github.com/airbnb/visx) for data-rich storytelling
+ - [Chakra UI](https://github.com/chakra-ui/chakra-ui) for widgeting (don’t reinvent wheel)
+ - [Ramda](https://github.com/ramda/ramda) for easy functional coding
+ - [GSAP](https://github.com/greensock/GSAP) for animation
+ - [use-sound](https://github.com/joshwcomeau/use-sound) for audio
+
+
 
 ### Quick start
  1. Download.
@@ -42,5 +45,4 @@ Basically I combined two awesome things. It wasn't hard, just tricky.
  3. `npx mirrorful` (pick your colours and export)
  4. `npx pnpm run dev` happy hacking
  4. `npx pnpm run build` happy deploying
-
 

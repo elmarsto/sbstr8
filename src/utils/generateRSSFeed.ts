@@ -1,22 +1,23 @@
 import fs from 'fs';
 import { Feed } from 'feed';
 import { PostList, getSortedPost } from './mdx';
+import config from '@/../martrix-config';
 
 // adapted from https://blog.logrocket.com/adding-rss-feed-next-js-app/ 2023-03-29
 
 export default async function generateRssFeed() {
   const allPosts: PostList[] | undefined = await getSortedPost();
-  const site_url = 'localhost:3000';
+  const site_url = config.url;
 
   const feedOptions = {
-    title: 'Blog | Feed',
-    description: 'A blog',
+    title: config.title,
+    description: config.description,
     id: site_url,
     link: site_url,
     image: `${site_url}/logo.png`,
     favicon: `${site_url}/favicon.png`,
     copyright: `All rights reserved ${new Date().getFullYear()}.`,
-    generator: 'Feed for Node.js',
+    generator: 'The Martrix',
     feedLinks: {
       rss2: `${site_url}/rss.xml`,
       json: `${site_url}/rss.json`,
@@ -33,7 +34,7 @@ export default async function generateRssFeed() {
       id: `${site_url}/post/${post.slug}`,
       link: `${site_url}/post/${post.slug}`,
       description: post.description,
-      date: new Date(post.date || '1970-01-01'),
+      date: new Date(post.date || 0),
     });
   });
 
