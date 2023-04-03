@@ -1,39 +1,42 @@
 /* adapted from https://raw.githubusercontent.com/Ibaslogic/nextjs-mdx-blog-starter/main/styles/Blog.module.css */
 
-.post_item {
+.post {
   list-style: none;
   margin-bottom: 2rem;
 }
 
-.post_item article {
-  border: 1px solid #eaeaea;
+.post article {
   padding: 20px;
+  border: 1px solid;
   border-radius: 5px;
 }
 
-.post_item:last-child {
+.post:last-child {
   margin-bottom: 0;
 }
 
-.post_item h2 {
+.post h2 {
   font-size: 1.5em;
   margin-bottom: 0.5rem;
   line-height: 1.4;
-  font-weight: 600px;
+  font-weight: 600;
 }
 
-.item__link  {
+.link  {
   text-decoration: none;
   color: inherit;
 }
 
-.post__meta {
+.metadata {
   font-size: 14px;
   line-height: 1.65;
-  color: #6a6767;
   display: block;
   margin-bottom: 0.5rem;
 }
 
-
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
 

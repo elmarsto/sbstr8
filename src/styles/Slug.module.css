@@ -1,4 +1,4 @@
-.single__post h1 {
+.post h1 {
   font-size: 3rem;
 }
 
@@ -8,7 +8,7 @@
   }
 }
 
-.single__post h1 + span {
+.post h1 + span {
   font-size: 14px;
   line-height: 1.65;
   color: #6a6767;
@@ -16,16 +16,24 @@
   margin-bottom: 1.3rem;
 }
 
-.single__post header,
-.single__post p, .single__post h2, .single__post h3 {
+.post header,
+.post p, .post h2, .post h3 {
   margin-bottom: 1.5rem;
 }
 
-.single__post ol,
-.single__post ul {
+.post ol,
+.post ul {
   margin: 0 0 1.45rem 1.45rem;
 }
 
-.single__post li {
+.post li {
   margin-bottom: 0.5rem;
+}
+
+.meta {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #6a6767;
+  display: block;
+  margin-bottom: 1.3rem;
 }
