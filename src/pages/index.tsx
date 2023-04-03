@@ -1,17 +1,52 @@
-import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
+// adapted from https://raw.githubusercontent.com/Ibaslogic/nextjs-mdx-blog-starter/main/pages/blog/index.js
+
+import Link from 'next/link';
+import { format } from 'date-fns';
+import { getSortedPost, PostMetadata } from '@/utils/mdx';
+import generateRssFeed from '@/utils/generateRSSFeed';
 import config from '@/../martrix-config';
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>{config.title}</title>
-        <meta name="description" content={config.description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles['main']}></main>
-    </>
-  );
+import styles from '@/styles/Home.module.css';
+
+interface HomeProps {
+  posts: PostMetadata[];
 }
+
+export async function getStaticProps() {
+  await generateRssFeed();
+  const posts: PostMetadata[] = (await getSortedPost()) || [];
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
+const Home = ({ posts }: HomeProps) => {
+  return (
+    <main>
+      <h1>{config.title} - Posts</h1>
+      <ul className={styles['posts']}>
+        {posts.map((post: PostMetadata) => {
+          const { slug, title, date, description }: PostMetadata = post;
+
+          return (
+            <li className={styles['post']} key={slug}>
+              <Link className={styles['link']} href={`/post/${slug}`}>
+                <article>
+                  <h2>{title}</h2>
+                  <div className={styles['metadata']}>
+                    <span>{format(date || 0, 'MMMM dd, yyyy')}</span>{' '}
+                  </div>
+                  <p>{description}</p>
+                </article>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </main>
+  );
+};
+
+export default Home;
