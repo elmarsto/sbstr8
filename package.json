@@ -11,13 +11,13 @@
     "typescript"
   ],
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "type-check": "tsc --noEmit",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "husky install"
+    "dev": "npx next",
+    "build": "npx next build",
+    "start": "npx next start",
+    "type-check": "npx tsc --noEmit",
+    "lint": "npx eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
+    "format": "npx prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "postinstall": "npx husky install"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
