@@ -24,8 +24,8 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
 
  - [Apollo](https://www.apollographql.com) GraphQL to keep you **integrated** with modern APIs
  - [Atom](https://en.wikipedia.org/wiki/Atom_(web_standard)) and [RSS](https://en.wikipedia.org/wiki/RSS) feeds, to keep you **decentralized**
- - [Chakra UI](https://chakra-ui.com) to keep you **easy to use**
- - [CodeMirror](https://codemirror.net) to keep you **coding**
+ - [Chakra UI](https://chakra-ui.com) to keep you **empowered**
+ - [CodeMirror](https://codemirror.net) to keep your code examples **interactive and syntax highlighted**
  - [Commitlint](https://commitlint.js.org) to keep you **clear**
  - [ESLint](https://eslint.org) to keep you **neat**
  - [EditorConfig](https://editorconfig.org/) to keep you **consistent**
