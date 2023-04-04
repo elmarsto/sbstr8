@@ -30,7 +30,6 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [ESLint](https://eslint.org) to keep you **sane**
  - [EditorConfig](https://editorconfig.org/) to keep you **consistent**
  - [Font Awesome](https://editorconfig.org/) to keep you **awesome**
- - [GSAP](https://greensock.com/gsap) to keep you **animated**
  - [Husky](https://typicode.github.io/husky/#/) to keep you **disciplined**
  - [Immer](https://immerjs.github.io/immer/) to keep you **immutable**
  - [Jest](https://jestjs.io/) to keep you **covered**
@@ -41,8 +40,10 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [Prettier](https://prettier.io) to keep you **beautiful**
  - [Ramda](https://ramdajs.com/) to keep you **functional**
  - [React 18](https://react.dev) to keep you **responsive**
+ - [React-Spring](https://www.react-spring.dev/) to keep you **animated**
  - [Renovate](https://mend.io) to keep you **up-to-date**
  - [Storybook](https://storybook.js.org) to keep you **modular**
+ - [Three.js](https://threejs.org) and [React-Three-Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction), to give you **depth**
  - [TypeScript 5](https://typescriptlang.org) to keep you **strict**
  - [Use-sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) to keep you **lush**
  - [Visx](https://airbnb.io/visx) to keep you and your data **visual**
