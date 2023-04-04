@@ -82,7 +82,7 @@ Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking)
  1. `git clone https://github.com/elmarsto/martrix <your-project-name>`
  2. `npm install`
  3. `npx mirrorful &` (pick your colours and export)
- 4. `npx storybook &` (design your components in a 
+ 4. `npx storybook &` (design your components in a sandbox)
  5. `npx run dev` happy hacking
  6. `npx run build` 
 
