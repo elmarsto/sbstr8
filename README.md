@@ -27,10 +27,10 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [Chakra UI](https://chakra-ui.com) to keep you **easy to use**
  - [CodeMirror](https://codemirror.net) to keep you **coding**
  - [Commitlint](https://commitlint.js.org) to keep you **clear**
- - [ESLint](https://eslint.org) to keep you **sane**
+ - [ESLint](https://eslint.org) to keep you **neat**
  - [EditorConfig](https://editorconfig.org/) to keep you **consistent**
  - [Font Awesome](https://editorconfig.org/) to keep you **awesome**
- - [Husky](https://typicode.github.io/husky/#/) to keep you **disciplined**
+ - [Husky](https://typicode.github.io/husky/#/) to keep you **moving forward**
  - [Immer](https://immerjs.github.io/immer/) to keep you **immutable**
  - [Jest](https://jestjs.io/) to keep you **covered**
  - [Lint-staged](https://github.com/okonet/lint-staged) to keep you **clean**
