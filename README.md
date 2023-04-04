@@ -91,3 +91,7 @@ Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking)
 
  - The Martrix was put together in part on the unceded and ancestral territory of the hən̓q̓əmin̓əm̓ and Sḵwx̱wú7mesh speaking peoples, the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations. I, Elizabeth Marston, am an uninvited guest here, and I’m looking for ways to give back. If you have thoughts on how this project could help the indigenous Coast Salish peoples decolonize, let me know!
 
+## Why is the license GPL, and not MIT?
+
+ - Because the now-routine scraping of GitHub by its owner to train AI‌s that regurgitate FOSS‌ code verbatim is a form of license-washing. MIT‌ License provides no cover or resistance to this, and therefore, in 2023, is obsolete.
+ - Because the GPL still allows you to customize and build your own unique product with this tool, and host it. However, it motivates contributors *to the codebase* to do so in the open. 
