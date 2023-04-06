@@ -3,7 +3,7 @@ Stop posting like it’s 1999.
 # What is the Martrix?
 
  - A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling by creatives who code in Typescript React. 
- - Initially a remix a [Ibaslogic’s excellent blog starter](https://twitter.com/ibaslogic), but in Typescript, and founded on the stunning Typescript/Next/React starter by [João Pedro](https://twitter.com/jpedroschmitz). But then I added all my faves. See the ingredient list below :)
+ - Initially a remix a [Ibaslogic’s excellent blog starter](https://twitter.com/ibaslogic), but in Typescript, and founded on the stunning Typescript/Next/React starter by [João Pedro](https://twitter.com/jpedroschmitz). But then I added all my faves; in particular, I added all the big-name libraries by my new hero, [Poimandres](https://github.com/pmndrs). See the ingredient list below :)
 
 ## Why another starter?
 
@@ -43,24 +43,28 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [React-Spring](https://www.react-spring.dev/) to keep you **animated**
  - [Renovate](https://mend.io) to keep you **up-to-date**
  - [Storybook](https://storybook.js.org) to keep you **modular**
- - [Three.js](https://threejs.org) and [React-Three-Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction), to give you **depth**
+ - [Three.js](https://threejs.org), [React-Three-Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction), and [drei](https://drei.pmnd.rs/) to give you **depth**
  - [TypeScript 5](https://typescriptlang.org) to keep you **strict**
  - [Use-sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) to keep you **lush**
+ - [Use-gesture](https://use-gesture.netlify.app) to keep you **mobile-first**
  - [Visx](https://airbnb.io/visx) to keep you and your data **visual**
  - [Video.js](https://videojs.com), to keep your audience **watching**
+ - [Zustand](https://zustand-demo.pmnd.rs), to keep you **stateful**
+ - ...and lots more besides! See [package.json](package.json) for a complete list. 
 
 Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking), your finished site will only contain the libraries you choose to use, page by page. But it’s all there if you need it. <3
 
 ### Coming soon
-
+ - A **CLI** so you can manage your posts and components with ease
  - [CI/CD](https://github.blog/2022-02-02-build-ci-cd-pipeline-github-actions-four-steps/) via [GitHub Actions](https://github.com/features/actions)
  - **Deploy** conveniently on one of:
    - Azure
    - AWS
    - Cloudflare
+   - Docker & K8s (& K3s, for that matter)
    - [Fly](https://fly.io)
    - GCP
-   - [Kubernetes](https://kubernetes.io)
+   - [Northflank](https://northflank.com)
    - [Vercel](https://vercel.com) 
    - ...Or your own wildcat [nginx](https://nginx.com) or [Apache](https://apache.org) instance, because some of us keep the old ways ;D
  - Automatically **promote** and **cross-post** your work on your choice of: 

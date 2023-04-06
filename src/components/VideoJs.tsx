@@ -3,8 +3,16 @@
 import React from 'react';
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
-import { VideoJsPlayerOptions } from 'video.js/dist/types/options';
 import 'video.js/dist/video-js.css';
+
+// TODO: figure out why this is not exported from video.js
+interface PlayerOptions {
+  autoplay: boolean;
+  sources: {
+    src: string;
+    type: string;
+  }[];
+}
 
 interface VideoJsProps {
   options: PlayerOptions;
@@ -12,7 +20,7 @@ interface VideoJsProps {
 }
 
 export const VideoJs = (props: VideoJsProps) => {
-  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const videoRef = React.useRef<HTMLDivElement>(null);
   const playerRef = React.useRef<Player>(null);
   const { options, onReady } = props;
 
@@ -27,10 +35,10 @@ export const VideoJs = (props: VideoJsProps) => {
         videoRef.current.appendChild(videoElement);
       }
 
-      const player = (playerRef.current = videojs(videoElement, options, () => {
+      const player = videojs(videoElement, options, () => {
         videojs.log('player is ready');
         onReady && onReady(player);
-      }));
+      });
 
       // You could update an existing player in the `else` block here
       // on prop change, for example:
@@ -50,7 +58,6 @@ export const VideoJs = (props: VideoJsProps) => {
     return () => {
       if (player && !player.isDisposed()) {
         player.dispose();
-        playerRef.current = null;
       }
     };
   }, [playerRef]);

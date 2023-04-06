@@ -1,12 +1,12 @@
 import fs from 'fs';
 import { Feed } from 'feed';
-import { PostList, getSortedPost } from './mdx';
+import { PostMetadata, getSortedPost } from './mdx';
 import config from '@/../martrix-config';
 
 // adapted from https://blog.logrocket.com/adding-rss-feed-next-js-app/ 2023-03-29
 
 export default async function generateRssFeed() {
-  const allPosts: PostList[] | undefined = await getSortedPost();
+  const allPosts: PostMetadata[] | undefined = await getSortedPost();
   const site_url = config.url;
 
   const feedOptions = {
