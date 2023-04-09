@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { format } from 'date-fns';
 import { PostMetadata } from '@/utils/post';
 import config from '@/../martrix-config';
-
-import styles from '@/styles/Home.module.css';
+import styles from './styles.module.css';
 
 export interface HomeProps {
   items: PostMetadata[];
 }
 
 export const Home = ({ items }: HomeProps) => {
+  console.log(items);
   return (
     <main>
       <h1>{config.title} - Posts</h1>
@@ -25,7 +25,7 @@ export const Home = ({ items }: HomeProps) => {
                 <article>
                   <h2>{title}</h2>
                   <div className={styles['metadata']}>
-                    <span>{format(date || 0, 'MMMM dd, yyyy')}</span>{' '}
+                    <span>{date}</span>{' '}
                   </div>
                   <p>{description}</p>
                 </article>

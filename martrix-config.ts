@@ -14,7 +14,7 @@ interface MartrixConfig {
 const config: MartrixConfig = {
   title: 'The Martrix',
   description: 'A maximalist storytelling engine',
-  url: isProd ? 'https://localhost:3000' : 'https://localhost:3000',
+  url: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
   category: 'Storytelling/Journalism',
   language: 'en',
   copyright: '2023 All rights reserved.',

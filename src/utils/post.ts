@@ -24,6 +24,7 @@ export async function getSortedPost() {
   if (!slugs) return;
 
   slugs.forEach((slug) => {
+    if (!fs.lstatSync(path.join(postDirectory, slug)).isDirectory()) return;
     const filePath = path.join(postDirectory, slug, 'meta.json');
     const content = fs.readFileSync(filePath, 'utf8');
     const data: PostMetadata = JSON.parse(content);

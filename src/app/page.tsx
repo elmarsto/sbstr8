@@ -1,19 +1,17 @@
 import { Home } from './home';
-import { getSortedPosts, PostMetadata } from '@/utils/post';
 import cfg from '@/../martrix-config';
 
 const getData = async () => {
-  const res = await fetch(`${cfg.url}/api/post`);
+  const endpoint = `${cfg.url}/api/post`;
+  const res = await fetch(endpoint, { cache: 'no-store' });
   if (!res.ok) {
-    throw newError('Failed to fetch posts');
+    throw new Error('Failed to fetch posts');
   }
+  return res.json();
 };
 
-interface Data {
-  items: PostMetadata[];
-}
-
 export default async function Page() {
-  const { items }: Data = await getData();
+  const data = await getData();
+  const items = data['data']['items'];
   return <Home items={items} />;
 }
