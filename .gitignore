@@ -38,10 +38,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Feed
-/public/atom.xml
-/public/rss.xml
-/public/rss.json
-
 
 /.vscode/

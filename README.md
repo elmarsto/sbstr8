@@ -24,12 +24,14 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
 
  - [Apollo](https://www.apollographql.com) GraphQL to keep you **integrated** with modern APIs
  - [Atom](https://en.wikipedia.org/wiki/Atom_(web_standard)) and [RSS](https://en.wikipedia.org/wiki/RSS) feeds, to keep you **decentralized**
+ - [Babylon.js](https://babylonjs.com) to give you **depth**
  - [Chakra UI](https://chakra-ui.com) to keep you **empowered**
  - [CodeMirror](https://codemirror.net) to keep your code examples **interactive and syntax highlighted**
  - [Commitlint](https://commitlint.js.org) to keep you **clear**
  - [ESLint](https://eslint.org) to keep you **neat**
  - [EditorConfig](https://editorconfig.org/) to keep you **consistent**
  - [Font Awesome](https://editorconfig.org/) to keep you **awesome**
+ - [Framer Motion](https://www.framer.com/) to keep you **animated**
  - [Husky](https://typicode.github.io/husky/#/) to keep you **moving forward**
  - [Immer](https://immerjs.github.io/immer/) to keep you **immutable**
  - [Jest](https://jestjs.io/) to keep you **covered**
@@ -40,10 +42,8 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [Prettier](https://prettier.io) to keep you **beautiful**
  - [Ramda](https://ramdajs.com/) to keep you **functional**
  - [React 18](https://react.dev) to keep you **responsive**
- - [React-Spring](https://www.react-spring.dev/) to keep you **animated**
  - [Renovate](https://mend.io) to keep you **up-to-date**
  - [Storybook](https://storybook.js.org) to keep you **modular**
- - [Three.js](https://threejs.org), [React-Three-Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction), and [drei](https://drei.pmnd.rs/) to give you **depth**
  - [TypeScript 5](https://typescriptlang.org) to keep you **strict**
  - [Use-sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) to keep you **lush**
  - [Use-gesture](https://use-gesture.netlify.app) to keep you **mobile-first**
