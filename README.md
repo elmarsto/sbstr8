@@ -3,7 +3,6 @@ Stop posting like it’s 1999.
 # What is the Martrix?
 
  - A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling by creatives who code in Typescript React. 
- - Initially a remix a [Ibaslogic’s excellent blog starter](https://twitter.com/ibaslogic), but in Typescript, and founded on the stunning Typescript/Next/React starter by [João Pedro](https://twitter.com/jpedroschmitz). But then I added all my faves; in particular, I added all the big-name libraries by my new hero, [Poimandres](https://github.com/pmndrs). See the ingredient list below :)
 
 ## Why another starter?
 
@@ -46,7 +45,6 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [Storybook](https://storybook.js.org) to keep you **modular**
  - [TypeScript 5](https://typescriptlang.org) to keep you **strict**
  - [Use-sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) to keep you **lush**
- - [Use-gesture](https://use-gesture.netlify.app) to keep you **mobile-first**
  - [Visx](https://airbnb.io/visx) to keep you and your data **visual**
  - [Video.js](https://videojs.com), to keep your audience **watching**
  - [Zustand](https://zustand-demo.pmnd.rs), to keep you **stateful**

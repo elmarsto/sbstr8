@@ -58,6 +58,7 @@
     "rehype-slug": "5.1.0",
     "rss": "1.2.2",
     "storybook": "7.0.0",
+    "use-gesture": "1.0.0",
     "zustand": "4.3.7"
   },
   "devDependencies": {
