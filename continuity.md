@@ -12,4 +12,11 @@
 
  1. Generate feeds as route under `/pages` comme il faut. It should access routing information passed into `getStaticProps()` or `getServerSideProps()`. 
  2. `/pages/post/` should be where posts live, as regular pages. It should be possible to access the list of pages under a particular directory at either build time or serve time. 
-   
+
+# 2023-04-08
+
+1. Moved to apps structure (https://beta.nextjs.org/docs/routing)
+2. Tried to fix RSS but TBH it’s cutting against the grain to try to make arbitrary xml with React/Next. TODO: go back to `npm i feed`
+3. Make an API endpoint for returning a list of posts. 
+4. Call this endpoint from home and also from the rss page
+5. Use route handlers https://beta.nextjs.org/docs/routing/route-handlers for returning the rss

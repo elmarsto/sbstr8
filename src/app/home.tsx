@@ -2,33 +2,22 @@
 
 import Link from 'next/link';
 import { format } from 'date-fns';
-import { getSortedPost, PostMetadata } from '@/utils/mdx';
-import generateRssFeed from '@/utils/generateRSSFeed';
+import { PostMetadata } from '@/utils/post';
 import config from '@/../martrix-config';
 
 import styles from '@/styles/Home.module.css';
 
-interface HomeProps {
-  posts: PostMetadata[];
+export interface HomeProps {
+  items: PostMetadata[];
 }
 
-export async function getStaticProps() {
-  await generateRssFeed();
-  const posts: PostMetadata[] = (await getSortedPost()) || [];
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-const Home = ({ posts }: HomeProps) => {
+export const Home = ({ items }: HomeProps) => {
   return (
     <main>
       <h1>{config.title} - Posts</h1>
       <ul className={styles['posts']}>
-        {posts.map((post: PostMetadata) => {
-          const { slug, title, date, description }: PostMetadata = post;
+        {items.map((it: PostMetadata) => {
+          const { slug, title, date, description }: PostMetadata = it;
 
           return (
             <li className={styles['post']} key={slug}>
