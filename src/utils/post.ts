@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const postSubdirectory = 'src/pages/post';
+const postSubdirectory = 'src/app/post';
 const suffixRegex = /\.mdx$/; // TODO: add support for .md, .ts(x?), and .js(x?). Will require novel methods of grabbing metadata
 
 const metadata = require('extract-mdx-metadata');
