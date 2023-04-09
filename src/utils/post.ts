@@ -4,9 +4,6 @@ import fs from 'fs';
 import path from 'path';
 
 const postSubdirectory = 'src/app/post';
-const suffixRegex = /\.mdx$/; // TODO: add support for .md, .ts(x?), and .js(x?). Will require novel methods of grabbing metadata
-
-const metadata = require('extract-mdx-metadata');
 
 const rootDirectory = process.cwd();
 
@@ -21,20 +18,18 @@ export interface PostMetadata {
 // get sorted mdx post
 export async function getSortedPost() {
   const postDirectory = path.join(rootDirectory, postSubdirectory);
-  const files = fs.readdirSync(postDirectory);
+  const slugs = fs.readdirSync(postDirectory);
   const posts: PostMetadata[] = [];
 
-  if (!files) return;
+  if (!slugs) return;
 
-  files.forEach((file) => {
-    if (!suffixRegex.test(file)) return;
-    const filePath = path.join(postDirectory, file);
+  slugs.forEach((slug) => {
+    const filePath = path.join(postDirectory, slug, 'meta.json');
     const content = fs.readFileSync(filePath, 'utf8');
-    const { data } = metadata(content);
-    console.log(data);
+    const data: PostMetadata = JSON.parse(content);
     posts.push({
       ...data,
-      slug: file.replace(suffixRegex, ''),
+      slug,
     });
   });
 

@@ -44,6 +44,7 @@
     "codemirror": "6.0.1",
     "date-fns": "2.29.3",
     "extract-mdx-metadata": "2.0.0",
+    "feed": "4.2.2",
     "framer-motion": "10.10.0",
     "gray-matter": "4.0.3",
     "next": "13.2.4",
