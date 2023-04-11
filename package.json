@@ -83,6 +83,7 @@
     "mirrorful": "5.0.6",
     "prettier": "2.8.7",
     "typescript": "5.0.2",
-    "video.js": "8.0.4"
+    "video.js": "8.0.4",
+    "yarn": "1.22.19"
   }
 }
