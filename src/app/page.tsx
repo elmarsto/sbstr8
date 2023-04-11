@@ -2,7 +2,7 @@ import { Home } from './home';
 import cfg from '@/../martrix-config';
 
 const getData = async () => {
-  const endpoint = `${cfg.url}/api/post`;
+  const endpoint = `${cfg.link}/api/post`;
   const res = await fetch(endpoint, { cache: 'no-store' });
   if (!res.ok) {
     throw new Error('Failed to fetch posts');

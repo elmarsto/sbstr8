@@ -7,12 +7,21 @@ const postSubdirectory = 'src/app/post';
 
 const rootDirectory = process.cwd();
 
+export interface Person {
+  name: string;
+  email: string;
+  link: string;
+  image?: string;
+}
+
 export interface PostMetadata {
   slug: string;
   title: string;
-  date: number;
+  date: string;
   description: string;
-  featured: string;
+  image?: string;
+  authors?: Person[];
+  contributors?: Person[];
 }
 
 // get sorted mdx post
@@ -36,8 +45,11 @@ export async function getSortedPost() {
 
   // Sort posts by date
   return posts.sort((a: PostMetadata, b: PostMetadata) => {
-    if (a.date && b.date && a.date < b.date) return 1;
-    if (a.date && b.date && a.date > b.date) return -1;
+    const aD = new Date(a.date).getTime();
+    const bD = new Date(b.date).getTime();
+
+    if (aD && bD && aD < bD) return 1;
+    if (aD && bD && aD > bD) return -1;
     return 0;
   });
 }

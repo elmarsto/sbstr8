@@ -1,23 +1,34 @@
+import { Person } from '@/utils/post';
+
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
 
-interface MartrixConfig {
+export interface MartrixConfig {
   title: string;
   description: string;
-  url: string;
+  link: string;
   category: string;
   language: string;
-  image?: string;
   copyright: string;
+  authors: Person[];
+  image?: string;
+  favicon?: string;
 }
+
+export const defaultAuthor: Person = {
+  name: 'You',
+  email: 'you@somewhere',
+  link: 'https://you.somewhere/',
+};
 
 const config: MartrixConfig = {
   title: 'The Martrix',
   description: 'A maximalist storytelling engine',
-  url: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
+  link: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
   category: 'Storytelling/Journalism',
   language: 'en',
   copyright: '2023 All rights reserved.',
+  authors: [defaultAuthor],
 };
 
 export default config;
