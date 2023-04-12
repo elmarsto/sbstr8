@@ -2,8 +2,8 @@ import { getSortedPost } from '@/utils/post';
 import { Feed } from 'feed';
 import cfg, { defaultAuthor } from '@/../martrix-config';
 
-export async function GET() {
-  const items = await getSortedPost();
+export function GET() {
+  const items = getSortedPost();
   const feed = new Feed({
     title: cfg.title,
     description: cfg.description,
@@ -31,5 +31,3 @@ export async function GET() {
     headers: { 'Content-Type': 'application/rss+xml' },
   });
 }
-
-export default Feed;

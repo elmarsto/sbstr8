@@ -27,12 +27,12 @@ export interface PostMetadata {
 }
 
 // get sorted mdx post
-export async function getSortedPost() {
+export function getSortedPost() {
   const postDirectory = path.join(rootDirectory, postSubdirectory);
   const slugs = fs.readdirSync(postDirectory);
   const posts: PostMetadata[] = [];
 
-  if (!slugs) return;
+  if (!slugs) return posts;
 
   slugs.forEach((slug) => {
     if (!fs.lstatSync(path.join(postDirectory, slug)).isDirectory()) return;
