@@ -1,4 +1,6 @@
 import React from 'react';
+import '@/styles/globals.css';
+import '@/../.mirrorful/theme.css';
 import cfg, { defaultAuthor } from '@/../martrix-config';
 
 const RootLayout = ({ children }: React.PropsWithChildren<unknown>) => (
