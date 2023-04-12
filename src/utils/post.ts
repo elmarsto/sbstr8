@@ -8,20 +8,22 @@ const postSubdirectory = 'src/app/post';
 const rootDirectory = process.cwd();
 
 export interface Person {
-  name: string;
   email: string;
-  link: string;
+  github?: string;
   image?: string;
+  link: string;
+  name: string;
+  twitter?: string;
 }
 
 export interface PostMetadata {
-  slug: string;
-  title: string;
+  authors?: Person[];
+  contributors?: Person[];
   date: string;
   description: string;
   image?: string;
-  authors?: Person[];
-  contributors?: Person[];
+  slug: string;
+  title: string;
 }
 
 // get sorted mdx post
