@@ -24,25 +24,26 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [Apollo](https://www.apollographql.com) GraphQL to keep you **integrated** with modern APIs
  - [Atom](https://en.wikipedia.org/wiki/Atom_(web_standard)) and [RSS](https://en.wikipedia.org/wiki/RSS) feeds, to keep you **decentralized**
  - [Babylon.js](https://babylonjs.com) to give you **depth**
- - [Chakra UI](https://chakra-ui.com) to keep you **empowered**
  - [CodeMirror](https://codemirror.net) to keep your code examples **interactive and syntax highlighted**
  - [Commitlint](https://commitlint.js.org) to keep you **clear**
  - [ESLint](https://eslint.org) to keep you **neat**
  - [EditorConfig](https://editorconfig.org/) to keep you **consistent**
  - [Font Awesome](https://editorconfig.org/) to keep you **awesome**
  - [Framer Motion](https://www.framer.com/) to keep you **animated**
+ - [Headless-UI](https://headlessui.com) to keep you **interactive**
  - [Husky](https://typicode.github.io/husky/#/) to keep you **moving forward**
  - [Immer](https://immerjs.github.io/immer/) to keep you **immutable**
  - [Jest](https://jestjs.io/) to keep you **covered**
  - [Lint-staged](https://github.com/okonet/lint-staged) to keep you **clean**
  - [MDX](https://mdxjs.com/) to keep you **expressive**
- - [Mirrorful](https://github.com/Mirrorful/mirrorful) to keep you **stylish**
+ - [Mirrorful](https://github.com/Mirrorful/mirrorful) to keep you **themed**
  - [Next.js 13](https://nextjs.org) to keep you **Based**
  - [Prettier](https://prettier.io) to keep you **beautiful**
  - [Ramda](https://ramdajs.com/) to keep you **functional**
  - [React 18](https://react.dev) to keep you **responsive**
  - [Renovate](https://mend.io) to keep you **up-to-date**
  - [Storybook](https://storybook.js.org) to keep you **modular**
+ - [Tailwind.css](https://tailwindcss.com) to keep you **stylish**
  - [TypeScript 5](https://typescriptlang.org) to keep you **strict**
  - [Use-sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) to keep you **lush**
  - [Visx](https://airbnb.io/visx) to keep you and your data **visual**
