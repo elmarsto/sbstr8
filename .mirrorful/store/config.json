@@ -2,46 +2,17 @@
 	"tokens": {
 		"colorData": [],
 		"typography": {
-			"fontSizes": [
-				{
-					"value": 1,
-					"unit": "rem",
-					"name": "sm"
-				},
-				{
-					"value": 1.2,
-					"unit": "rem",
-					"name": "md"
-				},
-				{
-					"value": 1.4,
-					"unit": "rem",
-					"name": "lg"
-				}
-			]
+			"fontSizes": []
 		},
-		"shadows": [
-			{
-				"name": "sm",
-				"value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
-			},
-			{
-				"name": "md",
-				"value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)"
-			},
-			{
-				"name": "lg",
-				"value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-			},
-			{
-				"name": "dark-lg",
-				"value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
-			}
-		]
+		"shadows": []
 	},
 	"files": [
+		"css",
+		"scss",
+		"js",
+		"cjs",
 		"ts",
-		"css"
+		"json"
 	],
 	"__internal__": {
 		"migrations": {

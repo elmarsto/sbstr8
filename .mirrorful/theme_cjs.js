@@ -1,4 +1,4 @@
-export const Tokens = {
+exports.Tokens = {
   colors: {},
   fontSizes: {},
   boxShadows: {},
