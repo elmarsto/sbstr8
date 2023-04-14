@@ -29,6 +29,9 @@
     ]
   },
   "dependencies": {
+    "@apollo/client": "3.7.12",
+    "@apollo/server": "4.6.0",
+    "@as-integrations/next": "1.3.0",
     "@codemirror/lang-css": "6.1.1",
     "@codemirror/lang-html": "6.4.3",
     "@codemirror/lang-javascript": "6.1.4",
@@ -51,6 +54,7 @@
     "extract-mdx-metadata": "2.0.0",
     "feed": "4.2.2",
     "framer-motion": "10.10.0",
+    "graphql": "16.6.0",
     "gray-matter": "4.0.3",
     "next": "13.3.1-canary.4",
     "next-mdx-remote": "4.4.1",

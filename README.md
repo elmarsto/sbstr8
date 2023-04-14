@@ -17,7 +17,7 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
 ## Caveats
 
   - **Currently in alpha!** Caveat Forker.
-  - Mostly I’m just assembling my favourite libraries into a coherent whole; I stand upon the shoulders of veritable giants. I try to get out of the way as much as possible. E.g. you talk directly to Chakra UI, Font Awesome, etc. This also means that I hereby punt on most documentation issues; if you have a question about how to use one of the provided libraries, see the documentation for that library. 
+  - Mostly I’m just assembling my favourite libraries into a coherent whole; I stand upon the shoulders of veritable giants. I try to get out of the way as much as possible. E.g. you talk directly to Headless UI, Framer Motion, Babylon, etc. This also means that I hereby punt on most documentation issues; if you have a question about how to use one of the provided libraries, see the documentation for that library. 
 
 ## Ingredients
 
