@@ -68,7 +68,8 @@
     "zustand": "4.3.7"
   },
   "devDependencies": {
-    "storybook": "7.0.4",
+    "@commitlint/cli": "17.5.0",
+    "@commitlint/config-conventional": "17.4.4",
     "@storybook/addon-essentials": "7.0.4",
     "@storybook/addon-interactions": "7.0.4",
     "@storybook/addon-links": "7.0.4",
@@ -77,8 +78,6 @@
     "@storybook/nextjs": "7.0.4",
     "@storybook/react": "7.0.4",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "@commitlint/cli": "17.5.0",
-    "@commitlint/config-conventional": "17.4.4",
     "@types/node": "18.15.10",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
@@ -94,9 +93,11 @@
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.3",
     "jest": "29.5.0",
+    "jest-transformer-mdx": "3.3.0",
     "lint-staged": "13.2.0",
     "mirrorful": "5.0.6",
     "prettier": "2.8.7",
+    "storybook": "7.0.4",
     "typescript": "5.0.2",
     "video.js": "8.0.4",
     "yarn": "1.22.19"
