@@ -19,7 +19,8 @@
     "format": "npx prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "postinstall": "npx husky install",
     "storybook": "storybook dev -s ./public -p 6006",
-    "build-storybook": "storybook build -s ./public"
+    "build-storybook": "storybook build -s ./public",
+    "test": "jest"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
