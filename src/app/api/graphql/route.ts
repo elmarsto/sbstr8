@@ -7,6 +7,10 @@ import { getSortedPost } from '@/utils/post';
 import cfg from '@/../martrix-config';
 import { DateRange, Post, Contribution, Person } from '@/types';
 
+// TODO: unit tests for resolvers and filters
+
+// TODO: split this file up, refactor, etc.
+
 export const typeDefs = gql`
   type Person {
     email: String!
