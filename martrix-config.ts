@@ -12,7 +12,6 @@ export const defaultAuthor: Person = {
 
 const config: Config = {
   title: 'The Martrix',
-  updated: new Date().toISOString(),
   description: 'A maximalist storytelling engine',
   link: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
   categories: ['Storytelling', 'Journalism'],

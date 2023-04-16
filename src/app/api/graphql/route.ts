@@ -50,7 +50,6 @@ export const typeDefs = gql`
     posts: [Post]!
     keywords: [String]!
     title: String!
-    updated: String!
   }
 `;
 
@@ -178,7 +177,6 @@ const resolvers = {
     owners: () => cfg.owners,
     posts: resolvePosts,
     title: () => cfg.title,
-    updated: () => cfg.updated,
   },
 };
 

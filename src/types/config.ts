@@ -12,5 +12,4 @@ export interface Config {
   postPath?: string; // URL segment, e.g. /post
   keywords: string[];
   title: string;
-  updated: string;
 }
