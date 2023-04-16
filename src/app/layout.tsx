@@ -2,6 +2,7 @@ import React from 'react';
 import '@/styles/globals.css';
 import '@/../.mirrorful/theme.css';
 import cfg, { defaultAuthor } from '@/../martrix-config';
+import pkg from '@/../package.json';
 
 const RootLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <html lang="en">
@@ -12,11 +13,11 @@ export default RootLayout;
 
 export const metadata = {
   applicationName: cfg.title,
-  authors: cfg.authors.map(({ name, link }) => ({ name, url: link })),
-  category: cfg.category,
+  authors: cfg.owners.map(({ name, link }) => ({ name, url: link })),
+  category: cfg.categories.join('/'),
   creator: defaultAuthor.name,
   description: cfg.description,
-  generator: cfg.title,
+  generator: pkg.name,
   keywords: cfg.keywords,
   metadataBase: new URL(cfg.link),
   openGraph: {
@@ -28,7 +29,7 @@ export const metadata = {
     type: 'website',
     url: '/',
   },
-  publisher: defaultAuthor.name,
+  publisher: pkg.author,
   robots: {
     follow: false, // don't follow; instead use @/app/sitemap.ts
     googleBot: {

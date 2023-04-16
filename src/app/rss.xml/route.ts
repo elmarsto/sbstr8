@@ -1,29 +1,33 @@
-import { getSortedPost } from '@/utils/post';
+import urlJoin from 'url-join';
+import { getSortedPost, defaultPostPath } from '@/utils/post';
 import { Feed } from 'feed';
+import { pick, map } from 'ramda';
 import cfg, { defaultAuthor } from '@/../martrix-config';
+
+const feedPerson = pick(['email', 'link', 'name']);
+const feedPeople = map(feedPerson);
 
 export function GET() {
   const items = getSortedPost();
   const feed = new Feed({
-    title: cfg.title,
-    description: cfg.description,
-    id: cfg.link,
-    link: cfg.link,
-    language: cfg.language,
-    image: cfg.image,
-    favicon: cfg.favicon,
     copyright: cfg.copyright,
+    description: cfg.description,
+    favicon: cfg.icon,
+    id: cfg.link,
+    image: cfg.image,
+    language: cfg.language,
+    link: cfg.link,
+    title: cfg.title,
   });
   (items || []).forEach((item) => {
     feed.addItem({
-      title: item.title,
-      date: new Date(item.date || ''),
-      id: `${cfg.link}/post/${item.slug}`,
-      link: `${cfg.link}/post/${item.slug}`,
+      author: feedPeople(item.authors || cfg.authors || [defaultAuthor]),
+      contributor: feedPeople(item.contributors || cfg.contributors || []),
+      date: new Date(item.updated || item.created || ''),
       description: item.description,
       image: item.image,
-      author: item.authors || cfg.authors || [defaultAuthor],
-      contributor: item.contributors,
+      link: urlJoin(cfg.link, cfg.postPath || defaultPostPath, item.slug),
+      title: item.title,
     });
   });
   return new Response(feed.rss2(), {

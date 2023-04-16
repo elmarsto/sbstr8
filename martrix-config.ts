@@ -1,20 +1,7 @@
-import { Person } from '@/utils/post';
+import { Config, Person } from '@/types';
 
 const env = process.env.NODE_ENV;
 const isProd = env === 'production';
-
-export interface MartrixConfig {
-  title: string;
-  description: string;
-  link: string;
-  category: string;
-  language: string;
-  copyright: string;
-  keywords: string[];
-  authors: Person[];
-  image?: string;
-  favicon?: string;
-}
 
 export const defaultAuthor: Person = {
   name: 'You',
@@ -23,15 +10,16 @@ export const defaultAuthor: Person = {
   twitter: '@you',
 };
 
-const config: MartrixConfig = {
+const config: Config = {
   title: 'The Martrix',
+  updated: new Date().toISOString(),
   description: 'A maximalist storytelling engine',
   link: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
-  category: 'Storytelling/Journalism',
+  categories: ['Storytelling', 'Journalism'],
   keywords: ['storytelling', 'journalism', 'data', 'visualization'],
   language: 'en',
   copyright: '2023 All rights reserved.',
-  authors: [defaultAuthor],
+  owners: [defaultAuthor],
 };
 
 export default config;

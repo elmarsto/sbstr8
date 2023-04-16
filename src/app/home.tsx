@@ -1,19 +1,19 @@
 // adapted from https://raw.githubusercontent.com/Ibaslogic/nextjs-mdx-blog-starter/main/pages/blog/index.js
 
 import Link from 'next/link';
-import { PostMetadata } from '@/utils/post';
+import { Post } from '@/types';
 import config from '@/../martrix-config';
 import styles from './styles.module.css';
 
 export interface HomeProps {
-  items: PostMetadata[];
+  items: Post[];
 }
 
 export const Home = ({ items }: HomeProps) => (
   <main>
     <h1>{config.title}</h1>
     <ul className={styles['posts']}>
-      {items.map(({ slug, title, date, description }: PostMetadata) => (
+      {items.map(({ slug, title, date, description }: Post) => (
         <li className={styles['post']} key={slug}>
           <Link className={styles['link']} href={`/post/${slug}`}>
             <article>
