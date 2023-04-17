@@ -1,5 +1,5 @@
 import { Home } from './home';
-import cfg from '@/../martrix-config';
+import cfg from '@/../substrate-config';
 
 const getData = async () => {
   const endpoint = `${cfg.link}/api/post`;

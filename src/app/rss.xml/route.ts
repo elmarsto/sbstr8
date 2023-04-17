@@ -2,7 +2,7 @@ import urlJoin from 'url-join';
 import { getSortedPost, defaultPostPath } from '@/utils/post';
 import { Feed } from 'feed';
 import { pick, map } from 'ramda';
-import cfg, { defaultAuthor } from '@/../martrix-config';
+import cfg, { defaultAuthor } from '@/../substrate-config';
 
 const feedPerson = pick(['email', 'link', 'name']);
 const feedPeople = map(feedPerson);

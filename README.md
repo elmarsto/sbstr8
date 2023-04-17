@@ -1,23 +1,23 @@
 Stop posting like it’s 1999.
 
-# What is the Martrix?
+# What is Substrate?
 
- - A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling by creatives who code in Typescript React. 
+ - A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling by creatives who code in Typescript React.
 
 ## Why another starter?
 
 Because ‘small and simple’ usually means ‘limited’. Your posts could be more than just plain text; they could be *experiences*. Go ahead, flex your creative (o)pinions. 🪽
 
-If you really want a minimalist no-JS blogging engine, you could do much worse than [Soupault](https://soupault.app), and if you *really, really* hate complexity, there is the elegant, spare [Gemini](https://gemini.circumlunar.space). For good and for ill, that’s not what the Martrix is about. 
+If you really want a minimalist no-JS blogging engine, you could do much worse than [Soupault](https://soupault.app), and if you *really, really* hate complexity, there is the elegant, spare [Gemini](https://gemini.circumlunar.space). For good and for ill, that’s not what Substrate is about.
 
-But what if you want to do media-rich storytelling, but coding in Typescript and React isn’t your jam? In this case, please do check out the professional choice for interactive storytelling, the superlative [Vev](https://vev.design). Yet it’s not open source, and is not optimal for hosting e.g. arbitrary chunks of React. Vev low-code/no-code, which is great for professional journalists, but less great for those of us who don’t feel we’ve done any real work until there’s a `.tsx`. 
+But what if you want to do media-rich storytelling, but coding in Typescript and React isn’t your jam? In this case, please do check out the professional choice for interactive storytelling, the superlative [Vev](https://vev.design). Yet it’s not open source, and is not optimal for hosting e.g. arbitrary chunks of React. Vev low-code/no-code, which is great for professional journalists, but less great for those of us who don’t feel we’ve done any real work until there’s a `.tsx`.
 
-By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/wiki/clastic). With the Martrix, and a basic knowledge of Typescript and React, your only limit is the imagination. And while we rely on [Next’s tree shaking](https://nextjs.org/blog/next-10-2) to keep bundle size down, we prioritize immersiveness and creative freedom over counting kilobytes. The bundle size will be what the bundle size needs to be. **Because the Martrix is for creatives who code.** 
+By contrast, Substrate is code-first and [clastic](https://en.wiktionary.org/wiki/clastic). With Substrate, and a basic knowledge of Typescript and React, your only limit is the imagination. And while we rely on [Next’s tree shaking](https://nextjs.org/blog/next-10-2) to keep bundle size down, we prioritize immersiveness and creative freedom over counting kilobytes. The bundle size will be what the bundle size needs to be. **Because Substrate is for creatives who code.**
 
 ## Caveats
 
   - **Currently in alpha!** Caveat Forker.
-  - Mostly I’m just assembling my favourite libraries into a coherent whole; I stand upon the shoulders of veritable giants. I try to get out of the way as much as possible. E.g. you talk directly to Headless UI, Framer Motion, Babylon, etc. This also means that I hereby punt on most documentation issues; if you have a question about how to use one of the provided libraries, see the documentation for that library. 
+  - Mostly I’m just assembling my favourite libraries into a coherent whole; I stand upon the shoulders of veritable giants. I try to get out of the way as much as possible. E.g. you talk directly to Headless UI, Framer Motion, Babylon, etc. This also means that I hereby punt on most documentation issues; if you have a question about how to use one of the provided libraries, see the documentation for that library.
 
 ## Ingredients
 
@@ -49,7 +49,7 @@ By contrast, the Martrix is code-first and [clastic](https://en.wiktionary.org/w
  - [Visx](https://airbnb.io/visx) to keep you and your data **visual**
  - [Video.js](https://videojs.com), to keep your audience **watching**
  - [Zustand](https://zustand-demo.pmnd.rs), to keep you **stateful**
- - ...and lots more besides! See [package.json](package.json) for a complete list. 
+ - ...and lots more besides! See [package.json](package.json) for a complete list.
 
 Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking), your finished site will only contain the libraries you choose to use, page by page. But it’s all there if you need it. <3
 
@@ -64,11 +64,11 @@ Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking)
    - [Fly](https://fly.io)
    - GCP
    - [Northflank](https://northflank.com)
-   - [Vercel](https://vercel.com) 
+   - [Vercel](https://vercel.com)
    - ...Or your own wildcat [nginx](https://nginx.com) or [Apache](https://apache.org) instance, because some of us keep the old ways ;D
- - Automatically **promote** and **cross-post** your work on your choice of: 
+ - Automatically **promote** and **cross-post** your work on your choice of:
    - [Discord](https://discord.com)
-   - Facebook 
+   - Facebook
    - Instagram
    - [Mastodon](https://mastodon.social)
    - [Medium](https://medium.com)
@@ -82,19 +82,19 @@ Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking)
 
 
 ## Quick start
- 1. `git clone https://github.com/elmarsto/martrix <your-project-name>`
+ 1. `git clone https://github.com/elmarsto/substrate <your-project-name>`
  2. `npm install`
  3. `npx mirrorful &` (pick your colours and export)
  4. `npx storybook &` (design your components in a sandbox)
  5. `npx run dev` happy hacking
- 6. `npx run build` 
+ 6. `npx run build`
 
 
 ## Land acknowledgment
 
- - The Martrix was put together in part on the unceded and ancestral territory of the hən̓q̓əmin̓əm̓ and Sḵwx̱wú7mesh speaking peoples, the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations. I, Elizabeth Marston, am an uninvited guest here, and I’m looking for ways to give back. If you have thoughts on how this project could help the indigenous Coast Salish peoples decolonize, let me know!
+ - Substrate was put together in part on the unceded and ancestral territory of the hən̓q̓əmin̓əm̓ and Sḵwx̱wú7mesh speaking peoples, the xʷməθkʷəy̓əm (Musqueam), Sḵwx̱wú7mesh (Squamish), and səlilwətaɬ (Tsleil-Waututh) Nations. I, Elizabeth Marston, am an uninvited guest here, and I’m looking for ways to give back. If you have thoughts on how this project could help the indigenous Coast Salish peoples decolonize, let me know!
 
 ## Why is the license GPL, and not MIT?
 
  - Because the now-routine scraping of GitHub by its owner to train AI‌s that regurgitate FOSS‌ code verbatim is a form of license-washing. MIT‌ License provides no cover or resistance to this, and therefore, in 2023, is obsolete.
- - Because the GPL still allows you to customize and build your own unique product with this tool, and host it. However, it motivates contributors *to the codebase* to do so in the open. 
+ - Because the GPL still allows you to customize and build your own unique product with this tool, and host it. However, it motivates contributors *to the codebase* to do so in the open.

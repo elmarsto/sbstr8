@@ -1,6 +1,6 @@
 {
-  "name": "martrix",
-  "description": "A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling",
+  "name": "Substrate",
+  "description": "A maximalist, ultra-modern, opinionated scaffold for rich, interactive storytelling, journalism and blogging",
   "version": "0.0.1",
   "private": true,
   "author": "@elmarsto",

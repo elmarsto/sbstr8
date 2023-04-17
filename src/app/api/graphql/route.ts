@@ -4,7 +4,7 @@ import { NextRequest } from 'next/server';
 import { compose, pluck, flatten } from 'ramda';
 import { gql } from 'graphql-tag';
 import { getSortedPost } from '@/utils/post';
-import cfg from '@/../martrix-config';
+import cfg from '@/../substrate-config';
 import { DateRange, Post, Contribution, Person } from '@/types';
 
 // TODO: unit tests for resolvers and filters

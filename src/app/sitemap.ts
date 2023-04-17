@@ -1,6 +1,6 @@
 import { defaultPostPath, getSortedPost } from '@/utils/post';
 import { Post } from '@/types';
-import cfg from '@/../martrix-config';
+import cfg from '@/../substrate-config';
 import urlJoin from 'url-join';
 
 export default function sitemap() {

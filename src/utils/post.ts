@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Post } from '@/types';
-import cfg from '@/../martrix-config';
+import cfg from '@/../substrate-config';
 
 export const defaultPostPath = 'post';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;

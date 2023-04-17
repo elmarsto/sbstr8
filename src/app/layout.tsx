@@ -1,7 +1,7 @@
 import React from 'react';
 import '@/styles/globals.css';
 import '@/../.mirrorful/theme.css';
-import cfg, { defaultAuthor } from '@/../martrix-config';
+import cfg, { defaultAuthor } from '@/../substrate-config';
 import pkg from '@/../package.json';
 
 const RootLayout = ({ children }: React.PropsWithChildren<unknown>) => (
