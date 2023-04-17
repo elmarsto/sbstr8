@@ -1,64 +1,11 @@
 import { ApolloServer } from '@apollo/server';
 import { compose, pluck, flatten } from 'ramda';
-import { gql } from 'graphql-tag';
 import { getSortedPost } from '@/utils/post';
 import cfg from '@/../substrate-config';
 import { DateRange, Post, Contribution, Person } from '@/types';
+import { typeDefs } from './schema';
 
 // TODO: unit tests for resolvers and filters
-
-export const typeDefs = gql`
-  type Person {
-    email: String!
-    github: String
-    image: String
-    link: String
-    mastodon: String
-    matrix: String
-    name: String
-    twitter: String
-  }
-  type Contribution {
-    contributors: [Person!]!
-    description: String
-  }
-  type Post {
-    authors: [Person]!
-    contributions: [Contribution]!
-    categories: [String]!
-    date: String!
-    description: String!
-    image: String!
-    paragraphs: [String]!
-    slug: String!
-    tags: [String]!
-    title: String!
-    link: String
-  }
-  type Query {
-    owners: [Person!]!
-    categories: [String]!
-    description: String!
-    icon: String
-    image: String
-    language: String
-    link: String!
-    posts: [Post]!
-    keywords: [String]!
-    title: String!
-    updated: String!
-  }
-`;
-
-export interface PostResolverArgs {
-  authors?: string[]; // by email
-  categories?: string[];
-  contributors?: string[]; // by email
-  created?: DateRange;
-  slugs?: string[];
-  tags?: string[];
-  updated?: DateRange;
-}
 
 const nary = (criteria?: any[]) => !criteria || criteria.length === 0;
 
@@ -138,6 +85,16 @@ export const filterByDateUpdated =
       return d >= f && d <= t;
     });
   };
+
+export interface PostResolverArgs {
+  authors?: string[]; // by email
+  categories?: string[];
+  contributors?: string[]; // by email
+  created?: DateRange;
+  slugs?: string[];
+  tags?: string[];
+  updated?: DateRange;
+}
 
 export const resolvePosts = (...args: Array<object>) => {
   const {
