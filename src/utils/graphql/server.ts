@@ -46,6 +46,7 @@ export const typeDefs = gql`
     posts: [Post]!
     keywords: [String]!
     title: String!
+    updated: String!
   }
 `;
 
@@ -148,7 +149,8 @@ export const resolvePosts = (...args: Array<object>) => {
     tags = [],
     updated,
   }: PostResolverArgs = args[1] || {};
-  const unfilteredPosts = getSortedPost();
+
+  const { posts } = getSortedPost();
   const greatFilter = compose(
     filterByAuthors(authors),
     filterByCategories(categories),
@@ -158,7 +160,7 @@ export const resolvePosts = (...args: Array<object>) => {
     filterBySlug(slugs),
     filterByTags(tags),
   );
-  return greatFilter(unfilteredPosts); // sorry Fermi
+  return greatFilter(posts); // sorry Fermi
 };
 
 export const resolvers = {
@@ -173,6 +175,7 @@ export const resolvers = {
     owners: () => cfg.owners,
     posts: resolvePosts,
     title: () => cfg.title,
+    updated: () => getSortedPost().lastModified.toISOString(),
   },
 };
 

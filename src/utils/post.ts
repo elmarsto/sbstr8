@@ -2,6 +2,7 @@
 
 import fs from 'fs';
 import path from 'path';
+
 import { Post } from '@/types';
 import cfg from '@/../substrate-config';
 
@@ -9,8 +10,26 @@ export const defaultPostPath = 'post';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;
 const rootDirectory = process.cwd();
 
-// get sorted mdx post
-export function getSortedPost() {
+// TODO: memoize
+export const getLastModified = (posts: Post[]): Date => {
+  let lastModifiedTime = new Date().getTime();
+  for (const post of posts) {
+    const createdTime: number = new Date(post.created).getTime();
+    const updatedTime: number = post.updated
+      ? new Date(post.created).getTime()
+      : createdTime;
+    if (updatedTime > lastModifiedTime) lastModifiedTime = updatedTime;
+  }
+  return new Date(lastModifiedTime);
+};
+
+interface SortedPosts {
+  lastModified: Date;
+  posts: Post[];
+}
+
+// get sorted post
+export const getSortedPost = (): SortedPosts => {
   const postDirectory = path.join(
     rootDirectory,
     postSubdirectory(cfg.postPath || defaultPostPath),
@@ -18,7 +37,11 @@ export function getSortedPost() {
   const slugs = fs.readdirSync(postDirectory);
   const posts: Post[] = [];
 
-  if (!slugs) return posts;
+  if (!slugs)
+    return {
+      lastModified: new Date(),
+      posts: [],
+    };
 
   slugs.forEach((slug) => {
     if (!fs.lstatSync(path.join(postDirectory, slug)).isDirectory()) return;
@@ -32,8 +55,9 @@ export function getSortedPost() {
     });
   });
 
-  // Sort posts by date
-  return posts.sort((a: Post, b: Post) => {
+  // FIXME: this code feels wasteful and naive. Combine getLastModified and sort?
+  const lastModified = getLastModified(posts);
+  posts.sort((a: Post, b: Post) => {
     const aD = new Date(a.created).getTime();
     const bD = new Date(b.created).getTime();
 
@@ -41,4 +65,9 @@ export function getSortedPost() {
     if (aD && bD && aD > bD) return -1;
     return 0;
   });
-}
+
+  return {
+    lastModified,
+    posts,
+  };
+};

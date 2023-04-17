@@ -11,7 +11,8 @@ const getData = async () => {
 };
 
 export default async function Page() {
-  const data = await getData();
-  const items = data['data']['items'];
-  return <Home items={items} />;
+  const {
+    data: { lastModified, posts },
+  } = await getData();
+  return <Home posts={posts} lastModified={lastModified} />;
 }

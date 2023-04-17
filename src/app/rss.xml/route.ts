@@ -1,14 +1,15 @@
 import urlJoin from 'url-join';
 import { getSortedPost, defaultPostPath } from '@/utils/post';
 import { Feed } from 'feed';
-import { pick, map } from 'ramda';
+import { pick, map, pluck } from 'ramda';
 import cfg, { defaultAuthor } from '@/../substrate-config';
 
 const feedPerson = pick(['email', 'link', 'name']);
 const feedPeople = map(feedPerson);
+const pluckContributors = pluck('contributors');
 
 export function GET() {
-  const items = getSortedPost();
+  const { posts, lastModified } = getSortedPost();
   const feed = new Feed({
     copyright: cfg.copyright,
     description: cfg.description,
@@ -18,16 +19,17 @@ export function GET() {
     language: cfg.language,
     link: cfg.link,
     title: cfg.title,
+    updated: lastModified,
   });
-  (items || []).forEach((item) => {
+  (posts || []).forEach((post) => {
     feed.addItem({
-      author: feedPeople(item.authors || cfg.authors || [defaultAuthor]),
-      contributor: feedPeople(item.contributors || cfg.contributors || []),
-      date: new Date(item.updated || item.created || ''),
-      description: item.description,
-      image: item.image,
-      link: urlJoin(cfg.link, cfg.postPath || defaultPostPath, item.slug),
-      title: item.title,
+      author: feedPeople(post.authors || [defaultAuthor]),
+      contributor: feedPeople(pluckContributors(post.contributions || [])),
+      date: new Date(post.updated || post.created || ''),
+      description: post.description,
+      image: post.image,
+      link: urlJoin(cfg.link, cfg.postPath || defaultPostPath, post.slug),
+      title: post.title,
     });
   });
   return new Response(feed.rss2(), {
