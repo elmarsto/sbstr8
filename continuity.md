@@ -26,3 +26,8 @@
 
  - Major progress, too much to recount. In brief, we’ve got a full graphql endpoint and a lot of other nice stuff. Oh also we use BabylonJS, Framer Motion, and Tailwind/Headless for the stack, instead of Three/three-fiber, React-spring, and Chakra. Psych!
  - TODO: unit testing for resolvers
+
+# 2023-04-17
+
+ - Graphql *almost* working. Both client-side pulls and server-side pulls run into CORS problems. I need to figure out how to set the CORS headers (on the request? on the response? both?) This will mean refreshing myself about CORS.
+

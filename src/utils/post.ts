@@ -23,13 +23,13 @@ export const getLastModified = (posts: Post[]): Date => {
   return new Date(lastModifiedTime);
 };
 
-interface SortedPosts {
-  lastModified: Date;
-  posts: Post[];
+// get sorted post
+interface Pagination {
+  offset?: number;
+  limit?: number;
 }
 
-// get sorted post
-export const getSortedPost = (): SortedPosts => {
+export const getSortedPost = (pagination?: Pagination): Post[] => {
   const postDirectory = path.join(
     rootDirectory,
     postSubdirectory(cfg.postPath || defaultPostPath),
@@ -37,11 +37,7 @@ export const getSortedPost = (): SortedPosts => {
   const slugs = fs.readdirSync(postDirectory);
   const posts: Post[] = [];
 
-  if (!slugs)
-    return {
-      lastModified: new Date(),
-      posts: [],
-    };
+  if (!slugs) return [];
 
   slugs.forEach((slug) => {
     if (!fs.lstatSync(path.join(postDirectory, slug)).isDirectory()) return;
@@ -55,8 +51,6 @@ export const getSortedPost = (): SortedPosts => {
     });
   });
 
-  // FIXME: this code feels wasteful and naive. Combine getLastModified and sort?
-  const lastModified = getLastModified(posts);
   posts.sort((a: Post, b: Post) => {
     const aD = new Date(a.created).getTime();
     const bD = new Date(b.created).getTime();
@@ -66,8 +60,8 @@ export const getSortedPost = (): SortedPosts => {
     return 0;
   });
 
-  return {
-    lastModified,
-    posts,
-  };
+  if (!pagination) return posts;
+  // else
+  const { offset = 0, limit = posts.length } = pagination;
+  return posts.slice(offset, offset + limit);
 };

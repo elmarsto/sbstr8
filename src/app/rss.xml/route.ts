@@ -1,5 +1,5 @@
 import urlJoin from 'url-join';
-import { getSortedPost, defaultPostPath } from '@/utils/post';
+import { getSortedPost, getLastModified, defaultPostPath } from '@/utils/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
 import cfg, { defaultAuthor } from '@/../substrate-config';
@@ -9,7 +9,8 @@ const feedPeople = map(feedPerson);
 const pluckContributors = pluck('contributors');
 
 export function GET() {
-  const { posts, lastModified } = getSortedPost();
+  const posts = getSortedPost();
+  const updated = getLastModified(posts);
   const feed = new Feed({
     copyright: cfg.copyright,
     description: cfg.description,
@@ -19,7 +20,7 @@ export function GET() {
     language: cfg.language,
     link: cfg.link,
     title: cfg.title,
-    updated: lastModified,
+    updated,
   });
   (posts || []).forEach((post) => {
     feed.addItem({

@@ -1,6 +1,6 @@
 import { ApolloServer } from '@apollo/server';
 import { compose, pluck, flatten } from 'ramda';
-import { getSortedPost } from '@/utils/post';
+import { getSortedPost, getLastModified } from '@/utils/post';
 import cfg from '@/../substrate-config';
 import { DateRange, Post, Contribution, Person } from '@/types';
 import { typeDefs } from './schema';
@@ -9,7 +9,7 @@ import { typeDefs } from './schema';
 
 const nary = (criteria?: any[]) => !criteria || criteria.length === 0;
 
-export const filterByTags = (tags: string[]) => (posts: Post[]) => {
+export const filterByTags = (tags?: string[]) => (posts: Post[]) => {
   if (nary(tags)) return posts;
   return posts.filter(
     // return the post if its set of tags is a superset of the set of provided tags. Careful: this is intersection, not union, unlike every other query, for drilldown
@@ -17,16 +17,17 @@ export const filterByTags = (tags: string[]) => (posts: Post[]) => {
   );
 };
 
-export const filterByCategories = (categories: string[]) => (posts: Post[]) => {
-  if (nary(categories)) return posts;
-  return posts.filter((post) =>
-    (categories || []).some(
-      (category) => (post.categories || []).includes(category), // return the post if any of its categories match any of the provided categories
-    ),
-  );
-};
+export const filterByCategories =
+  (categories?: string[]) => (posts: Post[]) => {
+    if (nary(categories)) return posts;
+    return posts.filter((post) =>
+      (categories || []).some(
+        (category) => (post.categories || []).includes(category), // return the post if any of its categories match any of the provided categories
+      ),
+    );
+  };
 
-export const filterBySlug = (slugs: string[]) => (posts: Post[]) => {
+export const filterBySlug = (slugs?: string[]) => (posts: Post[]) => {
   if (nary(slugs)) return posts;
   return posts.filter(
     (post) => (slugs || []).some((slug) => post.slug === slug), // the post slug must match exactly one of the provided slugs
@@ -35,7 +36,7 @@ export const filterBySlug = (slugs: string[]) => (posts: Post[]) => {
 
 const pluckEmail = pluck('email');
 export const filterByAuthors =
-  (authorEmailAddresses: string[]) => (posts: Post[]) => {
+  (authorEmailAddresses?: string[]) => (posts: Post[]) => {
     if (nary(authorEmailAddresses)) return posts;
     return posts.filter((post) =>
       (authorEmailAddresses || []).some(
@@ -50,7 +51,7 @@ const allContributors = (contributions: Contribution[]): Person[] =>
   flatten(pluckContributors(contributions));
 
 export const filterByContributors =
-  (contributorEmailAddresses: string[]) => (posts: Post[]) => {
+  (contributorEmailAddresses?: string[]) => (posts: Post[]) => {
     if (nary(contributorEmailAddresses)) return posts;
     return posts.filter((post) =>
       (contributorEmailAddresses || []).some(
@@ -94,31 +95,30 @@ export interface PostResolverArgs {
   slugs?: string[];
   tags?: string[];
   updated?: DateRange;
+  offset?: number;
+  limit?: number;
 }
 
-export const resolvePosts = (...args: Array<object>) => {
-  const {
-    authors = [],
-    categories = [],
-    contributors = [],
+export const resolvePosts =
+  ({
+    authors,
+    categories,
+    contributors,
     created,
-    slugs = [],
-    tags = [],
+    slugs,
+    tags,
     updated,
-  }: PostResolverArgs = args[1] || {};
-
-  const { posts } = getSortedPost();
-  const greatFilter = compose(
-    filterByAuthors(authors),
-    filterByCategories(categories),
-    filterByContributors(contributors),
-    filterByDateCreated(created),
-    filterByDateUpdated(updated),
-    filterBySlug(slugs),
-    filterByTags(tags),
-  );
-  return greatFilter(posts); // sorry Fermi
-};
+  }: PostResolverArgs) =>
+  (posts: Post[]) =>
+    compose(
+      filterByAuthors(authors),
+      filterByCategories(categories),
+      filterByContributors(contributors),
+      filterByDateCreated(created),
+      filterByDateUpdated(updated),
+      filterBySlug(slugs),
+      filterByTags(tags),
+    )(posts);
 
 export const resolvers = {
   Query: {
@@ -130,9 +130,10 @@ export const resolvers = {
     language: () => cfg.language,
     link: () => cfg.link,
     owners: () => cfg.owners,
-    posts: resolvePosts,
+    posts: (_: any, args: PostResolverArgs) =>
+      resolvePosts(args)(getSortedPost(args)),
     title: () => cfg.title,
-    updated: () => getSortedPost().lastModified.toISOString(),
+    updated: () => getLastModified(getSortedPost()).toISOString(),
   },
 };
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import '@/styles/globals.css';
 import '@/../.mirrorful/theme.css';
 import cfg, { defaultAuthor } from '@/../substrate-config';
