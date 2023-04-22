@@ -133,7 +133,7 @@ export const resolvers = {
     posts: (_: any, args: PostResolverArgs) =>
       resolvePosts(args)(getSortedPost(args)),
     title: () => cfg.title,
-    updated: () => getLastModified(getSortedPost()).toISOString(),
+    lastModified: () => getLastModified(getSortedPost()).toISOString(),
   },
 };
 

@@ -1,18 +1,32 @@
+'use client';
+import { gql, ApolloProvider, useQuery } from '@apollo/client';
+import { client } from '@/utils/graphql/client';
 import { Home } from './home';
-import cfg from '@/../substrate-config';
 
-const getData = async () => {
-  const endpoint = `${cfg.link}/api/post`;
-  const res = await fetch(endpoint, { cache: 'no-store' });
-  if (!res.ok) {
-    throw new Error('Failed to fetch posts');
+const query = gql`
+  query {
+    lastModified
+    posts {
+      slug
+      title
+      description
+      created
+    }
   }
-  return res.json();
+`;
+
+const HomeContainer = () => {
+  const { data, loading, error } = useQuery(query);
+  if (loading) return <div>loading...</div>;
+  if (error) return <div>error</div>;
+
+  return <Home posts={data.posts} lastModified={data.lastModified} />;
 };
 
-export default async function Page() {
-  const {
-    data: { lastModified, posts },
-  } = await getData();
-  return <Home posts={posts} lastModified={lastModified} />;
+export default function Page() {
+  return (
+    <ApolloProvider client={client}>
+      <HomeContainer />
+    </ApolloProvider>
+  );
 }

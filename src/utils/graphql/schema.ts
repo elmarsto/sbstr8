@@ -16,16 +16,17 @@ export const typeDefs = gql`
     description: String
   }
   type Post {
-    authors: [Person]!
-    contributions: [Contribution]!
-    categories: [String]!
-    date: String!
-    description: String!
-    image: String!
-    paragraphs: [String]!
+    authors: [Person]
+    contributions: [Contribution]
+    categories: [String]
+    created: String
+    updated: String
+    description: String
+    image: String
+    paragraphs: [String]
     slug: String!
-    tags: [String]!
-    title: String!
+    tags: [String]
+    title: String
     link: String
   }
   type Query {
@@ -39,6 +40,6 @@ export const typeDefs = gql`
     posts: [Post]!
     keywords: [String]!
     title: String!
-    updated: String!
+    lastModified: String!
   }
 `;

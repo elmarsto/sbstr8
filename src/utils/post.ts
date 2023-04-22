@@ -10,18 +10,9 @@ export const defaultPostPath = 'post';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;
 const rootDirectory = process.cwd();
 
-// TODO: memoize
-export const getLastModified = (posts: Post[]): Date => {
-  let lastModifiedTime = new Date().getTime();
-  for (const post of posts) {
-    const createdTime: number = new Date(post.created).getTime();
-    const updatedTime: number = post.updated
-      ? new Date(post.created).getTime()
-      : createdTime;
-    if (updatedTime > lastModifiedTime) lastModifiedTime = updatedTime;
-  }
-  return new Date(lastModifiedTime);
-};
+// TODO: correctly handle updated date
+export const getLastModified = (posts: Post[]): Date =>
+  posts[0] ? new Date(posts[0].updated || posts[0].created) : new Date();
 
 // get sorted post
 interface Pagination {
