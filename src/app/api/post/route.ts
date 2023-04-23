@@ -1,4 +1,4 @@
-import { getSortedPost, getLastModified } from '@/utils/post';
+import { getSortedPost, getLastModified } from '@/lib/post';
 import { NextResponse } from 'next/server';
 
 export async function GET() {

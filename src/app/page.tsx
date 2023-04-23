@@ -1,6 +1,6 @@
 'use client';
 import { gql, ApolloProvider, useQuery } from '@apollo/client';
-import { client } from '@/utils/graphql/client';
+import { client } from '@/lib/graphql/client';
 import { Home } from './home';
 
 const query = gql`

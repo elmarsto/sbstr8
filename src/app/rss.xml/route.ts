@@ -1,5 +1,5 @@
 import urlJoin from 'url-join';
-import { getSortedPost, getLastModified, defaultPostPath } from '@/utils/post';
+import { getSortedPost, getLastModified, defaultPostPath } from '@/lib/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
 import cfg, { defaultAuthor } from '@/../substrate-config';

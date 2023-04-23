@@ -1,6 +1,6 @@
 import { ApolloServer } from '@apollo/server';
 import { compose, pluck, flatten } from 'ramda';
-import { getSortedPost, getLastModified } from '@/utils/post';
+import { getSortedPost, getLastModified } from '@/lib/post';
 import cfg from '@/../substrate-config';
 import { DateRange, Post, Contribution, Person } from '@/types';
 import { typeDefs } from './schema';

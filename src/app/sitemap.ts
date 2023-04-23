@@ -1,4 +1,4 @@
-import { defaultPostPath, getSortedPost, getLastModified } from '@/utils/post';
+import { defaultPostPath, getSortedPost, getLastModified } from '@/lib/post';
 import cfg from '@/../substrate-config';
 import urlJoin from 'url-join';
 
