@@ -40,6 +40,6 @@ export const typeDefs = gql`
     posts: [Post]!
     keywords: [String]!
     title: String!
-    lastModified: String!
+    lastModified: String
   }
 `;

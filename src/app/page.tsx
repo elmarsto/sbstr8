@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { client } from '@/lib/graphql/client';
+import { ssrClient } from '@/lib/graphql/client';
 import { Home } from './home';
 
 const query = gql`
@@ -15,6 +15,6 @@ const query = gql`
 `;
 
 export default async function Page() {
-  const { data } = await client.query({ query });
+  const { data } = await ssrClient.query({ query });
   return <Home posts={data.posts} lastModified={data.lastModified} />;
 }
