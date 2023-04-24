@@ -7,8 +7,6 @@ import {
 } from '@/lib/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
-import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
 
 import cfg, { defaultAuthor } from '@/../sbstr8-config';
 
@@ -41,16 +39,14 @@ export function GET() {
       description,
       title,
     }: Post) => {
-      const marker = (md: string) =>
-        String(remark().use(remarkGfm).processSync(md));
       feed.addItem({
         author: feedPeople(authors || [defaultAuthor]),
         contributor: feedPeople(pluckContributors(contributions || [])),
         date: new Date(updated || created || ''),
-        description: marker(description || ''),
+        description,
         image,
         link: urlJoin(cfg.link, defaultPostPath, slug),
-        title: marker(title || ''),
+        title,
       });
     },
   );

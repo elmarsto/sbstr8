@@ -14,7 +14,7 @@ export const config: Config = {
   keywords: ['storytelling', 'journalism', 'data', 'visualization'],
   language: 'en',
   link: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
-  owners: [exports.defaultAuthor],
-  title: 'sbstr8',
+  owners: [defaultAuthor],
+  title: 'Sbstr8',
 };
 export default config;
