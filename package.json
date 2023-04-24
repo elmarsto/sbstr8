@@ -1,15 +1,8 @@
 {
   "name": "Substrate",
+  "version": "0.0.2",
   "description": "A maximalist, ultra-modern, opinionated scaffold for rich, interactive storytelling, journalism and blogging",
-  "version": "0.0.1",
-  "private": true,
-  "author": "@elmarsto",
-  "license": "MIT",
-  "keywords": [
-    "nextjs",
-    "starter",
-    "typescript"
-  ],
+  "main": "index.js",
   "scripts": {
     "dev": "npx next",
     "build": "npx next build",
@@ -22,6 +15,22 @@
     "build-storybook": "storybook build -s ./public",
     "test": "jest --passWithNoTests"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmarsto/substrate.git"
+  },
+  "keywords": [
+    "substrate",
+    "nextjs",
+    "storytelling",
+    "blog"
+  ],
+  "author": "@elmarsto",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/elmarsto/substrate/issues"
+  },
+  "homepage": "https://github.com/elmarsto/substrate#readme",
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
       "eslint --ignore-path .gitignore --fix",
@@ -58,9 +67,11 @@
     "graphql-tag": "2.12.6",
     "graphql-tools": "8.3.20",
     "gray-matter": "4.0.3",
+    "immer": "10.0.1",
     "next": "13.3.1-canary.19",
     "next-mdx-remote": "4.4.1",
     "postcss": "8.4.21",
+    "ramda": "0.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-use-gesture": "9.1.3",
@@ -108,7 +119,6 @@
     "prettier": "2.8.7",
     "storybook": "7.0.4",
     "typescript": "5.0.2",
-    "video.js": "8.0.4",
-    "yarn": "1.22.19"
+    "video.js": "8.0.4"
   }
 }
