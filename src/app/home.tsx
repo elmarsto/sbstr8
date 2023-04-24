@@ -13,12 +13,11 @@ export interface HomeProps {
   lastModified: string;
 }
 
-export const Home = ({ posts, lastModified }: HomeProps) => (
+export const Home = ({ posts }: HomeProps) => (
   <main>
-    <h1>
+    <h1 className={styles['title']}>
       <Md>{config.title}</Md>
     </h1>
-    <h2>Updated {lastModified}</h2>
     <ul className={styles['posts']}>
       {posts.map(({ slug, title, updated, created, description }: Post) => (
         <li className={styles['post']} key={slug}>

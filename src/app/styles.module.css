@@ -40,3 +40,8 @@
   grid-gap: 1rem;
 }
 
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-header-bold);
+}
