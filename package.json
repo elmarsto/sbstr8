@@ -2,7 +2,6 @@
   "name": "Substrate",
   "version": "0.0.2",
   "description": "A maximalist, ultra-modern, opinionated scaffold for rich, interactive storytelling, journalism and blogging",
-  "main": "index.js",
   "scripts": {
     "dev": "npx next",
     "build": "npx next build",
