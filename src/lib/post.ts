@@ -38,6 +38,8 @@ export const getSortedPost = (pagination?: Pagination): Post[] => {
     const metadataFileContent = fs.readFileSync(filePath, 'utf8');
     const data: Post = JSON.parse(metadataFileContent);
     posts.push({
+      // above data so it can be overridden
+      image: path.join(cfg.link, defaultPostPath, slug, 'image.png'),
       ...data,
       slug,
       link: path.join(cfg.link, defaultPostPath, slug),
