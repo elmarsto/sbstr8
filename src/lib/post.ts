@@ -6,6 +6,8 @@ import path from 'path';
 import { Post } from '@/types';
 import cfg from '@/../sbstr8-config';
 
+export type { Post } from '@/types/post';
+
 export const defaultPostPath = 'post';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;
 const rootDirectory = process.cwd();
@@ -23,7 +25,7 @@ interface Pagination {
 export const getSortedPost = (pagination?: Pagination): Post[] => {
   const postDirectory = path.join(
     rootDirectory,
-    postSubdirectory(cfg.postPath || defaultPostPath),
+    postSubdirectory(defaultPostPath),
   );
   const slugs = fs.readdirSync(postDirectory);
   const posts: Post[] = [];
@@ -38,7 +40,7 @@ export const getSortedPost = (pagination?: Pagination): Post[] => {
     posts.push({
       ...data,
       slug,
-      link: path.join(cfg.link, cfg.postPath || defaultPostPath, slug),
+      link: path.join(cfg.link, defaultPostPath, slug),
     });
   });
 

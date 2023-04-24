@@ -1,7 +1,15 @@
 import urlJoin from 'url-join';
-import { getSortedPost, getLastModified, defaultPostPath } from '@/lib/post';
+import {
+  getSortedPost,
+  getLastModified,
+  defaultPostPath,
+  Post,
+} from '@/lib/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+
 import cfg, { defaultAuthor } from '@/../sbstr8-config';
 
 const feedPerson = pick(['email', 'link', 'name']);
@@ -14,25 +22,38 @@ export function GET() {
   const feed = new Feed({
     copyright: cfg.copyright,
     description: cfg.description,
-    favicon: cfg.icon,
+    favicon: urlJoin(cfg.link, 'icon.svg'),
     id: cfg.link,
-    image: cfg.image,
+    image: urlJoin(cfg.link, 'image.png'),
     language: cfg.language,
     link: cfg.link,
     title: cfg.title,
     updated,
   });
-  (posts || []).forEach((post) => {
-    feed.addItem({
-      author: feedPeople(post.authors || [defaultAuthor]),
-      contributor: feedPeople(pluckContributors(post.contributions || [])),
-      date: new Date(post.updated || post.created || ''),
-      description: post.description,
-      image: post.image,
-      link: urlJoin(cfg.link, cfg.postPath || defaultPostPath, post.slug),
-      title: post.title,
-    });
-  });
+  (posts || []).forEach(
+    ({
+      slug,
+      authors,
+      updated,
+      created,
+      image,
+      contributions,
+      description,
+      title,
+    }: Post) => {
+      const marker = (md: string) =>
+        String(remark().use(remarkGfm).processSync(md));
+      feed.addItem({
+        author: feedPeople(authors || [defaultAuthor]),
+        contributor: feedPeople(pluckContributors(contributions || [])),
+        date: new Date(updated || created || ''),
+        description: marker(description || ''),
+        image,
+        link: urlJoin(cfg.link, defaultPostPath, slug),
+        title: marker(title || ''),
+      });
+    },
+  );
   return new Response(feed.rss2(), {
     status: 200,
     headers: { 'Content-Type': 'application/rss+xml' },

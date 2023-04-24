@@ -1,15 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultAuthor = void 0;
-const env = process.env.NODE_ENV;
-const isProd = env === 'production';
-exports.defaultAuthor = {
+import { Config } from '@/types/config';
+export const env = process.env.NODE_ENV;
+export const isProd = env === 'production';
+export const defaultAuthor = {
   name: 'You',
   email: 'you@somewhere',
   link: 'https://you.somewhere/',
   twitter: '@you',
 };
-const config = {
+export const config: Config = {
   title: 'sbstr8',
   description: 'A maximalist storytelling engine',
   link: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
@@ -19,4 +17,4 @@ const config = {
   copyright: '2023 All rights reserved.',
   owners: [exports.defaultAuthor],
 };
-exports.default = config;
+export default config;
