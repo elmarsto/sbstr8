@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import '@/../.mirrorful/theme.css';
-import cfg, { defaultAuthor } from '@/../substrate-config';
+import cfg, { defaultAuthor } from '@/../sbstr8-config';
 import pkg from '@/../package.json';
 
 const RootLayout = ({ children }: React.PropsWithChildren<unknown>) => (

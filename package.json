@@ -1,5 +1,5 @@
 {
-  "name": "Substrate",
+  "name": "sbstr8",
   "version": "0.0.2",
   "description": "A maximalist, ultra-modern, opinionated scaffold for rich, interactive storytelling, journalism and blogging",
   "scripts": {
@@ -16,9 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elmarsto/substrate.git"
+    "url": "git+https://github.com/elmarsto/sbstr8.git"
   },
   "keywords": [
+    "sbstr8",
     "substrate",
     "nextjs",
     "storytelling",
@@ -27,9 +28,9 @@
   "author": "@elmarsto",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/elmarsto/substrate/issues"
+    "url": "https://github.com/elmarsto/sbstr8/issues"
   },
-  "homepage": "https://github.com/elmarsto/substrate#readme",
+  "homepage": "https://github.com/elmarsto/sbstr8#readme",
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
       "eslint --ignore-path .gitignore --fix",

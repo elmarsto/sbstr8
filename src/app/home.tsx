@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Post } from '@/types';
-import config from '@/../substrate-config';
+import config from '@/../sbstr8-config';
 import styles from './styles.module.css';
 
 export interface HomeProps {

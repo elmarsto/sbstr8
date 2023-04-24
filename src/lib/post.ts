@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { Post } from '@/types';
-import cfg from '@/../substrate-config';
+import cfg from '@/../sbstr8-config';
 
 export const defaultPostPath = 'post';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;

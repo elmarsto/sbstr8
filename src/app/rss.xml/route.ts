@@ -2,7 +2,7 @@ import urlJoin from 'url-join';
 import { getSortedPost, getLastModified, defaultPostPath } from '@/lib/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
-import cfg, { defaultAuthor } from '@/../substrate-config';
+import cfg, { defaultAuthor } from '@/../sbstr8-config';
 
 const feedPerson = pick(['email', 'link', 'name']);
 const feedPeople = map(feedPerson);

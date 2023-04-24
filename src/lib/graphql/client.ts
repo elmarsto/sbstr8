@@ -3,7 +3,7 @@ import { SchemaLink } from '@apollo/client/link/schema';
 import { resolvers } from './server';
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import urlJoin from 'url-join';
-import cfg from '@/../substrate-config';
+import cfg from '@/../sbstr8-config';
 import { typeDefs } from './schema';
 
 const cache = new InMemoryCache({

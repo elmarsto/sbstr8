@@ -1,5 +1,5 @@
 import { defaultPostPath, getSortedPost, getLastModified } from '@/lib/post';
-import cfg from '@/../substrate-config';
+import cfg from '@/../sbstr8-config';
 import urlJoin from 'url-join';
 
 export default function sitemap() {
