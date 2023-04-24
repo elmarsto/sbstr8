@@ -1,5 +1,16 @@
 Stop posting like it’s 1999.
 
+```
+
+        ,--.              ,--.            ,---.
+ ,---.  |  |-.   ,---.  ,-'  '-. ,--.--. |  o  |
+(  .-'  | .-. ' (  .-'  '-.  .-' |  .--' .'   '.
+.-'  `) | `-' | .-'  `)   |  |   |  |    |  o  |
+`----'   `---'  `----'    `--'   `--'     `---'
+
+```
+
+
 # What is sbstr8? (Prounounced ‘substrate’)
 
  - A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling by creatives who code in Typescript React.
