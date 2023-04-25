@@ -5,8 +5,10 @@ import pkg from '@/../package.json';
 
 const RootLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <html lang="en">
-    <body className="p-2">{children}</body>
-    <footer className="text-xs m-2">&copy; {cfg.copyright}</footer>
+    <body className="p-2">
+      {children}
+      <footer className="text-xs m-2">&copy; {cfg.copyright}</footer>
+    </body>
   </html>
 );
 export default RootLayout;
