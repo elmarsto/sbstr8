@@ -14,12 +14,12 @@ interface PlayerOptions {
   }[];
 }
 
-interface VideoJsProps {
+interface VideoProps {
   options: PlayerOptions;
   onReady: (player: any) => void;
 }
 
-export const VideoJs = (props: VideoJsProps) => {
+export const Video = (props: VideoProps) => {
   const videoRef = React.useRef<HTMLDivElement>(null);
   const playerRef = React.useRef<Player>(null);
   const { options, onReady } = props;
