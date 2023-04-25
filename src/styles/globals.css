@@ -4,24 +4,20 @@
 :root {
   --background-rgb: 255, 255, 255;
   --border-radius: 12px;
-
   --font-bold-italic: serif;
   --font-bold: serif;
-  --font-italic: serif;
-  --font: serif;
-
   --font-header-bold-italic: sans-serif;
   --font-header-bold: sans-serif;
   --font-header-italic: sans-serif;
   --font-header: sans-serif;
-
+  --font-italic: serif;
   --font-mono-bold: monospace;
   --font-mono-bold_italic: monospace;
   --font-mono-italic: monospace;
   --font-mono: monospace;
   --font-mono_header-bold: monospace;
   --font-mono_header: monospace;
-
+  --font: serif;
   --foreground-rgb: 0, 0, 0;
   --max-width: 1100px;
 }
