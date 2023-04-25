@@ -1,28 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --max-width: 1100px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --background-rgb: 255, 255, 255;
+  --border-radius: 12px;
+
+  --font-bold-italic: serif;
+  --font-bold: serif;
+  --font-italic: serif;
+  --font: serif;
+
+  --font-header-bold-italic: sans-serif;
+  --font-header-bold: sans-serif;
+  --font-header-italic: sans-serif;
+  --font-header: sans-serif;
+
+  --font-mono-bold: monospace;
+  --font-mono-bold_italic: monospace;
+  --font-mono-italic: monospace;
+  --font-mono: monospace;
+  --font-mono_header-bold: monospace;
+  --font-mono_header: monospace;
 
   --foreground-rgb: 0, 0, 0;
-  --background-rgb: 255, 255, 255;
+  --max-width: 1100px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
     --background-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255;
+  }
+  html {
+    color-scheme: dark;
   }
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html,
@@ -32,12 +49,32 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  color: rgb(var(--foreground-rgb));
+  font-family: var(--font);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+em, i {
+  font-family: var(--font-italic);
+}
+
+strong, b {
+  font-family: var(--font-bold);
+}
+
+em strong, em b, i strong, i b,
+strong em, strong i, b em, b i {
+  font-family: var(--font-bold-italic);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-header);
+}
+
+h1 strong, h1 b, h2 strong, h2 b, h3 strong, h3 b, h4 strong, h4 b, h5 strong, h5 b, h6 strong, h6 b {
+  font-family: var(--font-header-bold);
+}
+
+main {
+  padding: 24px;
 }
