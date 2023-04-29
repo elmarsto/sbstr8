@@ -47,6 +47,7 @@ By contrast, Substrate is code-first and [clastic](https://en.wiktionary.org/wik
  - [Lint-staged](https://github.com/okonet/lint-staged) to keep you **clean**
  - [Mirrorful](https://github.com/Mirrorful/mirrorful) to keep you **themed**
  - [Next.js 13](https://nextjs.org) to keep you **Based**
+ - [Plot](https://observablehq.com/plot) to keep you and your data **visual**
  - [Prettier](https://prettier.io) to keep you **beautiful**
  - [Ramda](https://ramdajs.com/) to keep you **functional**
  - [React 18](https://react.dev) to keep you **responsive**
@@ -56,7 +57,6 @@ By contrast, Substrate is code-first and [clastic](https://en.wiktionary.org/wik
  - [TypeScript 5](https://typescriptlang.org) to keep you **strict**
  - [Unified](https://unifiedjs.org)/Remark, [AsciiMath](https://asciimath.org) and [Mermaid](https://mermaid.js.org), to keep you **expressive**
  - [Use-sound](https://www.joshwcomeau.com/react/announcing-use-sound-react-hook/) to keep you **lush**
- - [Visx](https://airbnb.io/visx) to keep you and your data **visual**
  - [Video.js](https://videojs.com), to keep your audience **watching**
  - [Zustand](https://zustand-demo.pmnd.rs), to keep you **stateful**
  - ...and lots more besides! See [package.json](package.json) for a complete list.
