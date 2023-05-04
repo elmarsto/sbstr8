@@ -1,6 +1,6 @@
 {
   "name": "sbstr8",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A maximalist, ultra-modern, opinionated scaffold for rich, interactive storytelling, journalism and blogging",
   "scripts": {
     "dev": "npx next",
@@ -20,10 +20,22 @@
   },
   "keywords": [
     "sbstr8",
-    "substrate",
     "nextjs",
     "storytelling",
     "blog"
+  ],
+  "files": [
+    "LICENSE",
+    "jest.config.ts",
+    "next-env.d.ts",
+    "next.config.js",
+    "postcss.config.js",
+    "public/",
+    "renovate.json",
+    "sbstr8-config.ts",
+    "src/",
+    "tailwind.config.js",
+    "tsconfig.json"
   ],
   "author": "@elmarsto",
   "license": "GPL-3.0-or-later",
@@ -70,7 +82,7 @@
     "graphql-tools": "8.3.20",
     "gray-matter": "4.0.3",
     "immer": "10.0.1",
-    "next": "13.3.2-canary.13",
+    "next": "13.3.4",
     "postcss": "8.4.21",
     "ramda": "0.29.0",
     "react": "18.2.0",
