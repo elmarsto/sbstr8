@@ -21,12 +21,14 @@
   --font: serif;
   --foreground-rgb: 0, 0, 0;
   --max-width: 1100px;
+  --foreground-rgb: 50, 50, 50;
+  --background-rgb: 240, 240, 255;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-rgb: 0, 0, 0;
-    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 50, 50, 50;
+    --foreground-rgb: 200, 200, 200;
   }
   html {
     color-scheme: dark;
@@ -72,6 +74,3 @@ h1 strong, h1 b, h2 strong, h2 b, h3 strong, h3 b, h4 strong, h4 b, h5 strong, h
   font-family: var(--font-header-bold);
 }
 
-main {
-  padding: 24px;
-}

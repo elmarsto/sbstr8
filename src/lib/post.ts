@@ -3,12 +3,11 @@
 import fs from 'fs';
 import path from 'path';
 
-import { Post } from '@/types';
-import cfg from '@/../sbstr8-config';
+import { Post } from '@/lib/types';
 
-export type { Post } from '@/types/post';
+export type { Post } from '@/lib/types/post';
 
-export const defaultPostPath = 'post';
+export const defaultPostPath = '/post';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;
 const rootDirectory = process.cwd();
 
@@ -39,10 +38,10 @@ export const getSortedPost = (pagination?: Pagination): Post[] => {
     const data: Post = JSON.parse(metadataFileContent);
     posts.push({
       // above data so it can be overridden
-      image: path.join(cfg.link, defaultPostPath, slug, 'image.png'),
+      image: path.join(defaultPostPath, slug, 'image.png'),
       ...data,
       slug,
-      link: path.join(cfg.link, defaultPostPath, slug),
+      link: path.join(defaultPostPath, slug),
     });
   });
 

@@ -1,20 +1,22 @@
-import { Config } from '@/types/config';
+import { Config } from '@/lib/types/config';
 export const env = process.env.NODE_ENV;
 export const isProd = env === 'production';
 export const defaultAuthor = {
-  email: 'you@somewhere',
-  link: 'https://you.somewhere/',
-  name: 'You',
-  twitter: '@you',
+  email: 'you@example.com',
+  link: 'https://example.com/',
+  name: 'Firstname Lastname',
 };
 export const config: Config = {
-  categories: ['Storytelling', 'Journalism'],
-  copyright: '2023 All rights reserved.',
-  description: 'A maximalist storytelling engine',
-  keywords: ['storytelling', 'journalism', 'data', 'visualization'],
+  categories: ['Blog'],
+  copyright: 'All rights reserved.',
+  description: 'Another sbstr8 blog',
+  keywords: ['blog', 'sbstr8'],
   language: 'en',
-  link: isProd ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000',
+  link: isProd ? 'https://example.com/' : 'http://127.0.0.1:3000',
   owners: [defaultAuthor],
-  title: 'Sbstr8',
+  title: 'sbstr8 blog',
+  postPath: '/post',
+  icon: '/image/icon.svg',
+  image: '/image/image.webp',
 };
 export default config;
