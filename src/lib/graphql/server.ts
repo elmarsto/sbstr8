@@ -123,39 +123,6 @@ export const resolvePosts =
       filterByTags(tags),
     )(posts);
 
-export interface NewsletterBeginSubscribeArgs {
-  address: string;
-}
-export const newsletterBeginSubscribe = (
-  _: unknown,
-  { address }: NewsletterBeginSubscribeArgs,
-) => {
-  confirmSubscription(address);
-  return { success: true }; // FIXME: return false upon failure
-};
-
-export interface NewsletterCompleteSubscribeArgs {
-  code: string;
-}
-export const newsletterCompleteSubscribe = (
-  _: unknown,
-  { code }: NewsletterCompleteSubscribeArgs,
-) => {
-  completeSubscription(code);
-  return { success: true }; // FIXME: return false upon failure
-};
-
-export interface NewsletterUnsubscribeArgs {
-  address: string;
-}
-export const newsletterUnsubscribe = (
-  _: unknown,
-  { address }: NewsletterUnsubscribeArgs,
-) => {
-  cancelSubscription(address);
-  return { success: true }; // FIXME: return false upon failure
-};
-
 export const resolvers = {
   Query: {
     categories: () => cfg.categories,
@@ -170,11 +137,6 @@ export const resolvers = {
       resolvePosts(args)(getSortedPost(args)),
     title: () => cfg.title,
     lastModified: () => getLastModified(getSortedPost()).toISOString(),
-  },
-  Mutation: {
-    newsletterBeginSubscribe,
-    newsletterCompleteSubscribe,
-    newsletterUnsubscribe,
   },
 };
 
