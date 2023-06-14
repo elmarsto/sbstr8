@@ -1,8 +1,9 @@
 // adapted from https://raw.githubusercontent.com/Ibaslogic/nextjs-mdx-blog-starter/main/pages/blog/index.js
+//
 
 import Link from 'next/link';
 import urlJoin from 'url-join';
-import { Post } from '@/types';
+import { Post } from '@/lib/types';
 import config from '@/../sbstr8-config';
 import styles from './styles.module.css';
 import { Md } from '@/components/md';

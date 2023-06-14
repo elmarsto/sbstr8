@@ -1,9 +1,12 @@
 import { ApolloServer } from '@apollo/server';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { compose, pluck, flatten } from 'ramda';
 import { getSortedPost, getLastModified } from '@/lib/post';
 import cfg from '@/../sbstr8-config';
-import { DateRange, Post, Contribution, Person } from '@/types';
+import { DateRange, Post, Contribution, Person } from '@/lib/types';
 import { typeDefs } from './schema';
+import { SchemaLink } from '@apollo/client/link/schema';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
 // TODO: unit tests for resolvers and filters
 
@@ -120,6 +123,39 @@ export const resolvePosts =
       filterByTags(tags),
     )(posts);
 
+export interface NewsletterBeginSubscribeArgs {
+  address: string;
+}
+export const newsletterBeginSubscribe = (
+  _: unknown,
+  { address }: NewsletterBeginSubscribeArgs,
+) => {
+  confirmSubscription(address);
+  return { success: true }; // FIXME: return false upon failure
+};
+
+export interface NewsletterCompleteSubscribeArgs {
+  code: string;
+}
+export const newsletterCompleteSubscribe = (
+  _: unknown,
+  { code }: NewsletterCompleteSubscribeArgs,
+) => {
+  completeSubscription(code);
+  return { success: true }; // FIXME: return false upon failure
+};
+
+export interface NewsletterUnsubscribeArgs {
+  address: string;
+}
+export const newsletterUnsubscribe = (
+  _: unknown,
+  { address }: NewsletterUnsubscribeArgs,
+) => {
+  cancelSubscription(address);
+  return { success: true }; // FIXME: return false upon failure
+};
+
 export const resolvers = {
   Query: {
     categories: () => cfg.categories,
@@ -135,9 +171,34 @@ export const resolvers = {
     title: () => cfg.title,
     lastModified: () => getLastModified(getSortedPost()).toISOString(),
   },
+  Mutation: {
+    newsletterBeginSubscribe,
+    newsletterCompleteSubscribe,
+    newsletterUnsubscribe,
+  },
 };
 
 export const server = new ApolloServer({
   resolvers,
   typeDefs,
+});
+
+const cache = new InMemoryCache({
+  typePolicies: {
+    Person: {
+      keyFields: ['email'],
+    },
+    Post: {
+      keyFields: ['slug'],
+    },
+  },
+});
+
+export const sClient = new ApolloClient({
+  cache,
+  typeDefs,
+  ssrMode: true,
+  link: new SchemaLink({
+    schema: makeExecutableSchema({ typeDefs, resolvers }),
+  }),
 });

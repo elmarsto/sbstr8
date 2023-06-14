@@ -4,9 +4,11 @@ import { useEffect, useRef } from 'react';
 
 interface GraphProps {
   plot: Plot.PlotOptions;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-export const Graph = ({ plot }: GraphProps) => {
+export const Graph = ({ plot, className, style }: GraphProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export const Graph = ({ plot }: GraphProps) => {
     return () => graph.remove();
   }, [plot]);
 
-  return <div ref={containerRef} />;
+  return <div ref={containerRef} className={className} style={style} />;
 };
 
 export default Graph;

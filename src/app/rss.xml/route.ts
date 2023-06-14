@@ -10,19 +10,19 @@ import { pick, map, pluck } from 'ramda';
 
 import cfg, { defaultAuthor } from '@/../sbstr8-config';
 
-const feedPerson = pick(['email', 'link', 'name']);
+const feedPerson = pick(['link', 'name']);
 const feedPeople = map(feedPerson);
 const pluckContributors = pluck('contributors');
-
+const currentDate = new Date();
 export function GET() {
   const posts = getSortedPost();
   const updated = getLastModified(posts);
   const feed = new Feed({
     copyright: cfg.copyright,
     description: cfg.description,
-    favicon: urlJoin(cfg.link, 'icon.svg'),
     id: cfg.link,
-    image: urlJoin(cfg.link, 'image.png'),
+    image: urlJoin(cfg.link, cfg.image || '/favicon.png'),
+    favicon: cfg.icon,
     language: cfg.language,
     link: cfg.link,
     title: cfg.title,
@@ -42,9 +42,9 @@ export function GET() {
       feed.addItem({
         author: feedPeople(authors || [defaultAuthor]),
         contributor: feedPeople(pluckContributors(contributions || [])),
-        date: new Date(updated || created || ''),
+        date: updated || created ? new Date(updated || created) : currentDate,
         description,
-        image,
+        image: image ? urlJoin(cfg.link, image) : undefined,
         link: urlJoin(cfg.link, defaultPostPath, slug),
         title,
       });

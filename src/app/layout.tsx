@@ -2,16 +2,17 @@ import '@/styles/globals.css';
 import '@/../.mirrorful/theme.css';
 import cfg, { defaultAuthor } from '@/../sbstr8-config';
 import pkg from '@/../package.json';
+import urlJoin from 'url-join';
 
-const RootLayout = ({ children }: React.PropsWithChildren<unknown>) => (
+const MainLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <html lang="en">
-    <body className="p-2">
+    <body>
       {children}
-      <footer className="text-xs m-2">&copy; {cfg.copyright}</footer>
+      <footer className="ml-6 mt-6 text-xs">&copy; {cfg.copyright}</footer>
     </body>
   </html>
 );
-export default RootLayout;
+export default MainLayout;
 
 export const metadata = {
   applicationName: cfg.title,
@@ -23,13 +24,19 @@ export const metadata = {
   keywords: cfg.keywords,
   metadataBase: new URL(cfg.link),
   openGraph: {
-    // don't put image here; instead use @/app/opengraph-image.(svg|png|js|ts|tsx)
     description: cfg.description,
     locale: cfg.language,
     siteName: cfg.title,
     title: cfg.title,
     type: 'website',
     url: '/',
+    images: cfg.image
+      ? [
+          {
+            url: urlJoin(cfg.link, cfg.image),
+          },
+        ]
+      : [],
   },
   publisher: pkg.author,
   robots: {
@@ -42,11 +49,9 @@ export const metadata = {
     index: true,
   },
   title: cfg.title,
-  twitter: {
-    // don't put image here; instead use @/app/twitter-image.(svg|png|js|ts|tsx)
-    card: 'summary_large_image',
-    creator: defaultAuthor.twitter,
-    description: cfg.description,
-    title: cfg.title,
+  icons: {
+    icon: cfg.icon,
+    shortcut: cfg.icon,
+    apple: cfg.icon,
   },
 };

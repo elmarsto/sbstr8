@@ -2,8 +2,14 @@
 
 interface PostProps {
   children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-export default function Post({ children }: PostProps) {
-  return <div>{children}</div>;
-}
+const Post = ({ children, className, style }: PostProps) => (
+  <div style={style} className={className}>
+    {children}
+  </div>
+);
+
+export default Post;

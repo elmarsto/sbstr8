@@ -17,6 +17,8 @@ interface PlayerOptions {
 interface VideoProps {
   options: PlayerOptions;
   onReady: (player: any) => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export const Video = (props: VideoProps) => {
@@ -63,7 +65,7 @@ export const Video = (props: VideoProps) => {
   }, [playerRef]);
 
   return (
-    <div data-vjs-player>
+    <div data-vjs-player className={props.className} style={props.style}>
       <div ref={videoRef} />
     </div>
   );
