@@ -65,12 +65,13 @@ By contrast, Substrate is code-first and [clastic](https://en.wiktionary.org/wik
  - RSS feed
  - Sitemap
  - SSR-by-default, for great SEO
- -
 
 
 Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking), your finished site will only contain the libraries you choose to use, page by page. But it’s all there if you need it. <3
 
 ### Coming soon
+ - Posts that demo the lovely bouquet of libraries
+ - K8S example
  - A **CLI** so you can manage your posts and components with ease
  - [CI/CD](https://github.blog/2022-02-02-build-ci-cd-pipeline-github-actions-four-steps/) via [GitHub Actions](https://github.com/features/actions)
  - **Deploy** conveniently on one of:
