@@ -9,7 +9,12 @@ Stop posting like it’s 1999.
 `----'   `---'  `----'    `--'   `--'     `---'
 
 ```
+# TODO (2023-06-22)
 
+At the moment, an enormous amount of forward development has occurred in a private repo (hosting [lizmars.net](https://lizmars.net).
+
+Over the next week I will be backporting as much as I can to sbstr8. This will involve refactoring things so that sbstr8 related components
+are in their own subdirectory of the project, etc. I'm hard at work on sbstr8, stay tuned.
 
 # What is sbstr8? (Prounounced ‘substrate’)
 
