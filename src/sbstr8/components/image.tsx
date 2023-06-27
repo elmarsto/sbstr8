@@ -1,10 +1,9 @@
 'use client';
 import * as React from 'react';
 import useDimensions from 'react-cool-dimensions';
-import NextImage, { ImageProps } from 'next/image';
-import ccn from '@sindresorhus/class-names';
+import NextImage, { ImageProps as NextImageProps } from 'next/image';
 
-const imageClasses = 'rounded-md';
+export type ImageProps = NextImageProps;
 
 export const Image = ({ fill, className, ...otherProps }: ImageProps) => {
   const { width, observe } = useDimensions<HTMLDivElement>();
@@ -13,13 +12,13 @@ export const Image = ({ fill, className, ...otherProps }: ImageProps) => {
     <div ref={observe} style={{ overflow: 'hidden' }}>
       {fill ? (
         <NextImage
-          className={ccn(className, imageClasses)}
+          className={className}
           {...otherProps}
           width={width || 0}
           height={height || 0}
         />
       ) : (
-        <NextImage className={ccn(className, imageClasses)} {...otherProps} />
+        <NextImage className={className} {...otherProps} />
       )}
     </div>
   );

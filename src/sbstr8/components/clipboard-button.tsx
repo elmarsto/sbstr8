@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface ClipboardButtonProps {
   title?: string;
-  children: string; // intentionally not a React node! Must be a string!
+  children?: string; // intentionally not a React node! Must be a string!
   className?: string;
   style?: React.CSSProperties;
 }
@@ -23,7 +23,7 @@ export const ClipboardButton = ({
   const [down, setDown] = React.useState<boolean>(false);
   const [copied, setCopied] = React.useState<boolean>(false);
   const handleClick = React.useCallback(() => {
-    navigator.clipboard.writeText(children);
+    navigator.clipboard.writeText(children || '');
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   }, [children]);

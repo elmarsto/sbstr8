@@ -7,7 +7,7 @@ export interface MdProps {
   className?: string;
   style?: React.CSSProperties;
 }
-
+// TODO: use same codepath as mdx-components.tsx
 export const Md = ({ children, className, style }: MdProps) => {
   let markdown = '';
   if (
