@@ -2,4 +2,9 @@ export type { Config } from './config';
 export type { Contribution } from './contribution';
 export type { DateRange } from './date-range';
 export type { Person } from './person';
-export type { Post, HookProps } from './post';
+export type {
+  CookedPostMetadata,
+  RawPostMetadata,
+  HookProps,
+  Post,
+} from './post';
