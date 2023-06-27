@@ -1,5 +1,7 @@
 {
-  "created": "Jun 13 2023",
-  "title": "First *post*",
-  "description": "Hello world!"
+  "created": "Mon Jun 26 2023",
+  "title": "First Post",
+  "description": "Hot grits!",
+  "image": "/image/image.webp",
+  "thumbnail": "/image/image.thumb.webp"
 }

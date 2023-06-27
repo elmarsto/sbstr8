@@ -11,7 +11,8 @@ import { pick, map, pluck } from 'ramda';
 import cfg, { defaultAuthor } from '@/sbstr8/config';
 
 const xmlHeader = '<?xml version="1.0" encoding="utf-8"?>';
-const stylesheetLink = '<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>';
+const stylesheetLink =
+  '<?xml-stylesheet href="/feed/style.xsl" type="text/xsl"?>';
 const addStylesheetLink = (feed: string) =>
   feed.replace(xmlHeader, `${xmlHeader}\n${stylesheetLink}`);
 const feedPerson = pick(['link', 'name']);

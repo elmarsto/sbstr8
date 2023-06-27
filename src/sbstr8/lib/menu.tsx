@@ -22,9 +22,9 @@ export const menuLinks = [
     title: 'Contact',
   },
   {
-    href: '/atom.xml',
+    href: '/feed',
     icon: faRss,
-    title: 'RSS',
+    title: 'RSS Feed',
     iconic: true,
   },
 ];
