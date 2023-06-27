@@ -1,4 +1,4 @@
-import { Config } from '@/lib/types/config';
+import { Config } from '@/sbstr8/lib/types/config';
 export const env = process.env.NODE_ENV;
 export const isProd = env === 'production';
 export const defaultAuthor = {
