@@ -74,3 +74,76 @@ h1 strong, h1 b, h2 strong, h2 b, h3 strong, h3 b, h4 strong, h4 b, h5 strong, h
   font-family: var(--font-header-bold);
 }
 
+a {
+  text-decoration: underline;
+}
+
+article p {
+  text-indent: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+article > div > p:first-child {
+  text-indent: 0rem;
+}
+
+article > div > p:first-child:first-letter {
+  float: left;
+  font-size: 2.5rem;
+  padding: 0.5rem 0.5rem 0 0;
+  color: #92400e;
+}
+
+article > div > p:last-child:after {
+  content:"\2299";
+  color: #92400e;
+}
+
+article li {
+  padding-bottom: 0.5rem;
+}
+article ul, article ol {
+  list-style-position: outside;
+}
+article ol {
+  padding-left: 1.5rem;
+}
+article ul ul {
+  padding-left: 1.5rem;
+}
+article ul li::before {
+  content: '\2192';
+  padding-right: 0.4rem;
+}
+article ul ul li::before {
+  content: '\21B3';
+}
+
+article ol {
+  list-style-type: decimal;
+}
+article ol ol {
+  list-style-type: lower-latin;
+}
+article ol ol ol {
+  list-style-type: lower-roman;
+}
+article ol ol ol ol{
+  list-style-type: lower-greek;
+}
+
+article {
+  orphans: 1;
+}
+
+pre {
+  font-family: var(--font-mono);
+  background-color: rgba(255,255,255,0.2);
+}
+code {
+  font-family: var(--font-mono-bold);
+  padding: 2px;
+  line-height: 1.3rem;
+}
+
