@@ -1,7 +1,8 @@
 import * as React from 'react';
 import type { MDXComponents } from 'mdx/types';
-import Link from '@/components/link';
-import Image from '@/components/image';
+import Link from '@/sbstr8/components/link';
+import Image from '@/sbstr8/components/image';
+import Pre from '@/sbstr8/components/pre';
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -13,7 +14,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: ({ children }) => <h4 className="font-semibold text-sm">{children}</h4>,
     h6: ({ children }) => <h4 className="font-semibold text-xs">{children}</h4>,
     ...components,
-    a: Link,
+    a: ({ href, children, className, style }) => (
+      <Link href={href} style={style} className={className}>
+        {children}
+      </Link>
+    ),
+    pre: Pre,
     img: (
       props: React.DetailedHTMLProps<
         React.ImgHTMLAttributes<HTMLImageElement>,
