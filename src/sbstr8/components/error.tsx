@@ -3,12 +3,11 @@
 import { useEffect } from 'react';
 import StandardPage from '@/sbstr8/components/page/standard';
 import PageHeader from '@/sbstr8/components/page/header';
-import Link from '@/sbstr8/components/link';
-import Card from '@/sbstr8/components/card';
+import S8 from '@/sbstr8';
 
-interface ErrorProps {
-  error: Error;
-  reset: () => void;
+export interface ErrorProps {
+  error?: Error;
+  reset?: () => void;
 }
 // TODO: flesh this out; rn its just a cut/paste from nextjs docs
 const Error = ({ error, reset }: ErrorProps) => {
@@ -19,16 +18,18 @@ const Error = ({ error, reset }: ErrorProps) => {
 
   return (
     <>
-      <PageHeader small />
+      <PageHeader />
       <StandardPage title="Error Five Hundred and Something">
-        <Card title="⚀⚀ Snake Eyes">
+        <S8.Card title="⚀⚀ Snake Eyes">
           <p>Something has gone wrong in your browser. It happens.</p>
           <p>
             This button forces the web page logic to reload; try clicking it:
             <button
               onClick={
                 // Attempt to recover by trying to re-render the segment
-                () => reset()
+                () => {
+                  if (reset) reset();
+                }
               }
             >
               Try again
@@ -36,9 +37,9 @@ const Error = ({ error, reset }: ErrorProps) => {
           </p>
           <p>
             If you&apos;re unlucky even in that, maybe{' '}
-            <Link href="/">navigate to the home page</Link>?
+            <S8.Link href="/">navigate to the home page</S8.Link>?
           </p>
-        </Card>
+        </S8.Card>
       </StandardPage>
     </>
   );

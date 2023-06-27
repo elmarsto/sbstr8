@@ -1,8 +1,9 @@
+'use client';
 import * as Plot from '@observablehq/plot';
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 
-interface GraphProps {
+export interface GraphProps {
   plot: Plot.PlotOptions;
   className?: string;
   style?: React.CSSProperties;

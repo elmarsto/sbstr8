@@ -14,7 +14,7 @@ interface PlayerOptions {
   }[];
 }
 
-interface VideoProps {
+export interface VideoProps {
   options: PlayerOptions;
   onReady: (player: any) => void;
   className?: string;
@@ -70,3 +70,4 @@ export const Video = (props: VideoProps) => {
     </div>
   );
 };
+export default Video;

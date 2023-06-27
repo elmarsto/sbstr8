@@ -2,7 +2,7 @@ import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
 
 export interface EmojiProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
   big?: boolean;

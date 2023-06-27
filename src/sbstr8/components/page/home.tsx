@@ -5,10 +5,10 @@ import ReadMore from '@/sbstr8/components/read-more';
 import Station from '@/sbstr8/components/station';
 import { PageHeader } from '@/sbstr8/components/page/header';
 import { Post } from '@/sbstr8/lib/types/post';
-import { PostList } from '@/sbstr8/components/post-list';
+import { PostList } from '@/sbstr8/components/lede-list';
 import { sClient } from '@/sbstr8/lib/graphql/server';
 
-const defaultPostPath = '/post/';
+const defaultPostPath = '/posts/';
 const query = gql`
   query {
     lastModified

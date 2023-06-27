@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
-import { mkShortDate } from '@/sbstr8/lib/post';
+import { mkShortDate } from '@/sbstr8/lib/date';
 import { Post } from '@/sbstr8/lib/types/post';
 import clss from './station.module.css';
 import Image from '@/sbstr8/components/image';

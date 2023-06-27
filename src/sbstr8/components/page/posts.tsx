@@ -28,7 +28,7 @@ const query = gql`
   }
 `;
 
-const defaultPostPath = '/post/';
+const defaultPostPath = '/posts';
 const slugToHref = (slug: string) =>
   urlJoin(cfg.postPath || defaultPostPath, slug);
 const defaultReadMoreClassName = 'absolute bottom-0 right-0';

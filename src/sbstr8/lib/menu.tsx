@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { faPaperPlane, faList, faRss } from '@fortawesome/free-solid-svg-icons';
+import { faList, faRss } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 
 export interface MenuItem {
@@ -17,14 +17,11 @@ export const menuLinks = [
     title: 'Posts',
   },
   {
-    href: '/contact',
-    icon: faPaperPlane,
-    title: 'Contact',
-  },
-  {
     href: '/feed',
     icon: faRss,
     title: 'RSS Feed',
     iconic: true,
   },
 ];
+
+export default menuLinks;

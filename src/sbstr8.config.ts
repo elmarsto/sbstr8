@@ -1,4 +1,4 @@
-import { Config, Override } from '@/sbstr8/lib/types/config';
+import { Config, SwitchboardOverride } from '@/sbstr8/lib/types/config';
 export const env = process.env.NODE_ENV;
 export const isProd = env === 'production';
 export const defaultAuthor = {
@@ -15,10 +15,11 @@ export const config: Config = {
   link: isProd ? 'https://example.com/' : 'http://127.0.0.1:3000',
   owners: [defaultAuthor],
   title: 'sbstr8 blog',
-  postPath: '/post',
+  postPath: '/posts',
+  feedPath: '/feed',
   icon: '/image/icon.svg',
   image: '/image/image.webp',
 };
 export default config;
 
-export const override: Override = {};
+export const override: SwitchboardOverride = {};

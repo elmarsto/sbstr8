@@ -1,19 +1,14 @@
 import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
-import { CookedPostMetadata as Post } from '@/sbstr8/lib/types/post';
 import Link from '@/sbstr8/components/link';
 import urlJoin from 'url-join';
 import { Md } from '@/sbstr8/components/md';
-import style from './post-list.module.css';
+import style from './lede.module.css';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 
-export interface PostListProps {
-  children: Post[];
-  className?: string;
-  style?: React.CSSProperties;
-}
-
+export type LedeProps = CookedPostMetadata;
 export const Lede = ({
   title,
   slug,
@@ -21,7 +16,7 @@ export const Lede = ({
   description,
   image,
   thumbnail,
-}: Post) => {
+}: LedeProps) => {
   const pic = thumbnail || image;
   return (
     <Link
@@ -78,23 +73,4 @@ export const Lede = ({
     </Link>
   );
 };
-
-const listClassName = ccn(
-  'grid',
-  'grid-cols-2',
-  'lg:grid-cols-8',
-  'md:gap-4',
-  'md:grid-cols-4',
-  'text-lg',
-);
-export const PostList = ({ children, className, style }: PostListProps) => {
-  return (
-    <div className={ccn(listClassName, className)} style={style}>
-      {children.map((p: Post) => (
-        <Lede {...p} key={p.slug} />
-      ))}
-    </div>
-  );
-};
-
-export default PostList;
+export default Lede;

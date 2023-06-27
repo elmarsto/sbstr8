@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Link from '@/sbstr8/components/link';
+import S8 from '@/sbstr8';
 import { HookProps } from '@/sbstr8/lib/types/post';
 import meta from './meta.json';
 import Teaser from './teaser.md';
@@ -8,9 +8,9 @@ import MdHook from './hook.md';
 import MdFootnotes from './footnotes.md';
 
 const Hook = ({ link }: HookProps) => (
-  <Link href={link}>
+  <S8.Link href={link}>
     <MdHook />
-  </Link>
+  </S8.Link>
 );
 const Footnotes = () => <MdFootnotes />;
 

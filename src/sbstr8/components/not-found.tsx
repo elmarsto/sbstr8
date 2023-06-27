@@ -1,13 +1,12 @@
 import StandardPage from '@/sbstr8/components/page/standard';
 import PageHeader from '@/sbstr8/components/page/header';
-import Link from '@/sbstr8/components/link';
-import Card from '@/sbstr8/components/card';
+import S8 from '@/sbstr8';
 
 const NotFound = () => (
   <>
     <PageHeader />
     <StandardPage title="Error Four Hundred and Four">
-      <Card title="⚀⚀ Snake Eyes">
+      <S8.Card title="⚀⚀ Snake Eyes">
         <p>
           So, the bad news is that we couldn&apos;t find the link you were
           looking for.
@@ -15,9 +14,9 @@ const NotFound = () => (
         <p>Check the URL in the address bar and try again.</p>
         <p>
           If you&apos;re unlucky even in that, maybe{' '}
-          <Link href="/">navigate to the home page</Link>?
+          <S8.Link href="/">navigate to the home page</S8.Link>?
         </p>
-      </Card>
+      </S8.Card>
     </StandardPage>
   </>
 );

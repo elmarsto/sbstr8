@@ -3,7 +3,7 @@ import urlJoin from 'url-join';
 import cfg from '@/sbstr8.config';
 import { typeDefs } from './schema';
 
-const endpoint = '/api/graphql';
+const endpoint = '/api/sbstr8';
 
 const cache = new InMemoryCache({
   typePolicies: {
