@@ -3,7 +3,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { CookedPostMetadata, RawPostMetadata } from '@/sbstr8/lib/types';
+import { CookedPostMetadata, RawPostMetadata } from '@/sbstr8/lib/types/post';
+import cfg from '@/sbstr8/config';
 
 const BEGINNING_OF_TIME = 'Jan 1 1970';
 const TODAY = new Date();
@@ -59,7 +60,7 @@ export const getSortedPost = (
 ): CookedPostMetadata[] => {
   const postDirectory = path.join(
     rootDirectory,
-    postSubdirectory(defaultPostPath),
+    postSubdirectory(cfg.postPath || defaultPostPath),
   );
   const slugs = fs.readdirSync(postDirectory);
   const posts: CookedPostMetadata[] = [];
@@ -74,14 +75,14 @@ export const getSortedPost = (
 
     posts.push({
       // above data so it can be overridden
-      image: path.join(defaultPostPath, slug, 'image.png'),
+      image: path.join(cfg.postPath || defaultPostPath, slug, 'image.png'),
       ...data,
       slug,
       created: data.created || 'Jan 1 2023',
       date: mkShortDate(data.created, data.updated),
       description: data.description || '',
       title: data.title || '',
-      link: path.join(defaultPostPath, slug),
+      link: path.join(cfg.postPath || defaultPostPath, slug),
     });
   });
 

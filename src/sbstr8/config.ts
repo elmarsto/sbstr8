@@ -1,4 +1,4 @@
-import { Config } from '@/sbstr8/lib/types/config';
+import { Config, Override } from '@/sbstr8/lib/types/config';
 export const env = process.env.NODE_ENV;
 export const isProd = env === 'production';
 export const defaultAuthor = {
@@ -20,3 +20,5 @@ export const config: Config = {
   image: '/image/image.webp',
 };
 export default config;
+
+export const override: Override = {};

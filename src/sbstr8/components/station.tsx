@@ -6,10 +6,15 @@ import clss from './station.module.css';
 import Image from '@/sbstr8/components/image';
 import Link from '@/sbstr8/components/link';
 
+const defaultImageWidth = 1024;
+const defaultImageHeight = 512;
+
 export interface StationProps {
   post: Post;
   link: string;
   cut: 'primary' | 'secondary' | 'tertiary';
+  imageWidth?: number;
+  imageHeight?: number;
   authorClassName?: string;
   className?: string;
   dateClassName?: string;
@@ -21,7 +26,7 @@ export interface StationProps {
 }
 const defaultImage = '/image/image.webp';
 
-const Story = ({
+const Station = ({
   link,
   post: {
     meta: { image, title, created, updated, authors },
@@ -31,6 +36,8 @@ const Story = ({
   cut,
   className,
   imageClassName,
+  imageWidth,
+  imageHeight,
   authorClassName,
   titleClassName,
   dateClassName,
@@ -46,6 +53,8 @@ const Story = ({
         <Image
           className={imageClassName}
           src={image || defaultImage}
+          width={imageWidth || defaultImageWidth}
+          height={imageHeight || defaultImageHeight}
           alt={`Image for post entitled ${title}`}
         />
       </Link>
@@ -60,11 +69,11 @@ const Story = ({
       <div className={ccn(clss['teaser'], teaserClassName)}>
         <Teaser />
       </div>
-      <div className={ccn(clss['hook'], hookClassName)}>
+      <Link className={ccn(clss['hook'], hookClassName)} href={link}>
         <Hook />
-      </div>
+      </Link>
     </div>
   );
 };
 
-export default Story;
+export default Station;

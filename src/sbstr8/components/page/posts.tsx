@@ -1,6 +1,8 @@
 import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
+import urlJoin from 'url-join';
 import { gql } from '@apollo/client';
+import cfg from '@/sbstr8/config';
 import Card from '@/sbstr8/components/card';
 import Link from '@/sbstr8/components/link';
 import PageHeader from '@/sbstr8/components/page/header';
@@ -8,7 +10,7 @@ import Slip from '@/sbstr8/components/slip';
 import StandardPage from '@/sbstr8/components/page/standard';
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import { Md } from '@/sbstr8/components/md';
-import { ReadMore } from '@/sbstr8/components/station';
+import ReadMore from '@/sbstr8/components/read-more';
 import { sClient } from '@/sbstr8/lib/graphql/server';
 
 const query = gql`
@@ -26,7 +28,9 @@ const query = gql`
   }
 `;
 
-const slugToHref = (slug: string) => `/post/${slug}`;
+const defaultPostPath = '/post/';
+const slugToHref = (slug: string) =>
+  urlJoin(cfg.postPath || defaultPostPath, slug);
 const defaultReadMoreClassName = 'absolute bottom-0 right-0';
 
 interface PostsProps {
