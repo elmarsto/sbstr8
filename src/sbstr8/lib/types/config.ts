@@ -18,32 +18,24 @@ export interface Config {
 }
 
 export interface Override {
-  component?: {
-    Link?: React.ComponentType;
-    Image?: React.ComponentType;
-    Station?: React.ComponentType;
-    PostList?: React.ComponentType;
-    Lede?: React.ComponentType;
-    page?: {
-      Standard: React.ComponentType;
-      Home: React.ComponentType;
-      Posts: React.ComponentType;
-      Post: React.ComponentType;
-    };
-    layout?: {
-      Standard: React.ComponentType;
-      Home: React.ComponentType;
-      Posts: React.ComponentType;
-      Post: React.ComponentType;
-    };
-  };
+  Image?: React.ComponentType;
+  LayoutHome?: React.ComponentType;
+  LayoutPost?: React.ComponentType;
+  LayoutPosts?: React.ComponentType;
+  LayoutStandard?: React.ComponentType;
+  Lede?: React.ComponentType;
+  Link?: React.ComponentType;
+  PageHome?: React.ComponentType;
+  PagePost?: React.ComponentType;
+  PagePosts?: React.ComponentType;
+  PageStandard?: React.ComponentType;
+  PostList?: React.ComponentType;
+  Station?: React.ComponentType;
+  graphqlClientSideCache?: ApolloCache<any>;
+  graphqlClientSideClient?: ApolloClient<ApolloCache<any>>;
+  graphqlResolvers?: object | object[];
+  graphqlServerSideCache?: ApolloCache<any>;
+  graphqlServerSideClient?: ApolloClient<ApolloCache<any>>;
+  graphqlTypeDefs?: string | DocumentNode | Array<DocumentNode>;
   menu?: MenuItem[];
-  graphql?: {
-    clientSideClient?: ApolloClient<ApolloCache<any>>;
-    serverSideClient?: ApolloClient<ApolloCache<any>>;
-    cache?: ApolloCache<any>;
-    typeDefs?: string | DocumentNode | Array<DocumentNode>;
-    resolvers?: object | object[];
-    schema?: object;
-  };
 }
