@@ -3,8 +3,14 @@ import ccn from '@sindresorhus/class-names';
 import { mkShortDate } from '@/sbstr8/lib/date';
 import { Post } from '@/sbstr8/lib/types/post';
 import clss from './station.module.css';
-import Image from '@/sbstr8/components/image';
-import Link from '@/sbstr8/components/link';
+import {
+  Image as defaultImageComponent,
+  ImageProps,
+} from '@/sbstr8/components/image';
+import {
+  Link as defaultLinkComponent,
+  LinkProps,
+} from '@/sbstr8/components/link';
 
 const defaultImageWidth = 1024;
 const defaultImageHeight = 512;
@@ -23,6 +29,8 @@ export interface StationProps {
   teaserClassName?: string;
   titleClassName?: string;
   style?: React.CSSProperties;
+  ImageComponent?: React.FunctionComponent<ImageProps>;
+  LinkComponent?: React.FunctionComponent<LinkProps>;
 }
 const defaultImage = '/image/image.webp';
 
@@ -44,9 +52,12 @@ const Station = ({
   teaserClassName,
   hookClassName,
   style,
+  ImageComponent,
+  LinkComponent,
 }: StationProps) => {
   const date = mkShortDate(created, updated);
-
+  const Link = LinkComponent || defaultLinkComponent;
+  const Image = ImageComponent || defaultImageComponent;
   return (
     <div className={ccn(clss[cut], className)} style={style}>
       <Link href={link}>

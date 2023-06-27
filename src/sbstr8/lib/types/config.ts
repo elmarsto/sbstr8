@@ -39,7 +39,6 @@ export interface Switchboard {
   Card: React.FunctionComponent<CardProps>;
   ClipboardButton: React.FunctionComponent<ClipboardButtonProps>;
   Emoji: React.FunctionComponent<EmojiProps>;
-  Error: React.FunctionComponent;
   Essay: React.FunctionComponent<EssayProps>;
   Fig: React.FunctionComponent<FigProps>;
   Graph: React.FunctionComponent<GraphProps>;
@@ -48,9 +47,7 @@ export interface Switchboard {
   Lede: React.FunctionComponent<LedeProps>;
   LedeList: React.FunctionComponent<LedeListProps>;
   Link: React.FunctionComponent<LinkProps>;
-  Loading: React.FunctionComponent;
   Md: React.FunctionComponent<MdProps>;
-  NotFound: React.FunctionComponent;
   PageHeader: React.FunctionComponent<PageHeaderProps>;
   Pre: React.FunctionComponent<PreProps>;
   ReadMore: React.FunctionComponent<ReadMoreProps>;

@@ -1,6 +1,5 @@
 import { useRemarkSync } from 'react-remark';
 import remarkGemoji from 'remark-gemoji';
-import components from './md-components';
 
 export interface MdProps {
   children?: string | string[];
@@ -24,7 +23,7 @@ export const Md = ({ children, className, style }: MdProps) => {
     // @ts-ignore
     remarkPlugins: [remarkGemoji],
     remarkToRehypeOptions: { allowDangerousHtml: true }, // TODO: is this safe? R&D
-    rehypeReactOptions: { components },
+    // TODO: use S8 elements like in mdx-components.tsx
   });
   return (
     <span className={className} style={style}>

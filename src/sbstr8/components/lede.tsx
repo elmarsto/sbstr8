@@ -1,14 +1,21 @@
 import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
-import Link from '@/sbstr8/components/link';
 import urlJoin from 'url-join';
-import { Md } from '@/sbstr8/components/md';
 import style from './lede.module.css';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
+import {
+  Link as defaultLinkComponent,
+  LinkProps,
+} from '@/sbstr8/components/link';
+import { Md as defaultMdComponent, MdProps } from '@/sbstr8/components/link';
 
-export type LedeProps = CookedPostMetadata;
+export interface LedeProps extends CookedPostMetadata {
+  LinkComponent?: React.FunctionComponent<LinkProps>;
+  MdComponent?: React.FunctionComponent<MdProps>;
+}
+
 export const Lede = ({
   title,
   slug,
@@ -16,7 +23,11 @@ export const Lede = ({
   description,
   image,
   thumbnail,
+  LinkComponent,
+  MdComponent,
 }: LedeProps) => {
+  const Link = LinkComponent || defaultLinkComponent;
+  const Md = MdComponent || defaultMdComponent;
   const pic = thumbnail || image;
   return (
     <Link
