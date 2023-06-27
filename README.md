@@ -16,6 +16,10 @@ At the moment, an enormous amount of forward development has occurred in a priva
 Over the next week I will be backporting as much as I can to sbstr8. This will involve refactoring things so that sbstr8 related components
 are in their own subdirectory of the project, etc. I'm hard at work on sbstr8, stay tuned.
 
+# UPDATE (2023-06-26)
+
+See [a writeup of the procedure I'm using to do a comprehensive refactor](https://lizmars.net/post/2023-06-26.refactoring). Good things are brewing!
+
 # What is sbstr8? (Prounounced ‘substrate’)
 
  - A maximalist, ultra-modern, opinionated blog starter for rich, interactive storytelling by creatives who code in Typescript React.
