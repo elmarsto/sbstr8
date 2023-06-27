@@ -8,7 +8,7 @@ import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
 
-import cfg, { defaultAuthor } from '@/sbstr8/config';
+import cfg, { defaultAuthor } from '@/sbstr8.config';
 
 const xmlHeader = '<?xml version="1.0" encoding="utf-8"?>';
 const stylesheetLink =

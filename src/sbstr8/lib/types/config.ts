@@ -18,6 +18,14 @@ export interface Config {
 }
 
 export interface Override {
+  Card?: React.ComponentType;
+  ClipboardButton?: React.ComponentType;
+  Emoji?: React.ComponentType;
+  Error?: React.ComponentType;
+  Essay?: React.ComponentType;
+  Fig?: React.ComponentType;
+  Graph?: React.ComponentType;
+  Grid?: React.ComponentType;
   Image?: React.ComponentType;
   LayoutHome?: React.ComponentType;
   LayoutPost?: React.ComponentType;
@@ -25,12 +33,20 @@ export interface Override {
   LayoutStandard?: React.ComponentType;
   Lede?: React.ComponentType;
   Link?: React.ComponentType;
+  Loading?: React.ComponentType;
+  Md?: React.ComponentType;
+  NotFound?: React.ComponentType;
   PageHome?: React.ComponentType;
   PagePost?: React.ComponentType;
   PagePosts?: React.ComponentType;
   PageStandard?: React.ComponentType;
   PostList?: React.ComponentType;
+  Pre?: React.ComponentType;
+  ReadMore?: React.ComponentType;
+  Slip?: React.ComponentType;
   Station?: React.ComponentType;
+  Video?: React.ComponentType;
+  // TODO: 'feed' override (requires: figuring out type for a next.js route.ts (GET, etc.))
   graphqlClientSideCache?: ApolloCache<any>;
   graphqlClientSideClient?: ApolloClient<ApolloCache<any>>;
   graphqlResolvers?: object | object[];

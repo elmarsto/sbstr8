@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 import ccn from '@sindresorhus/class-names';
-import cfg from '@/sbstr8/config';
+import cfg from '@/sbstr8.config';
 import ReadMore from '@/sbstr8/components/read-more';
 import Station from '@/sbstr8/components/station';
 import { PageHeader } from '@/sbstr8/components/page/header';

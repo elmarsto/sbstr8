@@ -1,7 +1,7 @@
 import { startServerAndCreateNextHandler } from '@as-integrations/next';
 import { NextRequest } from 'next/server';
 import { server } from '@/sbstr8/lib/graphql/server';
-import cfg from '@/sbstr8/config';
+import cfg from '@/sbstr8.config';
 
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
   context: async (req) => ({ req }),

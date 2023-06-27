@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { CookedPostMetadata, RawPostMetadata } from '@/sbstr8/lib/types/post';
-import cfg from '@/sbstr8/config';
+import cfg from '@/sbstr8.config';
 
 const BEGINNING_OF_TIME = 'Jan 1 1970';
 const TODAY = new Date();

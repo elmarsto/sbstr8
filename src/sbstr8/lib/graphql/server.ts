@@ -2,7 +2,7 @@ import { ApolloServer } from '@apollo/server';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { compose, pluck, flatten } from 'ramda';
 import { getSortedPost, getLastModified } from '@/sbstr8/lib/post';
-import cfg from '@/sbstr8/config';
+import cfg from '@/sbstr8.config';
 import { Person } from '@/sbstr8/lib/types/person';
 import { DateRange } from '@/sbstr8/lib/types/date-range';
 import { Contribution } from '@/sbstr8/lib/types/contribution';

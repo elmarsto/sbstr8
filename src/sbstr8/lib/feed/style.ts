@@ -1,5 +1,5 @@
 import urlJoin from 'url-join';
-import cfg from '@/sbstr8/config';
+import cfg from '@/sbstr8.config';
 
 const stylesheet = `<?xml version="1.0" encoding="utf-8"?>
   <xsl:stylesheet version="3.0"

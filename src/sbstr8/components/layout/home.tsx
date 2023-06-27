@@ -2,7 +2,7 @@ import ccn from '@sindresorhus/class-names';
 import urlJoin from 'url-join';
 import '@/sbstr8/lib/style.css';
 import pkg from '@/../package.json';
-import cfg, { defaultAuthor } from '@/sbstr8/config';
+import cfg, { defaultAuthor } from '@/sbstr8.config';
 
 const MainLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <html lang="en">
