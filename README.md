@@ -1,5 +1,5 @@
 Stop posting like it’s 1999.
-
+![](https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg)
 ```
 
         ,--.              ,--.            ,---.
