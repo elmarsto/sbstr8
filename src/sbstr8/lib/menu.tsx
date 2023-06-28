@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { faList, faRss } from '@fortawesome/free-solid-svg-icons';
+import { faList, faRss, faHome } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import cfg from '@/../sbstr8.config';
 
@@ -12,6 +12,11 @@ export interface MenuItem {
 }
 
 export const menuLinks = [
+  {
+    href: cfg.link,
+    icon: faHome,
+    title: 'Home',
+  },
   {
     href: cfg.postPath,
     icon: faList,
