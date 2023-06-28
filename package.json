@@ -148,7 +148,6 @@
     "jest": "29.5.0",
     "jest-environment-jsdom": "29.5.0",
     "lint-staged": "13.2.2",
-    "mirrorful": "6.1.15",
     "postcss-cli": "10.1.0",
     "postcss-utilities": "0.8.4",
     "prettier": "2.8.8",

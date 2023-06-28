@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --background-rgb: 255, 255, 255;
-  --border-radius: 12px;
   --font-bold-italic: serif;
   --font-bold: serif;
   --font-header-bold-italic: sans-serif;
@@ -39,12 +37,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
@@ -125,7 +117,5 @@ pre {
 }
 code {
   font-family: var(--font-mono-bold);
-  padding: 2px;
-  line-height: 1.3rem;
 }
 
