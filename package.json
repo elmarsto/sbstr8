@@ -1,7 +1,7 @@
 {
   "name": "sbstr8",
-  "version": "0.0.4",
-  "description": "A maximalist, ultra-modern, opinionated scaffold for rich, interactive storytelling, journalism and blogging",
+  "version": "0.1.0",
+  "description": "A nearly-unstyled, hackable, ultra-modern, ultra-clean scaffold for rich, interactive storytelling, journalism and blogging. Fork this repo and get to work",
   "scripts": {
     "dev": "npx next",
     "build": "npx next build",
