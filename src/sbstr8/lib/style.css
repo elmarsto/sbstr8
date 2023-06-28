@@ -83,21 +83,6 @@ article p {
   margin-bottom: 1rem;
 }
 
-
-article > .article-body > p:first-child {
-  text-indent: 0rem;
-}
-
-article > .article-body > p:first-child:first-letter {
-  float: left;
-  font-size: 2.5rem;
-  padding: 0.5rem 0.5rem 0 0;
-}
-
-article > div > p:last-child:after {
-  content:"\2299";
-}
-
 article li {
   padding-bottom: 0.5rem;
 }

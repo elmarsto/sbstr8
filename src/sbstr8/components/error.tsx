@@ -3,7 +3,8 @@
 import { useEffect } from 'react';
 import StandardPage from '@/sbstr8/components/page/standard';
 import PageHeader from '@/sbstr8/components/page/header';
-import S8 from '@/sbstr8';
+import Card from '@/sbstr8/components/card';
+import Link from '@/sbstr8/components/link';
 
 export interface ErrorProps {
   error?: Error;
@@ -20,7 +21,7 @@ const Error = ({ error, reset }: ErrorProps) => {
     <>
       <PageHeader />
       <StandardPage title="Error Five Hundred and Something">
-        <S8.Card title="⚀⚀ Snake Eyes">
+        <Card title="⚀⚀ Snake Eyes">
           <p>Something has gone wrong in your browser. It happens.</p>
           <p>
             This button forces the web page logic to reload; try clicking it:
@@ -37,9 +38,9 @@ const Error = ({ error, reset }: ErrorProps) => {
           </p>
           <p>
             If you&apos;re unlucky even in that, maybe{' '}
-            <S8.Link href="/">navigate to the home page</S8.Link>?
+            <Link href="/">navigate to the home page</Link>?
           </p>
-        </S8.Card>
+        </Card>
       </StandardPage>
     </>
   );

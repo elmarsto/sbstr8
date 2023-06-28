@@ -9,7 +9,7 @@ import {
   Link as defaultLinkComponent,
   LinkProps,
 } from '@/sbstr8/components/link';
-import { Md as defaultMdComponent, MdProps } from '@/sbstr8/components/link';
+import { Md as defaultMdComponent, MdProps } from '@/sbstr8/components/md';
 
 export interface LedeProps extends CookedPostMetadata {
   LinkComponent?: React.FunctionComponent<LinkProps>;

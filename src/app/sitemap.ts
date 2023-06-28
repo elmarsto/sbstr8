@@ -1,1 +1,2 @@
-export * from '@/sbstr8/lib/sitemap';
+import Sitemap from '@/sbstr8/lib/sitemap';
+export default Sitemap;

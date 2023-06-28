@@ -20,26 +20,16 @@ export const PageHeader = ({
 }: PageHeaderProps) => {
   const Link = LinkComponent || defaultLinkComponent;
   return (
-    <header
-      style={style}
-      className={ccn(
-        'absolute',
-        'left-0',
-        'm-0',
-        'pt-2',
-        'right-0',
-        'top-0',
-        'z-10',
-        className,
-      )}
-    >
+    <header style={style} className={className}>
       {children}
       <nav>
         <menu>
-          <ul>
+          <ul className={ccn('flex', 'flex-row', 'row-nowrap', 'gap-4')}>
             {menuLinks.map(({ href, title }, i) => (
               <li key={i}>
-                <Link href={href}>{title}</Link>
+                <h1>
+                  <Link href={href}>{title}</Link>
+                </h1>
               </li>
             ))}
           </ul>

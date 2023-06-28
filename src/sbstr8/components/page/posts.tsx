@@ -33,7 +33,7 @@ const slugToHref = (slug: string) =>
   urlJoin(cfg.postPath || defaultPostPath, slug);
 const defaultReadMoreClassName = 'absolute bottom-0 right-0';
 
-interface PostsProps {
+export interface PostsParams {
   dateClassName?: string;
   descriptionClassName?: string;
   headerClassName?: string;
@@ -41,101 +41,110 @@ interface PostsProps {
   titleClassName?: string;
 }
 
-export const Posts = async ({
-  dateClassName,
-  descriptionClassName,
-  headerClassName,
-  readMoreClassName,
-  titleClassName,
-}: PostsProps) => {
-  const {
-    data: { posts },
-  } = await sClient.query({ query });
-  return (
-    <>
-      <PageHeader className={headerClassName} />
-      <StandardPage>
-        {posts.map(
-          (
-            {
-              created,
-              description,
-              image,
-              slug,
-              thumbnail,
-              title,
-              updated,
-            }: CookedPostMetadata,
-            i: number,
-          ) => {
-            const pic = thumbnail || image;
-            return (
-              <Card
-                key={i}
-                className={ccn(
-                  'flex',
-                  'flex-nowrap',
-                  'flex-row',
-                  'gap-4',
-                  'items-stretch',
-                  'justify-between',
-                  'mb-1',
-                  'sm:mb-4',
-                )}
-              >
-                <Link
-                  href={slugToHref(slug)}
-                  style={{
-                    width: 256,
-                    height: 256,
-                    backgroundImage: pic && `url(${pic})`,
-                  }}
-                  className={ccn('bg-cover', 'rounded-lg', 'shrink-0')}
+export const postsMaker =
+  ({
+    dateClassName,
+    descriptionClassName,
+    headerClassName,
+    readMoreClassName,
+    titleClassName,
+  }: PostsParams) =>
+  async () => {
+    const {
+      data: { posts },
+    } = await sClient.query({ query });
+    return (
+      <>
+        <PageHeader className={headerClassName} />
+        <StandardPage>
+          {posts.map(
+            (
+              {
+                created,
+                description,
+                image,
+                slug,
+                thumbnail,
+                title,
+                updated,
+              }: CookedPostMetadata,
+              i: number,
+            ) => {
+              const pic = thumbnail || image;
+              return (
+                <Card
+                  key={i}
+                  className={ccn(
+                    'flex',
+                    'flex-nowrap',
+                    'flex-row',
+                    'gap-4',
+                    'items-stretch',
+                    'justify-between',
+                    'mb-1',
+                    'sm:mb-4',
+                  )}
                 >
-                  &nbsp;
-                </Link>
-                <Slip
-                  className={ccn('grow', 'relative', 'overflow-hidden')}
-                  style={{ height: 256 }}
-                  title={
-                    <Link
-                      href={slugToHref(slug)}
-                      className={ccn('text-lg', 'sm:text-2xl', titleClassName)}
-                    >
-                      {title}
-                    </Link>
-                  }
-                >
-                  <div className={ccn('pb-4', 'text-sm', 'sm:text-md')}>
-                    <span className={dateClassName}>{created}</span>
-                    {updated && (
-                      <em>
-                        &mdash;updated{' '}
-                        <span className={dateClassName}>{updated}</span>
-                      </em>
-                    )}
-                  </div>
-                  <Md
-                    className={ccn(
-                      'text-sm',
-                      'sm:text-lg',
-                      descriptionClassName,
-                    )}
-                  >
-                    {description}
-                  </Md>
-                  <ReadMore
+                  <Link
                     href={slugToHref(slug)}
-                    className={ccn(defaultReadMoreClassName, readMoreClassName)}
-                  />
-                </Slip>
-              </Card>
-            );
-          },
-        )}
-      </StandardPage>
-    </>
-  );
-};
+                    style={{
+                      width: 256,
+                      height: 256,
+                      backgroundImage: pic && `url(${pic})`,
+                    }}
+                    className={ccn('bg-cover', 'shrink-0')}
+                  >
+                    &nbsp;
+                  </Link>
+                  <Slip
+                    className={ccn('grow', 'relative', 'overflow-hidden')}
+                    style={{ height: 256 }}
+                    title={
+                      <Link
+                        href={slugToHref(slug)}
+                        className={ccn(
+                          'text-lg',
+                          'sm:text-2xl',
+                          titleClassName,
+                        )}
+                      >
+                        {title}
+                      </Link>
+                    }
+                  >
+                    <div className={ccn('pb-4', 'text-sm', 'sm:text-md')}>
+                      <span className={dateClassName}>{created}</span>
+                      {updated && (
+                        <em>
+                          &mdash;updated{' '}
+                          <span className={dateClassName}>{updated}</span>
+                        </em>
+                      )}
+                    </div>
+                    <Md
+                      className={ccn(
+                        'text-sm',
+                        'sm:text-lg',
+                        descriptionClassName,
+                      )}
+                    >
+                      {description}
+                    </Md>
+                    <ReadMore
+                      href={slugToHref(slug)}
+                      className={ccn(
+                        defaultReadMoreClassName,
+                        readMoreClassName,
+                      )}
+                    />
+                  </Slip>
+                </Card>
+              );
+            },
+          )}
+        </StandardPage>
+      </>
+    );
+  };
 
-export default Posts;
+export default postsMaker;

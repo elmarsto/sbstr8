@@ -28,7 +28,7 @@ const stylesheet = `<?xml version="1.0" encoding="utf-8"?>
               to learn more and get started. It’s free.
             </p>
             <p class="p-2 indent-4">If you already have a feed reader: simply copy the address in the URL bar and add it as a feed in your feed reader. You will receive updates whenever I add content to this website.</p>
-            <p class="p-2 indent-4">Alternately, if you don&apos;t want to mess with RSS and don&apos;t care about update notifications, you may view the same content in your browser <a href="/post/">over here.</a></p>
+            <p class="p-2 indent-4">Alternately, if you don&apos;t want to mess with RSS and don&apos;t care about update notifications, you may view the same content in your browser <a href="/posts/">over here.</a></p>
           </div>
         </div>
         <div class="mx-auto flex flex-row row-nowrap justify-around items-stretch pt-24">

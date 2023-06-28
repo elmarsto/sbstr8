@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
-import S8 from '@/sbstr8';
+import PageHeader from '@/sbstr8/components/page/header';
 import { Person } from '@/sbstr8/lib/types/person';
 import { defaultAuthor } from '@/../sbstr8.config';
 
@@ -37,7 +37,7 @@ export const Standard = ({
   const author = authors && authors.length > 0 ? authors[0] : defaultAuthor;
   return (
     <>
-      <S8.PageHeader />
+      <PageHeader />
       <main>
         <article>
           <header>

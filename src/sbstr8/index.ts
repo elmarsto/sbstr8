@@ -3,7 +3,6 @@ import { override } from '@/../sbstr8.config';
 import Card from '@/sbstr8/components/card';
 import ClipboardButton from '@/sbstr8/components/clipboard-button';
 import Emoji from '@/sbstr8/components/emoji';
-import Error from '@/sbstr8/components/error';
 import Essay from '@/sbstr8/components/essay';
 import Fig from '@/sbstr8/components/fig';
 import Graph from '@/sbstr8/components/graph';
@@ -12,9 +11,7 @@ import Image from '@/sbstr8/components/image';
 import Lede from '@/sbstr8/components/lede';
 import LedeList from '@/sbstr8/components/lede-list';
 import Link from '@/sbstr8/components/link';
-import Loading from '@/sbstr8/components/loading';
 import Md from '@/sbstr8/components/md';
-import NotFound from '@/sbstr8/components/not-found';
 import ReadMore from '@/sbstr8/components/read-more';
 import Pre from '@/sbstr8/components/pre';
 import PageHeader from '@/sbstr8/components/page/header';
@@ -27,7 +24,6 @@ export const defaults: Switchboard = {
   Card,
   ClipboardButton,
   Emoji,
-  Error,
   Essay,
   Fig,
   Graph,
@@ -36,9 +32,7 @@ export const defaults: Switchboard = {
   Lede,
   LedeList,
   Link,
-  Loading,
   Md,
-  NotFound,
   PageHeader,
   Pre,
   ReadMore,

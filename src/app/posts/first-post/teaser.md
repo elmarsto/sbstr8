@@ -1,1 +1,1 @@
-Host grits!
+Hot grits!

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import type { MDXComponents } from 'mdx/types';
-import S8 from '@/sbstr8';
+import Link from '@/sbstr8/components/link';
+import Image from '@/sbstr8/components/image';
+import Pre from '@/sbstr8/components/pre';
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(components: MDXComponents): MDXComponents {
@@ -13,18 +15,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h6: ({ children }) => <h4 className="font-semibold text-xs">{children}</h4>,
     ...components,
     a: ({ href, children, className, style }) => (
-      <S8.Link href={href} style={style} className={className}>
+      <Link href={href} style={style} className={className}>
         {children}
-      </S8.Link>
+      </Link>
     ),
-    pre: S8.Pre,
+    pre: Pre,
     img: (
       props: React.DetailedHTMLProps<
         React.ImgHTMLAttributes<HTMLImageElement>,
         HTMLImageElement
       >,
     ) => (
-      <S8.Image
+      <Image
         alt={props.alt || ''}
         src={props.src || '#'}
         width={typeof props.width === 'number' ? props.width : 256}

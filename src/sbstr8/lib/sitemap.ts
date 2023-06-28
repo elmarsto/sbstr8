@@ -16,10 +16,10 @@ export default function sitemap() {
   }));
   sitemap.push({ url: cfg.link, lastModified });
   menuLinks.map((ml) => {
-    if (/^(http|mailto).*$/.test(ml.href)) {
+    if (/^(http|mailto).*$/.test(ml.href || '')) {
       return;
     }
-    sitemap.push({ url: urlJoin(cfg.link, ml.href), lastModified });
+    sitemap.push({ url: urlJoin(cfg.link, ml.href || ''), lastModified });
   });
   return sitemap;
 }

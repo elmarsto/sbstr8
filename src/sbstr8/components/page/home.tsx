@@ -65,9 +65,6 @@ export const homeMaker =
             'flex-col',
             'flex-nowrap',
             'justify-stretch',
-            'md:px-4',
-            'pt-10',
-            'sm:pt-24',
             mainClassName,
           )}
         >

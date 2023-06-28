@@ -6,18 +6,16 @@ import {
 } from '@/sbstr8/lib/post';
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import { Feed } from 'feed';
-import { pick, map, pluck } from 'ramda';
+import { pick } from 'ramda';
 
 import cfg, { defaultAuthor } from '@/../sbstr8.config';
-
+//TODO: handle contributors again (removed because of typescript version bump related type conflicts)
 const xmlHeader = '<?xml version="1.0" encoding="utf-8"?>';
 const stylesheetLink =
   '<?xml-stylesheet href="/feed/style.xsl" type="text/xsl"?>';
 const addStylesheetLink = (feed: string) =>
   feed.replace(xmlHeader, `${xmlHeader}\n${stylesheetLink}`);
 const feedPerson = pick(['link', 'name']);
-const feedPeople = map(feedPerson);
-const pluckContributors = pluck('contributors');
 const currentDate = new Date();
 export function GET() {
   const posts = getSortedPost();
@@ -41,15 +39,13 @@ export function GET() {
       created,
       image,
       thumbnail,
-      contributions,
       description,
       title,
     }: CookedPostMetadata) => {
       const pic = thumbnail || image;
       console.log(pic ? urlJoin(cfg.link, pic) : undefined);
       feed.addItem({
-        author: feedPeople(authors || [defaultAuthor]),
-        contributor: feedPeople(pluckContributors(contributions || [])),
+        author: (authors || [defaultAuthor]).map(feedPerson),
         date: updated || created ? new Date(updated || created) : currentDate,
         description,
         image: pic ? urlJoin(cfg.link, pic) : undefined,
