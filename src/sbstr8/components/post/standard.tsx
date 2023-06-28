@@ -4,6 +4,10 @@ import PageHeader from '@/sbstr8/components/page/header';
 import Image from '@/sbstr8/components/image';
 import { Person } from '@/sbstr8/lib/types/person';
 import { defaultAuthor } from '@/../sbstr8.config';
+import cfg from '@/../sbstr8.config';
+
+const LOGO_SZ = 32;
+const defaultLogo = '/media/sbstr8.svg';
 
 const IMG_WIDTH = 2048;
 const IMG_HEIGHT = 1024;
@@ -39,9 +43,12 @@ export const Standard = ({
   updated,
 }: StandardProps) => {
   const author = authors && authors.length > 0 ? authors[0] : defaultAuthor;
+  const pic = cfg.icon || defaultLogo;
   return (
     <>
-      <PageHeader />
+      <PageHeader>
+        <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
+      </PageHeader>
       <main>
         <article>
           <header>

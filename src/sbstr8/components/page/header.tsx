@@ -3,6 +3,7 @@ import {
   Link as defaultLinkComponent,
   LinkProps,
 } from '@/sbstr8/components/link';
+import cfg from '@/../sbstr8.config';
 import { menuLinks } from '@/sbstr8/lib/menu';
 
 export interface PageHeaderProps {
@@ -20,7 +21,7 @@ export const PageHeader = ({
   const Link = LinkComponent || defaultLinkComponent;
   return (
     <header style={style} className={className}>
-      {children}
+      <Link href={cfg.link}>{children}</Link>
       <nav>
         <menu>
           {menuLinks.map(({ href, title }, i) => (

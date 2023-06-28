@@ -5,6 +5,11 @@ import StandardPage from '@/sbstr8/components/page/standard';
 import PageHeader from '@/sbstr8/components/page/header';
 import Card from '@/sbstr8/components/card';
 import Link from '@/sbstr8/components/link';
+import Image from '@/sbstr8/components/image';
+import cfg from '@/../sbstr8.config';
+
+const LOGO_SZ = 32;
+const defaultLogo = '/media/sbstr8.svg';
 
 export interface ErrorProps {
   error?: Error;
@@ -12,6 +17,7 @@ export interface ErrorProps {
 }
 // TODO: flesh this out; rn its just a cut/paste from nextjs docs
 const Error = ({ error, reset }: ErrorProps) => {
+  const pic = cfg.icon || defaultLogo;
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
@@ -19,7 +25,9 @@ const Error = ({ error, reset }: ErrorProps) => {
 
   return (
     <>
-      <PageHeader />
+      <PageHeader>
+        <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
+      </PageHeader>
       <StandardPage title="Error Five Hundred and Something">
         <Card title="⚀⚀ Snake Eyes">
           <p>Something has gone wrong in your browser. It happens.</p>

@@ -17,8 +17,8 @@ export const config: Config = {
   title: 'sbstr8 blog',
   postPath: '/posts',
   feedPath: '/feed',
-  icon: '/image/sbstr8.svg',
-  image: '/image/sbstr8.svg',
+  icon: '/media/sbstr8.svg',
+  image: '/media/sbstr8.svg',
 };
 export default config;
 

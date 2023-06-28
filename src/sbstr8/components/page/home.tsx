@@ -3,12 +3,16 @@ import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
 import ReadMore from '@/sbstr8/components/read-more';
 import Station from '@/sbstr8/components/station';
+import Image from '@/sbstr8/components/image';
 import { PageHeader } from '@/sbstr8/components/page/header';
 import { Post } from '@/sbstr8/lib/types/post';
 import LedeList from '@/sbstr8/components/lede-list';
 import { sClient } from '@/sbstr8/lib/graphql/server';
 
+const LOGO_SZ = 32;
+
 const defaultPostPath = '/posts/';
+const defaultLogo = '/media/sbstr8.svg';
 const query = gql`
   query {
     lastModified
@@ -56,9 +60,12 @@ export const homeMaker =
 
     const featureCount = eins.length + zwei.length + drei.length;
     const unfeaturedPosts = data.posts.slice(featureCount);
+    const logo = cfg.icon || defaultLogo;
     return (
       <>
-        <PageHeader />
+        <PageHeader>
+          <Image src={logo} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
+        </PageHeader>
         <main className={mainClassName}>
           <div className={ccn('md:pb-4')} style={{ minHeight: 1024 }}>
             {eins.map(({ post, link }: Feature, i: number) => (

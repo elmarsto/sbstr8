@@ -32,7 +32,7 @@ export interface StationProps {
   ImageComponent?: React.FunctionComponent<ImageProps>;
   LinkComponent?: React.FunctionComponent<LinkProps>;
 }
-const defaultImage = '/image/image.webp';
+const defaultImage = '/media/sbstr8.svg';
 
 const Station = ({
   link,

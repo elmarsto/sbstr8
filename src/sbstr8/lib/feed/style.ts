@@ -15,7 +15,10 @@ const stylesheet = `<?xml version="1.0" encoding="utf-8"?>
       </head>
       <body>
         <div>
-          <img src="${urlJoin(cfg.link, cfg.image || '')}" />
+          <a href="/"><img src="${urlJoin(
+            cfg.link,
+            cfg.image || '',
+          )}" width="32" height="32"/></a>
           <div>
             <h1>RSS Atom Feed</h1>
             <p>

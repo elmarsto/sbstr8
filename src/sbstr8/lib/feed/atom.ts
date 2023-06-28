@@ -7,9 +7,11 @@ import {
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import { Feed } from 'feed';
 import { pick } from 'ramda';
-
 import cfg, { defaultAuthor } from '@/../sbstr8.config';
 //TODO: handle contributors again (removed because of typescript version bump related type conflicts)
+
+const defaultImage = '/media/sbstr8.svg';
+
 const xmlHeader = '<?xml version="1.0" encoding="utf-8"?>';
 const stylesheetLink =
   '<?xml-stylesheet href="/feed/style.xsl" type="text/xsl"?>';
@@ -24,7 +26,7 @@ export function GET() {
     copyright: cfg.copyright,
     description: cfg.description,
     id: cfg.link,
-    image: urlJoin(cfg.link, cfg.image || '/image/image.webp'),
+    image: urlJoin(cfg.link, cfg.image || defaultImage),
     favicon: cfg.icon,
     language: cfg.language,
     link: cfg.link,

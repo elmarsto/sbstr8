@@ -13,6 +13,9 @@ import { Md } from '@/sbstr8/components/md';
 import ReadMore from '@/sbstr8/components/read-more';
 import { sClient } from '@/sbstr8/lib/graphql/server';
 
+const LOGO_SZ = 32;
+const defaultLogo = '/media/sbstr8.svg';
+
 const query = gql`
   query {
     lastModified
@@ -52,12 +55,15 @@ export const postsMaker =
     titleClassName,
   }: PostsParams) =>
   async () => {
+    const pic = cfg.icon || defaultLogo;
     const {
       data: { posts },
     } = await sClient.query({ query });
     return (
       <>
-        <PageHeader className={headerClassName} />
+        <PageHeader className={headerClassName}>
+          <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
+        </PageHeader>
         <StandardPage>
           {posts.map(
             (
