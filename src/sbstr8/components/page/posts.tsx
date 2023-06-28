@@ -1,10 +1,10 @@
 import * as React from 'react';
-import ccn from '@sindresorhus/class-names';
 import urlJoin from 'url-join';
 import { gql } from '@apollo/client';
 import cfg from '@/../sbstr8.config';
 import Card from '@/sbstr8/components/card';
 import Link from '@/sbstr8/components/link';
+import Image from '@/sbstr8/components/image';
 import PageHeader from '@/sbstr8/components/page/header';
 import Slip from '@/sbstr8/components/slip';
 import StandardPage from '@/sbstr8/components/page/standard';
@@ -28,10 +28,12 @@ const query = gql`
   }
 `;
 
+const THUMB_SZ = 256;
+const THUMB_DEFAULT = '/media/sbstr8.svg';
 const defaultPostPath = '/posts';
+
 const slugToHref = (slug: string) =>
   urlJoin(cfg.postPath || defaultPostPath, slug);
-const defaultReadMoreClassName = 'absolute bottom-0 right-0';
 
 export interface PostsParams {
   dateClassName?: string;
@@ -70,49 +72,31 @@ export const postsMaker =
               }: CookedPostMetadata,
               i: number,
             ) => {
-              const pic = thumbnail || image;
+              const pic = thumbnail || image || THUMB_DEFAULT;
               return (
-                <Card
-                  key={i}
-                  className={ccn(
-                    'flex',
-                    'flex-nowrap',
-                    'flex-row',
-                    'gap-4',
-                    'items-stretch',
-                    'justify-between',
-                    'mb-1',
-                    'sm:mb-4',
-                  )}
-                >
-                  <Link
-                    href={slugToHref(slug)}
-                    style={{
-                      width: 256,
-                      height: 256,
-                      backgroundImage: pic && `url(${pic})`,
-                    }}
-                    className={ccn('bg-cover', 'shrink-0')}
-                  >
-                    &nbsp;
+                <Card key={i}>
+                  <Link href={slugToHref(slug)}>
+                    <Image
+                      src={pic}
+                      alt={title}
+                      width={THUMB_SZ}
+                      height={THUMB_SZ}
+                    />
                   </Link>
                   <Slip
-                    className={ccn('grow', 'relative', 'overflow-hidden')}
-                    style={{ height: 256 }}
+                    style={{ height: THUMB_SZ }}
                     title={
-                      <Link
-                        href={slugToHref(slug)}
-                        className={ccn(
-                          'text-lg',
-                          'sm:text-2xl',
-                          titleClassName,
-                        )}
-                      >
-                        {title}
-                      </Link>
+                      <h2>
+                        <Link
+                          href={slugToHref(slug)}
+                          className={titleClassName}
+                        >
+                          {title}
+                        </Link>
+                      </h2>
                     }
                   >
-                    <div className={ccn('pb-4', 'text-sm', 'sm:text-md')}>
+                    <h3>
                       <span className={dateClassName}>{created}</span>
                       {updated && (
                         <em>
@@ -120,22 +104,11 @@ export const postsMaker =
                           <span className={dateClassName}>{updated}</span>
                         </em>
                       )}
-                    </div>
-                    <Md
-                      className={ccn(
-                        'text-sm',
-                        'sm:text-lg',
-                        descriptionClassName,
-                      )}
-                    >
-                      {description}
-                    </Md>
+                    </h3>
+                    <Md className={descriptionClassName}>{description}</Md>
                     <ReadMore
                       href={slugToHref(slug)}
-                      className={ccn(
-                        defaultReadMoreClassName,
-                        readMoreClassName,
-                      )}
+                      className={readMoreClassName}
                     />
                   </Slip>
                 </Card>

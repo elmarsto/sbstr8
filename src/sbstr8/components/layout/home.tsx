@@ -1,4 +1,3 @@
-import ccn from '@sindresorhus/class-names';
 import urlJoin from 'url-join';
 import '@/sbstr8/lib/style.css';
 import pkg from '@/../package.json';
@@ -8,10 +7,12 @@ const MainLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <html lang="en">
     <body>
       {children}
-      <footer className={ccn('ml-6', 'mt-6', 'text-xs')}>
-        &copy; {cfg.copyright}
-        &nbsp; Built with{' '}
-        <a href="https://github.com/elmarsto/sbstr8">sbstr8</a>.
+      <footer>
+        <h6>
+          &copy; {cfg.copyright}
+          &nbsp; Built with{' '}
+          <a href="https://github.com/elmarsto/sbstr8">sbstr8</a>.
+        </h6>
       </footer>
     </body>
   </html>

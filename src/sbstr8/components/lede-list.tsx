@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ccn from '@sindresorhus/class-names';
 import { CookedPostMetadata as lede } from '@/sbstr8/lib/types/post';
 import {
   Lede as defaultLedeComponent,
@@ -11,30 +10,26 @@ export interface LedeListProps {
   className?: string;
   style?: React.CSSProperties;
   LedeComponent?: React.FunctionComponent<LedeProps>;
+  ledeClassName?: string;
 }
 
-const listClassName = ccn(
-  'grid',
-  'grid-cols-2',
-  'lg:grid-cols-8',
-  'md:gap-4',
-  'md:grid-cols-4',
-  'text-lg',
-);
-export const PostList = ({
+export const LedeList = ({
   children,
   className,
+  ledeClassName,
   style,
   LedeComponent,
 }: LedeListProps) => {
   const Lede = LedeComponent || defaultLedeComponent;
   return (
-    <div className={ccn(listClassName, className)} style={style}>
-      {children.map((p: lede) => (
-        <Lede {...p} key={p.slug} />
+    <ul className={className} style={style}>
+      {children.map((p: lede, i: number) => (
+        <li className={ledeClassName} key={i}>
+          <Lede {...p} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 
-export default PostList;
+export default LedeList;

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ccn from '@sindresorhus/class-names';
 import {
   Link as defaultLinkComponent,
   LinkProps,
@@ -24,15 +23,11 @@ export const PageHeader = ({
       {children}
       <nav>
         <menu>
-          <ul className={ccn('flex', 'flex-row', 'row-nowrap', 'gap-4')}>
-            {menuLinks.map(({ href, title }, i) => (
-              <li key={i}>
-                <h1>
-                  <Link href={href}>{title}</Link>
-                </h1>
-              </li>
-            ))}
-          </ul>
+          {menuLinks.map(({ href, title }, i) => (
+            <h1 key={i}>
+              <Link href={href}>{title}</Link>
+            </h1>
+          ))}
         </menu>
       </nav>
     </header>

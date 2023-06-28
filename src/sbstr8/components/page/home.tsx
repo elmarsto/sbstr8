@@ -5,7 +5,7 @@ import ReadMore from '@/sbstr8/components/read-more';
 import Station from '@/sbstr8/components/station';
 import { PageHeader } from '@/sbstr8/components/page/header';
 import { Post } from '@/sbstr8/lib/types/post';
-import { PostList } from '@/sbstr8/components/lede-list';
+import LedeList from '@/sbstr8/components/lede-list';
 import { sClient } from '@/sbstr8/lib/graphql/server';
 
 const defaultPostPath = '/posts/';
@@ -59,16 +59,8 @@ export const homeMaker =
     return (
       <>
         <PageHeader />
-        <main
-          className={ccn(
-            'flex',
-            'flex-col',
-            'flex-nowrap',
-            'justify-stretch',
-            mainClassName,
-          )}
-        >
-          <div className={ccn('md:pb-4')}>
+        <main className={mainClassName}>
+          <div className={ccn('md:pb-4')} style={{ minHeight: 1024 }}>
             {eins.map(({ post, link }: Feature, i: number) => (
               <Station key={i} post={post} link={link} cut="primary" />
             ))}
@@ -81,6 +73,7 @@ export const homeMaker =
               'md:grid-cols-2',
               'md:mb-4',
             )}
+            style={{ minHeight: 512 }}
           >
             {zwei.map(({ post, link }: Feature, i: number) => (
               <Station key={i} post={post} link={link} cut="secondary" />
@@ -106,7 +99,7 @@ export const homeMaker =
           {unfeaturedPosts && (
             <div>
               {unfeaturedHeader}
-              <PostList>{unfeaturedPosts}</PostList>
+              <LedeList>{unfeaturedPosts}</LedeList>
               <ReadMore
                 href={cfg.postPath || defaultPostPath}
                 className={ccn(

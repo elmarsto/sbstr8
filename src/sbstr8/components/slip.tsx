@@ -1,15 +1,14 @@
 import * as React from 'react';
-import ccn from '@sindresorhus/class-names';
 
 export interface SlipProps {
   title: React.ReactNode | string;
   float?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
+  titleClassName?: string;
   style?: React.CSSProperties;
 }
 
-const titleClasses = ccn('text-xl', 'pb-3');
 const floatClasses = 'float-right';
 
 export const Slip = ({
@@ -18,9 +17,10 @@ export const Slip = ({
   children,
   style,
   className,
+  titleClassName,
 }: SlipProps) => (
   <article className={className} style={style}>
-    {title && <h1 className={titleClasses}>{title}</h1>}
+    {title && <h1 className={titleClassName}>{title}</h1>}
     {float && <div className={floatClasses}>{float}</div>}
     {children}
   </article>

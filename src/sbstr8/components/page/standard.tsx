@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ccn from '@sindresorhus/class-names';
 
 export interface StandardPageProps {
   backgroundClassName?: string;
@@ -11,20 +10,8 @@ export interface StandardPageProps {
   titleClassName?: string;
 }
 
-const defaultClassName = ccn(
-  'bg-cover',
-  'bg-no-repeat',
-  'bg-top',
-  'pt-12',
-  'sm:bg-fixed',
-  'sm:p-8',
-  'sm:pt-28',
-);
-
 const backgrounder = (b?: string) =>
   b ? { backgroundImage: `url(${b})` } : {};
-
-const defaultTitleClassName = ccn('text-xl', 'mb-8');
 
 export const StandardPage = ({
   bg,
@@ -34,11 +21,8 @@ export const StandardPage = ({
   title,
   titleClassName,
 }: StandardPageProps) => (
-  <div
-    className={ccn(defaultClassName, className)}
-    style={{ ...backgrounder(bg), ...style }}
-  >
-    <h1 className={ccn(defaultTitleClassName, titleClassName)}>{title}</h1>
+  <div className={className} style={{ ...backgrounder(bg), ...style }}>
+    <h1 className={titleClassName}>{title}</h1>
     {children}
   </div>
 );

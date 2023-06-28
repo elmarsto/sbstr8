@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ccn from '@sindresorhus/class-names';
 
 export interface CardProps {
   children?: React.ReactNode;
@@ -9,9 +8,6 @@ export interface CardProps {
   titleClassName?: string;
 }
 
-const cardClasses = ccn('bg-center', 'bg-repeat', 'sm:p-4', 'rounded-xl');
-const defaultTitleClasses = ccn('text-xl', 'pb-3');
-
 export const Card = ({
   className,
   children,
@@ -19,10 +15,8 @@ export const Card = ({
   titleClassName,
   style,
 }: CardProps) => (
-  <section className={ccn(cardClasses, className)} style={style}>
-    {title && (
-      <h1 className={ccn(defaultTitleClasses, titleClassName)}>{title}</h1>
-    )}
+  <section className={className} style={style}>
+    {title && <h1 className={titleClassName}>{title}</h1>}
     {children}
   </section>
 );
