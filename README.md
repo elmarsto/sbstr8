@@ -3,7 +3,7 @@
 
 # What is sbstr8? (Prounounced ‘substrate’)
 
- A nearly-unstyled, hackable, ultra-modern, ultra-clean scaffold for rich, interactive storytelling, journalism and blogging. Fork this repo and get to work.
+ A nearly-unstyled, hackable, ultra-modern, ultra-clean scaffold for rich, interactive storytelling, journalism and blogging. Fork this repo and get to work. See [Lizmars.net](https://lizmars.net) for an example of what is possible.
 
 ## Why another starter?
 
