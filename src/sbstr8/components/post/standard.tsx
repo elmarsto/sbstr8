@@ -110,6 +110,7 @@ export const Standard = ({
           </header>
           <div
             className={ccn(
+              'article-body',
               'md:my-12',
               'md:p-8',
               'md:w-2/3',

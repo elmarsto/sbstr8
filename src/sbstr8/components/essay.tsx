@@ -10,7 +10,7 @@ export interface EssayProps {
 export const Essay = ({ title, className, children, style }: EssayProps) => (
   <article className={className} style={style}>
     <h1 className="text-2xl font-bold p-6">{title}</h1>
-    <div>{children}</div>
+    <div className="article-body">{children}</div>
   </article>
 );
 
