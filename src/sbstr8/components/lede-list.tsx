@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { CookedPostMetadata as lede } from '@/sbstr8/lib/types/post';
 import {
   Lede as defaultLedeComponent,
   LedeProps,
 } from '@/sbstr8/components/lede';
 
 export interface LedeListProps {
-  children: lede[];
+  children: LedeProps[];
   className?: string;
   style?: React.CSSProperties;
   LedeComponent?: React.FunctionComponent<LedeProps>;
@@ -23,7 +22,7 @@ export const LedeList = ({
   const Lede = LedeComponent || defaultLedeComponent;
   return (
     <ul className={className} style={style}>
-      {children.map((p: lede, i: number) => (
+      {children.map((p: LedeProps, i: number) => (
         <li className={ledeClassName} key={i}>
           <Lede {...p} />
         </li>

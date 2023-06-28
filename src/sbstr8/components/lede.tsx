@@ -15,6 +15,12 @@ const THUMB_DEFAULT = '/media/sbstr8.svg';
 export interface LedeProps extends CookedPostMetadata {
   LinkComponent?: React.FunctionComponent<LinkProps>;
   MdComponent?: React.FunctionComponent<MdProps>;
+  titleClassName?: string;
+  descriptionClassName?: string;
+  dateClassName?: string;
+  thumbnailClassName?: string;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export const Lede = ({
@@ -26,17 +32,35 @@ export const Lede = ({
   thumbnail,
   LinkComponent,
   MdComponent,
+  titleClassName,
+  descriptionClassName,
+  dateClassName,
+  thumbnailClassName,
+  style,
+  className,
 }: LedeProps) => {
   const Link = LinkComponent || defaultLinkComponent;
   const Md = MdComponent || defaultMdComponent;
   const pic = thumbnail || image || cfg.icon || THUMB_DEFAULT;
   return (
-    <Link href={urlJoin('post', slug)}>
-      <Image src={pic} width={THUMB_SZ} height={THUMB_SZ} alt={title} />
-      <h2>{title}</h2>
-      <h3>{date}</h3>
-      <Md>{description}</Md>
-    </Link>
+    <div className={className} style={style}>
+      <Link href={urlJoin('post', slug)}>
+        <Image
+          className={thumbnailClassName}
+          src={pic}
+          width={THUMB_SZ}
+          height={THUMB_SZ}
+          alt={title}
+        />
+      </Link>
+      <h2 className={titleClassName}>
+        <Link href={urlJoin('post', slug)}>{title}</Link>
+      </h2>
+      <h3 className={dateClassName}>{date}</h3>
+      <div className={descriptionClassName}>
+        <Md>{description}</Md>
+      </div>
+    </div>
   );
 };
 export default Lede;

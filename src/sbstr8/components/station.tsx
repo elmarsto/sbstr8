@@ -14,6 +14,7 @@ import {
 
 const defaultImageWidth = 1024;
 const defaultImageHeight = 512;
+const defaultImage = '/media/sbstr8.svg';
 
 export interface StationProps {
   post: Post;
@@ -32,7 +33,6 @@ export interface StationProps {
   ImageComponent?: React.FunctionComponent<ImageProps>;
   LinkComponent?: React.FunctionComponent<LinkProps>;
 }
-const defaultImage = '/media/sbstr8.svg';
 
 const Station = ({
   link,
@@ -76,7 +76,6 @@ const Station = ({
       <h2 className={ccn(clss['author'], authorClassName)}>
         {(authors || []).join(', ')}
       </h2>
-      <div></div>
       <div className={ccn(clss['teaser'], teaserClassName)}>
         <Teaser />
       </div>
