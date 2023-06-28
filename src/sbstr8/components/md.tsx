@@ -1,5 +1,4 @@
 import { useRemarkSync } from 'react-remark';
-import remarkGemoji from 'remark-gemoji';
 
 export interface MdProps {
   children?: string | string[];
@@ -21,7 +20,7 @@ export const Md = ({ children, className, style }: MdProps) => {
   const md = useRemarkSync(markdown, {
     // TODO: investigate type errors. Following example at https://github.com/remarkjs/react-remark#readme
     // @ts-ignore
-    remarkPlugins: [remarkGemoji],
+    remarkPlugins: [],
     remarkToRehypeOptions: { allowDangerousHtml: true }, // TODO: is this safe? R&D
     // TODO: use S8 elements like in mdx-components.tsx
   });
