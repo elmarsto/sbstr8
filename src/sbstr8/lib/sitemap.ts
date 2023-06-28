@@ -3,7 +3,7 @@ import {
   getSortedPost,
   getLastModified,
 } from '@/sbstr8/lib/post';
-import cfg from '@/sbstr8.config';
+import cfg from '@/../sbstr8.config';
 import urlJoin from 'url-join';
 import { menuLinks } from '@/sbstr8/lib/menu';
 

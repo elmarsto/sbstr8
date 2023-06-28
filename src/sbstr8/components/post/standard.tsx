@@ -2,7 +2,7 @@ import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
 import S8 from '@/sbstr8';
 import { Person } from '@/sbstr8/lib/types/person';
-import { defaultAuthor } from '@/sbstr8.config';
+import { defaultAuthor } from '@/../sbstr8.config';
 
 export interface StandardProps {
   authorClassName?: string;

@@ -1,5 +1,5 @@
 import Image from '@/sbstr8/components/image';
-import cfg from '@/sbstr8.config';
+import cfg from '@/../sbstr8.config';
 
 const Loading = () => (
   <div

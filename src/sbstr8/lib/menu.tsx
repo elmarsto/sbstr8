@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { faList, faRss } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
+import cfg from '@/../sbstr8.config';
 
 export interface MenuItem {
   icon: IconDefinition;
@@ -12,12 +13,12 @@ export interface MenuItem {
 
 export const menuLinks = [
   {
-    href: '/post',
+    href: cfg.postPath,
     icon: faList,
     title: 'Posts',
   },
   {
-    href: '/feed',
+    href: cfg.feedPath,
     icon: faRss,
     title: 'RSS Feed',
     iconic: true,

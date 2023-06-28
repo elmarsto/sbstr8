@@ -8,7 +8,7 @@ import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import { Feed } from 'feed';
 import { pick, map, pluck } from 'ramda';
 
-import cfg, { defaultAuthor } from '@/sbstr8.config';
+import cfg, { defaultAuthor } from '@/../sbstr8.config';
 
 const xmlHeader = '<?xml version="1.0" encoding="utf-8"?>';
 const stylesheetLink =
@@ -26,7 +26,7 @@ export function GET() {
     copyright: cfg.copyright,
     description: cfg.description,
     id: cfg.link,
-    image: urlJoin(cfg.link, cfg.image || '/favicon.png'),
+    image: urlJoin(cfg.link, cfg.image || '/image/image.webp'),
     favicon: cfg.icon,
     language: cfg.language,
     link: cfg.link,

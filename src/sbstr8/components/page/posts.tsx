@@ -2,7 +2,7 @@ import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
 import urlJoin from 'url-join';
 import { gql } from '@apollo/client';
-import cfg from '@/sbstr8.config';
+import cfg from '@/../sbstr8.config';
 import Card from '@/sbstr8/components/card';
 import Link from '@/sbstr8/components/link';
 import PageHeader from '@/sbstr8/components/page/header';

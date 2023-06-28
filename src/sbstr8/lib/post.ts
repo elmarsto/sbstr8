@@ -5,7 +5,7 @@ import path from 'path';
 
 import { CookedPostMetadata, RawPostMetadata } from '@/sbstr8/lib/types/post';
 import { mkShortDate } from '@/sbstr8/lib/date';
-import cfg from '@/sbstr8.config';
+import cfg from '@/../sbstr8.config';
 
 export const defaultPostPath = '/posts';
 export const postSubdirectory = (postPath: string) => `src/app/${postPath}`;

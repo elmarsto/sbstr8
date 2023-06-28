@@ -1,5 +1,5 @@
 import { Switchboard } from '@/sbstr8/lib/types/config';
-import { override } from '@/sbstr8.config';
+import { override } from '@/../sbstr8.config';
 import Card from '@/sbstr8/components/card';
 import ClipboardButton from '@/sbstr8/components/clipboard-button';
 import Emoji from '@/sbstr8/components/emoji';
