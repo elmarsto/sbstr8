@@ -15,7 +15,7 @@ import Md from '@/sbstr8/components/md';
 import ReadMore from '@/sbstr8/components/read-more';
 import Pre from '@/sbstr8/components/pre';
 import PageHeader from '@/sbstr8/components/page/header';
-import Slip from '@/sbstr8/components/slip';
+import Blurb from '@/sbstr8/components/blurb';
 import Feature from '@/sbstr8/components/feature';
 import Video from '@/sbstr8/components/video';
 import menu from '@/sbstr8/lib/menu';
@@ -36,7 +36,7 @@ export const defaults: Switchboard = {
   PageHeader,
   Pre,
   ReadMore,
-  Slip,
+  Blurb,
   Feature,
   Video,
   menu,

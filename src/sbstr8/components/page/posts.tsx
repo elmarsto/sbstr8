@@ -7,7 +7,7 @@ import Card from '@/sbstr8/components/card';
 import Link from '@/sbstr8/components/link';
 import Image from '@/sbstr8/components/image';
 import PageHeader from '@/sbstr8/components/page/header';
-import Slip from '@/sbstr8/components/slip';
+import Blurb from '@/sbstr8/components/blurb';
 import StandardPage from '@/sbstr8/components/page/standard';
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import { Md } from '@/sbstr8/components/md';
@@ -95,7 +95,7 @@ export const postsMaker =
                       height={THUMB_SZ}
                     />
                   </Link>
-                  <Slip
+                  <Blurb
                     style={{ height: THUMB_SZ }}
                     className="sbstr8:page-posts-post-body"
                     title={
@@ -147,7 +147,7 @@ export const postsMaker =
                         readMoreClassName,
                       )}
                     />
-                  </Slip>
+                  </Blurb>
                 </Card>
               );
             },

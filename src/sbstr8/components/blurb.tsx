@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
 
-export interface SlipProps {
+export interface BlurbProps {
   title: React.ReactNode | string;
   float?: React.ReactNode;
   children?: React.ReactNode;
@@ -12,23 +12,23 @@ export interface SlipProps {
 
 const floatClasses = 'float-right';
 
-export const Slip = ({
+export const Blurb = ({
   title,
   float,
   children,
   style,
   className,
   titleClassName,
-}: SlipProps) => (
-  <article className={ccn('sbstr8:slip', className)} style={style}>
+}: BlurbProps) => (
+  <article className={ccn('sbstr8:blurb', className)} style={style}>
     {title && (
-      <h1 className={ccn('sbstr8:slip-title', titleClassName)}>{title}</h1>
+      <h1 className={ccn('sbstr8:blurb-title', titleClassName)}>{title}</h1>
     )}
     {float && (
-      <div className={ccn('sbstr8:slip-float', floatClasses)}>{float}</div>
+      <div className={ccn('sbstr8:blurb-float', floatClasses)}>{float}</div>
     )}
     {children}
   </article>
 );
 
-export default Slip;
+export default Blurb;
