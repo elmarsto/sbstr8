@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const Layout = async ({ children }: React.PropsWithChildren<object>) => (
-  <>{children}</>
+  <div className="sbstr8:layout-posts">{children}</div>
 );
 export default Layout;
 

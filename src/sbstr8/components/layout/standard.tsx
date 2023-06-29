@@ -8,9 +8,15 @@ const defaultLogo = '/media/sbstr8.svg';
 const Layout = async ({ children }: React.PropsWithChildren<object>) => {
   const pic = cfg.icon || defaultLogo;
   return (
-    <main>
-      <PageHeader>
-        <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
+    <main className="sbstr8:layout-standard">
+      <PageHeader className="sbstr8:layout-standard-header">
+        <Image
+          className="sbstr8:layout-standard-header-logo"
+          src={pic}
+          width={LOGO_SZ}
+          height={LOGO_SZ}
+          alt="logo"
+        />
       </PageHeader>
       {children}
     </main>

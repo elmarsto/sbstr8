@@ -1,5 +1,6 @@
 'use client';
 import * as Plot from '@observablehq/plot';
+import ccn from '@sindresorhus/class-names';
 import * as React from 'react';
 import { useEffect, useRef } from 'react';
 
@@ -20,7 +21,13 @@ export const Graph = ({ plot, className, style }: GraphProps) => {
     return () => graph.remove();
   }, [plot]);
 
-  return <div ref={containerRef} className={className} style={style} />;
+  return (
+    <div
+      ref={containerRef}
+      className={ccn('sbstr8:graph', className)}
+      style={style}
+    />
+  );
 };
 
 export default Graph;

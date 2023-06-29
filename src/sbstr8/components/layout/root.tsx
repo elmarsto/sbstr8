@@ -4,10 +4,10 @@ import pkg from '@/../package.json';
 import cfg, { defaultAuthor } from '@/../sbstr8.config';
 
 const MainLayout = ({ children }: React.PropsWithChildren<unknown>) => (
-  <html lang="en">
+  <html lang="en" className="sbstr8:layout-root">
     <body>
       {children}
-      <footer>
+      <footer className="sbstr8:layout-root-footer">
         <h6>
           &copy; {cfg.copyright}
           &nbsp; Built with{' '}

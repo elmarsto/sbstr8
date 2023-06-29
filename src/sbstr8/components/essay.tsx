@@ -18,9 +18,17 @@ export const Essay = ({
   title,
   titleClassName,
 }: EssayProps) => (
-  <article className={className} style={style}>
-    <h1 className={titleClassName}>{title}</h1>
-    <div className={ccn('article-body', contentClassName)}>{children}</div>
+  <article className={ccn('sbstr8:essay', className)} style={style}>
+    <h1 className={ccn('sbstr8:essay-title', titleClassName)}>{title}</h1>
+    <div
+      className={ccn(
+        'sbstr8:essay-body',
+        'sbstr8:article-body',
+        contentClassName,
+      )}
+    >
+      {children}
+    </div>
   </article>
 );
 

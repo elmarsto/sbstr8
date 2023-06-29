@@ -1,3 +1,3 @@
-export * from '@/sbstr8/components/layout/home';
-import Default from '@/sbstr8/components/layout/home';
+export * from '@/sbstr8/components/layout/root';
+import Default from '@/sbstr8/components/layout/root';
 export default Default;

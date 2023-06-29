@@ -3,6 +3,7 @@ import {
   Link as defaultLinkComponent,
   LinkProps,
 } from '@/sbstr8/components/link';
+import ccn from '@sindresorhus/class-names';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -16,6 +17,7 @@ export interface ReadMoreProps extends LinkProps {
 export const ReadMore = ({
   children,
   iconClassName,
+  className,
   LinkComponent,
   ...otherProps
 }: ReadMoreProps) => {
@@ -23,13 +25,13 @@ export const ReadMore = ({
 
   const kids = children || <>{READ_MORE}</>;
   return (
-    <Link {...otherProps}>
+    <Link className={ccn('sbstr8:read-more', className)} {...otherProps}>
       <div className="flex flex-row items-center">
-        <div className="pr-1">{kids}</div>
+        <div className={ccn('sbstr8:read-more-text', 'pr-1')}>{kids}</div>
         <FontAwesomeIcon
           icon={faPlay}
           style={{ width: '1rem', height: '1rem' }}
-          className={iconClassName}
+          className={ccn('sbstr8:read-more-icon', iconClassName)}
         />
       </div>
     </Link>

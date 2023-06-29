@@ -25,10 +25,15 @@ export const Pre = ({
   const ClipboardButton =
     ClipboardButtonComponent || defaultClipboardButtonComponent;
   return (
-    <pre ref={ref} className={ccn('grow', 'relative', className)} style={style}>
+    <pre
+      ref={ref}
+      className={ccn('sbstr8:pre', 'relative', className)}
+      style={style}
+    >
       {children}
       <ClipboardButton
         className={ccn(
+          'sbstr8:pre-clipboard-button',
           'absolute',
           'm-1',
           'right-0',

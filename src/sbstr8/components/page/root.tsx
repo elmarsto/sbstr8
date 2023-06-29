@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
 import ReadMore from '@/sbstr8/components/read-more';
-import Station from '@/sbstr8/components/station';
+import Feature from '@/sbstr8/components/feature';
 import Image from '@/sbstr8/components/image';
 import { PageHeader } from '@/sbstr8/components/page/header';
 import { Post } from '@/sbstr8/lib/types/post';
@@ -32,7 +32,7 @@ export interface Feature {
   link: string;
 }
 
-export interface homeMakerParams {
+export interface rootMakerParams {
   primary?: Feature[];
   secondary?: Feature[];
   tertiary?: Feature[];
@@ -42,7 +42,7 @@ export interface homeMakerParams {
   unfeaturedHeader?: React.ReactNode;
 }
 
-export const homeMaker =
+export const rootMaker =
   ({
     primary,
     secondary,
@@ -51,7 +51,7 @@ export const homeMaker =
     readMoreClassName,
     readMoreText,
     unfeaturedHeader,
-  }: homeMakerParams) =>
+  }: rootMakerParams) =>
   async () => {
     const { data } = await sClient.query({ query });
     const eins: Feature[] = primary || [];
@@ -62,18 +62,25 @@ export const homeMaker =
     const unfeaturedPosts = data.posts.slice(featureCount);
     const logo = cfg.icon || defaultLogo;
     return (
-      <>
-        <PageHeader>
+      <div className="sbstr8:page-root">
+        <PageHeader className="sbstr8:page-root-header">
           <Image src={logo} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
         </PageHeader>
-        <main className={mainClassName}>
-          <div className={ccn('md:pb-4')} style={{ minHeight: 1024 }}>
-            {eins.map(({ post, link }: Feature, i: number) => (
-              <Station key={i} post={post} link={link} cut="primary" />
-            ))}
-          </div>
-          <div
+        <main className={ccn('sbstr8:page-root-main', mainClassName)}>
+          <section
             className={ccn(
+              'sbstr8:page-root-section-featured-primary',
+              'md:pb-4',
+            )}
+            style={{ minHeight: 1024 }}
+          >
+            {eins.map(({ post, link }: Feature, i: number) => (
+              <Feature key={i} post={post} link={link} cut="primary" />
+            ))}
+          </section>
+          <section
+            className={ccn(
+              'sbstr8:page-root-section-featured-secondary',
               'grid',
               'grid-cols-1',
               'md:gap-4',
@@ -83,11 +90,12 @@ export const homeMaker =
             style={{ minHeight: 512 }}
           >
             {zwei.map(({ post, link }: Feature, i: number) => (
-              <Station key={i} post={post} link={link} cut="secondary" />
+              <Feature key={i} post={post} link={link} cut="secondary" />
             ))}
-          </div>
-          <div
+          </section>
+          <section
             className={ccn(
+              'sbstr8:page-root-section-featured-tertiary',
               'grid',
               'grid-cols-1',
               'grow',
@@ -100,16 +108,17 @@ export const homeMaker =
             style={{ minHeight: 256 }}
           >
             {drei.map(({ post, link }: Feature, i: number) => (
-              <Station key={i} post={post} link={link} cut="tertiary" />
+              <Feature key={i} post={post} link={link} cut="tertiary" />
             ))}
-          </div>
+          </section>
           {unfeaturedPosts && (
-            <div>
+            <section className="sbstr8:page-root-section-unfeatured">
               {unfeaturedHeader}
               <LedeList>{unfeaturedPosts}</LedeList>
               <ReadMore
                 href={cfg.postPath || defaultPostPath}
                 className={ccn(
+                  'sbstr8:page-root-section-unfeatured-read-more',
                   'float-right',
                   'p-2',
                   'text-xs',
@@ -118,11 +127,11 @@ export const homeMaker =
               >
                 {readMoreText}
               </ReadMore>
-            </div>
+            </section>
           )}
         </main>
-      </>
+      </div>
     );
   };
 
-export default homeMaker;
+export default rootMaker;

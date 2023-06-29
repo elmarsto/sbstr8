@@ -1,6 +1,7 @@
 'use client';
 import * as React from 'react';
 import { faClipboard as lightClipboard } from '@fortawesome/free-regular-svg-icons';
+import ccn from '@sindresorhus/class-names';
 import {
   faClipboard as darkClipboard,
   faCheck,
@@ -35,7 +36,7 @@ export const ClipboardButton = ({
       onClick={handleClick}
       onMouseDown={handleDown}
       onMouseUp={handleUp}
-      className={className}
+      className={ccn('sbstr8:clipboard-button', className)}
       style={style}
     >
       <span className="fa-layers">

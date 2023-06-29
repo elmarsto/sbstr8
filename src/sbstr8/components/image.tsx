@@ -9,7 +9,11 @@ export const Image = ({ fill, className, ...otherProps }: ImageProps) => {
   const { width, observe } = useDimensions<HTMLDivElement>();
   const height = width / 1.618; // golden ratio
   return (
-    <div ref={observe} style={{ overflow: 'hidden' }}>
+    <div
+      className={'sbstr8:image'}
+      ref={observe}
+      style={{ overflow: 'hidden' }}
+    >
       {fill ? (
         <NextImage
           className={className}

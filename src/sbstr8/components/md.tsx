@@ -1,3 +1,4 @@
+import ccn from '@sindresorhus/class-names';
 import { useRemarkSync } from 'react-remark';
 
 export interface MdProps {
@@ -25,7 +26,7 @@ export const Md = ({ children, className, style }: MdProps) => {
     // TODO: use S8 elements like in mdx-components.tsx
   });
   return (
-    <span className={className} style={style}>
+    <span className={ccn('sbstr8:md', className)} style={style}>
       {md}
     </span>
   );

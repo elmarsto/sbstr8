@@ -16,7 +16,7 @@ import { MdProps } from '@/sbstr8/components/md';
 import { PreProps } from '@/sbstr8/components/pre';
 import { PageHeaderProps } from '@/sbstr8/components/page/header';
 import { SlipProps } from '@/sbstr8/components/slip';
-import { StationProps } from '@/sbstr8/components/station';
+import { FeatureProps } from '@/sbstr8/components/feature';
 import { ReadMoreProps } from '@/sbstr8/components/read-more';
 import { VideoProps } from '@/sbstr8/components/video';
 
@@ -52,7 +52,7 @@ export interface Switchboard {
   Pre: React.FunctionComponent<PreProps>;
   ReadMore: React.FunctionComponent<ReadMoreProps>;
   Slip: React.FunctionComponent<SlipProps>;
-  Station: React.FunctionComponent<StationProps>;
+  Feature: React.FunctionComponent<FeatureProps>;
   Video: React.FunctionComponent<VideoProps>;
   menu: MenuItem[];
 }

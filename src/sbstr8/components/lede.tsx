@@ -1,5 +1,6 @@
 import * as React from 'react';
 import urlJoin from 'url-join';
+import ccn from '@sindresorhus/class-names';
 import Image from '@/sbstr8/components/image';
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
 import {
@@ -43,8 +44,11 @@ export const Lede = ({
   const Md = MdComponent || defaultMdComponent;
   const pic = thumbnail || image || cfg.icon || THUMB_DEFAULT;
   return (
-    <div className={className} style={style}>
-      <Link href={urlJoin('post', slug)}>
+    <div className={ccn('sbstr8:lede', className)} style={style}>
+      <Link
+        className={ccn('sbstr8:lede-thumbnail')}
+        href={urlJoin('post', slug)}
+      >
         <Image
           className={thumbnailClassName}
           src={pic}
@@ -53,11 +57,11 @@ export const Lede = ({
           alt={title}
         />
       </Link>
-      <h2 className={titleClassName}>
+      <h2 className={ccn('sbstr8:lede-title', titleClassName)}>
         <Link href={urlJoin('post', slug)}>{title}</Link>
       </h2>
-      <h3 className={dateClassName}>{date}</h3>
-      <div className={descriptionClassName}>
+      <h3 className={ccn('sbstr8:lede-date', dateClassName)}>{date}</h3>
+      <div className={ccn('sbstr8:lede-description', descriptionClassName)}>
         <Md>{description}</Md>
       </div>
     </div>

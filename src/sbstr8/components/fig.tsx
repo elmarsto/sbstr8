@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ccn from '@sindresorhus/class-names';
 
 export interface FigProps {
   caption?: React.ReactNode | string;
@@ -15,9 +16,11 @@ export const Fig = ({
   captionClassName,
   style,
 }: FigProps) => (
-  <figure className={className} style={style}>
+  <figure className={ccn('sbstr8:fig', className)} style={style}>
     {children}
-    <figcaption className={captionClassName}>{caption}</figcaption>
+    <figcaption className={ccn('sbstr8:fig-caption', captionClassName)}>
+      {caption}
+    </figcaption>
   </figure>
 );
 

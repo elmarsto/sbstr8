@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ccn from '@sindresorhus/class-names';
 import {
   Lede as defaultLedeComponent,
   LedeProps,
@@ -21,9 +22,9 @@ export const LedeList = ({
 }: LedeListProps) => {
   const Lede = LedeComponent || defaultLedeComponent;
   return (
-    <ul className={className} style={style}>
+    <ul className={ccn('sbstr8:lede-list', className)} style={style}>
       {children.map((p: LedeProps, i: number) => (
-        <li className={ledeClassName} key={i}>
+        <li className={ccn('sbstr8:lede-list-item', ledeClassName)} key={i}>
           <Lede {...p} />
         </li>
       ))}

@@ -2,7 +2,7 @@ import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
 import { mkShortDate } from '@/sbstr8/lib/date';
 import { Post } from '@/sbstr8/lib/types/post';
-import clss from './station.module.css';
+import clss from './feature.module.css';
 import {
   Image as defaultImageComponent,
   ImageProps,
@@ -16,7 +16,7 @@ const defaultImageWidth = 1024;
 const defaultImageHeight = 512;
 const defaultImage = '/media/sbstr8.svg';
 
-export interface StationProps {
+export interface FeatureProps {
   post: Post;
   link: string;
   cut: 'primary' | 'secondary' | 'tertiary';
@@ -34,7 +34,7 @@ export interface StationProps {
   LinkComponent?: React.FunctionComponent<LinkProps>;
 }
 
-const Station = ({
+const Feature = ({
   link,
   post: {
     meta: { image, title, created, updated, authors },
@@ -54,13 +54,21 @@ const Station = ({
   style,
   ImageComponent,
   LinkComponent,
-}: StationProps) => {
+}: FeatureProps) => {
   const date = mkShortDate(created, updated);
   const Link = LinkComponent || defaultLinkComponent;
   const Image = ImageComponent || defaultImageComponent;
   return (
-    <div className={ccn(clss[cut], className)} style={style}>
-      <Link href={link}>
+    <div
+      className={ccn(
+        'sbstr8:feature',
+        `sbstr8:feature-cut-${cut}`,
+        clss[cut],
+        className,
+      )}
+      style={style}
+    >
+      <Link className="sbstr8:feature-image" href={link}>
         <Image
           className={imageClassName}
           src={image || defaultImage}
@@ -69,21 +77,40 @@ const Station = ({
           alt={`Image for post entitled ${title}`}
         />
       </Link>
-      <h1 className={ccn(clss['title'], titleClassName)}>
+      <h1
+        className={ccn('sbstr8:feature-title', clss['title'], titleClassName)}
+      >
         <Link href={link}>{title}</Link>
       </h1>
-      <h2 className={ccn(clss['date'], dateClassName)}>{date}</h2>
-      <h2 className={ccn(clss['author'], authorClassName)}>
+      <h2 className={ccn('sbstr8:feature-date', clss['date'], dateClassName)}>
+        {date}
+      </h2>
+      <h2
+        className={ccn(
+          'sbstr8:feature-authors',
+          clss['author'],
+          authorClassName,
+        )}
+      >
         {(authors || []).join(', ')}
       </h2>
-      <div className={ccn(clss['teaser'], teaserClassName)}>
+      <div
+        className={ccn(
+          'sbstr8:feature-teaser',
+          clss['teaser'],
+          teaserClassName,
+        )}
+      >
         <Teaser />
       </div>
-      <Link className={ccn(clss['hook'], hookClassName)} href={link}>
+      <Link
+        className={ccn('sbstr8:feature-hook', clss['hook'], hookClassName)}
+        href={link}
+      >
         <Hook />
       </Link>
     </div>
   );
 };
 
-export default Station;
+export default Feature;

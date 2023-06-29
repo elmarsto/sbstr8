@@ -1,6 +1,7 @@
 // from https://videojs.com/guides/react/ 2023-04-02 with adaptations from prettier
 // by way of https://gist.github.com/hamishrouse/4be2f37987cfe4af6a2c8a99e0ab5988
 import React from 'react';
+import ccn from '@sindresorhus/class-names';
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
@@ -65,7 +66,11 @@ export const Video = (props: VideoProps) => {
   }, [playerRef]);
 
   return (
-    <div data-vjs-player className={props.className} style={props.style}>
+    <div
+      data-vjs-player
+      className={ccn('sbstr8:video', props.className)}
+      style={props.style}
+    >
       <div ref={videoRef} />
     </div>
   );

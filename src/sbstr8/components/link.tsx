@@ -1,5 +1,6 @@
 import * as React from 'react';
 import NextLink from 'next/link';
+import ccn from '@sindresorhus/class-names';
 
 export type LinkProps = React.PropsWithChildren<{
   className?: string;
@@ -19,14 +20,14 @@ export const Link = ({
     {href ? (
       <NextLink
         onClick={onClick}
-        className={className}
+        className={ccn('sbstr8:link', className)}
         href={href || '#'}
         style={style}
       >
         {children}
       </NextLink>
     ) : (
-      <span className={className} style={style}>
+      <span className={ccn('sbstr8:link', className)} style={style}>
         {children}
       </span>
     )}

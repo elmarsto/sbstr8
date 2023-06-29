@@ -13,6 +13,9 @@ TODO:
  - [ ] Ensure that we have all the props we need to generate lizmars.net from this basis
  - [ ] Figure out what the pattern looks like when you don’t just ‘export *’ everything in @/app from @/sbstr8
  - [ ] Figure out what the pattern looks like when e.g. Link, Image etc. are customized
+ - [ ] Add schema.org support https://schema.org/docs/gs.html
+ - [ ] Add ARIA support
+
 
 
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import ccn from '@sindresorhus/class-names';
 
 export interface StandardPageProps {
   backgroundClassName?: string;
@@ -21,8 +22,13 @@ export const StandardPage = ({
   title,
   titleClassName,
 }: StandardPageProps) => (
-  <div className={className} style={{ ...backgrounder(bg), ...style }}>
-    <h1 className={titleClassName}>{title}</h1>
+  <div
+    className={ccn('sbstr8:page-standard', className)}
+    style={{ ...backgrounder(bg), ...style }}
+  >
+    <h1 className={ccn('sbstr8:page-standard-title', titleClassName)}>
+      {title}
+    </h1>
     {children}
   </div>
 );

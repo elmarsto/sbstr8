@@ -16,7 +16,7 @@ import ReadMore from '@/sbstr8/components/read-more';
 import Pre from '@/sbstr8/components/pre';
 import PageHeader from '@/sbstr8/components/page/header';
 import Slip from '@/sbstr8/components/slip';
-import Station from '@/sbstr8/components/station';
+import Feature from '@/sbstr8/components/feature';
 import Video from '@/sbstr8/components/video';
 import menu from '@/sbstr8/lib/menu';
 
@@ -37,7 +37,7 @@ export const defaults: Switchboard = {
   Pre,
   ReadMore,
   Slip,
-  Station,
+  Feature,
   Video,
   menu,
 };

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import urlJoin from 'url-join';
+import ccn from '@sindresorhus/class-names';
 import { gql } from '@apollo/client';
 import cfg from '@/../sbstr8.config';
 import Card from '@/sbstr8/components/card';
@@ -60,11 +61,13 @@ export const postsMaker =
       data: { posts },
     } = await sClient.query({ query });
     return (
-      <>
-        <PageHeader className={headerClassName}>
+      <div className="sbstr8:page-posts">
+        <PageHeader
+          className={ccn('sbstr8:page-posts-header', headerClassName)}
+        >
           <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
         </PageHeader>
-        <StandardPage>
+        <StandardPage className="sbstr8:page-posts-page">
           {posts.map(
             (
               {
@@ -80,8 +83,11 @@ export const postsMaker =
             ) => {
               const pic = thumbnail || image || THUMB_DEFAULT;
               return (
-                <Card key={i}>
-                  <Link href={slugToHref(slug)}>
+                <Card key={i} className="sbstr8:page-posts-post">
+                  <Link
+                    href={slugToHref(slug)}
+                    className="sbstr8:page-posts-post-thumbnail"
+                  >
                     <Image
                       src={pic}
                       alt={title}
@@ -91,8 +97,9 @@ export const postsMaker =
                   </Link>
                   <Slip
                     style={{ height: THUMB_SZ }}
+                    className="sbstr8:page-posts-post-body"
                     title={
-                      <h2>
+                      <h2 className="sbstr8:page-posts-post-body-title">
                         <Link
                           href={slugToHref(slug)}
                           className={titleClassName}
@@ -102,19 +109,43 @@ export const postsMaker =
                       </h2>
                     }
                   >
-                    <h3>
-                      <span className={dateClassName}>{created}</span>
+                    <h3 className="sbstr8:page-posts-post-body-date">
+                      <span
+                        className={ccn(
+                          'sbstr8:page-posts-post-body-date-created-date',
+                          dateClassName,
+                        )}
+                      >
+                        {created}
+                      </span>
                       {updated && (
-                        <em>
+                        <em className="sbstr8:page-posts-post-body-date-updated">
                           &mdash;updated{' '}
-                          <span className={dateClassName}>{updated}</span>
+                          <span
+                            className={ccn(
+                              'sbstr8:page-posts-post-body-date-updated-date',
+                              dateClassName,
+                            )}
+                          >
+                            {updated}
+                          </span>
                         </em>
                       )}
                     </h3>
-                    <Md className={descriptionClassName}>{description}</Md>
+                    <Md
+                      className={ccn(
+                        'sbstr8:page-posts-post-body-description',
+                        descriptionClassName,
+                      )}
+                    >
+                      {description}
+                    </Md>
                     <ReadMore
                       href={slugToHref(slug)}
-                      className={readMoreClassName}
+                      className={ccn(
+                        'sbstr8:page-posts-post-body-read-more',
+                        readMoreClassName,
+                      )}
                     />
                   </Slip>
                 </Card>
@@ -122,7 +153,7 @@ export const postsMaker =
             },
           )}
         </StandardPage>
-      </>
+      </div>
     );
   };
 

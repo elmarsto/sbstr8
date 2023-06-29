@@ -8,17 +8,25 @@ import MdHook from './hook.md';
 import MdFootnotes from './footnotes.md';
 
 const Hook = ({ link }: HookProps) => (
-  <Link href={link}>
+  <Link className="sbstr8:post-hook" href={link}>
     <MdHook />
   </Link>
 );
-const Footnotes = () => <MdFootnotes />;
+const Footnotes = () => (
+  <section className="sbstr8:post-footnotes">
+    <MdFootnotes />
+  </section>
+);
 
 export const Post = () => (
-  <>
-    <Teaser />
-    <Body />
-  </>
+  <div className="sbstr8:post">
+    <section className="sbstr8:post-teaser">
+      <Teaser />
+    </section>
+    <section className="sbstr8:post-body">
+      <Body />
+    </section>
+  </div>
 );
 
 Post.Hook = Hook;

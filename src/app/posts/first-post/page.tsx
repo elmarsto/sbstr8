@@ -10,6 +10,7 @@ const Page = async () => (
     title={meta['title']}
     updated={(meta as IPost)['updated']}
     footnotes={<Post.Footnotes />}
+    className="sbstr8:post-page"
   >
     <Post />
   </Standard>
