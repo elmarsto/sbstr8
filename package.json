@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "npx next",
     "build": "npx next build",
+    "doc": "npx typedoc",
     "start": "npx next start",
     "type-check": "npx tsc --noEmit",
     "lint": "npx eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
@@ -123,6 +124,8 @@
     "postcss-utilities": "0.8.4",
     "prettier": "2.8.8",
     "storybook": "7.0.24",
+    "typedoc": "0.24.8",
+    "typedoc-plugin-mermaid": "1.10.0",
     "typescript": "5.1.5",
     "video.js": "8.3.0"
   }
