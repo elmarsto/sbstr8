@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { ReactNode, CSSProperties } from 'react';
 import ccn from '@sindresorhus/class-names';
 
 export interface GridProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 const gridClasses = ccn(

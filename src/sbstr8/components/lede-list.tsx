@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FunctionComponent } from 'react';
 import ccn from '@sindresorhus/class-names';
 import {
   Lede as defaultLedeComponent,
@@ -9,7 +9,7 @@ export interface LedeListProps {
   children: LedeProps[];
   className?: string;
   style?: React.CSSProperties;
-  LedeComponent?: React.FunctionComponent<LedeProps>;
+  LedeComponent?: FunctionComponent<LedeProps>;
   ledeClassName?: string;
 }
 

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 import {
   Link as defaultLinkComponent,
   LinkProps,
@@ -9,9 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const READ_MORE = 'Read More';
 export interface ReadMoreProps extends LinkProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   iconClassName?: string;
-  LinkComponent?: React.FunctionComponent<LinkProps>;
+  LinkComponent?: FunctionComponent<LinkProps>;
 }
 
 export const ReadMore = ({

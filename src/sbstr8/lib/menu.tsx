@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { faList, faRss, faHome } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
 import cfg from '@/../sbstr8.config';

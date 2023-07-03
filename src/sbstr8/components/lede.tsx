@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
 import urlJoin from 'url-join';
 import ccn from '@sindresorhus/class-names';
 import Image from '@/sbstr8/components/image';
@@ -14,14 +14,14 @@ const THUMB_SZ = 256;
 const THUMB_DEFAULT = '/media/sbstr8.svg';
 
 export interface LedeProps extends CookedPostMetadata {
-  LinkComponent?: React.FunctionComponent<LinkProps>;
-  MdComponent?: React.FunctionComponent<MdProps>;
+  LinkComponent?: FunctionComponent<LinkProps>;
+  MdComponent?: FunctionComponent<MdProps>;
   titleClassName?: string;
   descriptionClassName?: string;
   dateClassName?: string;
   thumbnailClassName?: string;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export const Lede = ({

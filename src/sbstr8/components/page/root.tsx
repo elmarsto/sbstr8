@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { gql } from '@apollo/client';
 import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
@@ -8,7 +9,6 @@ import { PageHeader } from '@/sbstr8/components/page/header';
 import { Post } from '@/sbstr8/lib/types/post';
 import LedeList from '@/sbstr8/components/lede-list';
 import { sClient } from '@/sbstr8/lib/graphql/server';
-import { override } from '@/../sbstr8.config';
 
 const LOGO_SZ = 32;
 
@@ -40,7 +40,7 @@ export interface rootMakerParams {
   mainClassName?: string;
   readMoreClassName?: string;
   readMoreText?: string;
-  unfeaturedHeader?: React.ReactNode;
+  unfeaturedHeader?: ReactNode;
 }
 
 export const rootMaker =
@@ -54,7 +54,6 @@ export const rootMaker =
     unfeaturedHeader,
   }: rootMakerParams) =>
   async () => {
-    const OurFeature = (await override.get(Feature))?.default || Feature;
     const { data } = await sClient.query({ query });
     const eins: Feature[] = primary || [];
     const zwei: Feature[] = secondary || [];
@@ -69,7 +68,6 @@ export const rootMaker =
           <Image src={logo} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
         </PageHeader>
         <main className={ccn('sbstr8:page-root-main', mainClassName)}>
-          <OurFeature />
           <section
             className={ccn(
               'sbstr8:page-root-section-featured-primary',

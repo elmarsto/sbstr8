@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ImgHTMLAttributes } from 'react';
 import type { MDXComponents } from 'mdx/types';
 import Link from '@/sbstr8/components/link';
 import Image from '@/sbstr8/components/image';
@@ -22,7 +22,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     pre: Pre,
     img: (
       props: React.DetailedHTMLProps<
-        React.ImgHTMLAttributes<HTMLImageElement>,
+        ImgHTMLAttributes<HTMLImageElement>,
         HTMLImageElement
       >,
     ) => (

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import ccn from '@sindresorhus/class-names';
 
 export interface EmojiProps {

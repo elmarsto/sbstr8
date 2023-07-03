@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { PropsWithChildren } from 'react';
 
-const Layout = async ({ children }: React.PropsWithChildren<object>) => (
+const Layout = async ({ children }: PropsWithChildren<object>) => (
   <div className="sbstr8:layout-post">{children}</div>
 );
 export default Layout;

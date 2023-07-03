@@ -1,5 +1,5 @@
 'use client';
-import * as React from 'react';
+import { ReactNode, FunctionComponent, CSSProperties, useRef } from 'react';
 import ccn from '@sindresorhus/class-names';
 import {
   ClipboardButton as defaultClipboardButtonComponent,
@@ -8,10 +8,10 @@ import {
 
 export interface PreProps {
   className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  style?: CSSProperties;
+  children?: ReactNode;
   clipboardButtonClassName?: string;
-  ClipboardButtonComponent?: React.FunctionComponent<ClipboardButtonProps>;
+  ClipboardButtonComponent?: FunctionComponent<ClipboardButtonProps>;
 }
 
 export const Pre = ({
@@ -21,7 +21,7 @@ export const Pre = ({
   children,
   ClipboardButtonComponent,
 }: PreProps) => {
-  const ref = React.useRef<HTMLPreElement>(null);
+  const ref = useRef<HTMLPreElement>(null);
   const ClipboardButton =
     ClipboardButtonComponent || defaultClipboardButtonComponent;
   return (

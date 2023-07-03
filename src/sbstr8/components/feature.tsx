@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 import ccn from '@sindresorhus/class-names';
 import { mkShortDate } from '@/sbstr8/lib/date';
 import { Post } from '@/sbstr8/lib/types/post';
@@ -11,7 +12,6 @@ import {
   Link as defaultLinkComponent,
   LinkProps,
 } from '@/sbstr8/components/link';
-import { override } from '@/../sbstr8.config';
 
 const defaultImageWidth = 1024;
 const defaultImageHeight = 512;
@@ -30,9 +30,9 @@ export interface FeatureProps {
   imageClassName?: string;
   teaserClassName?: string;
   titleClassName?: string;
-  style?: React.CSSProperties;
-  ImageComponent?: React.FunctionComponent<ImageProps>;
-  LinkComponent?: React.FunctionComponent<LinkProps>;
+  style?: CSSProperties;
+  ImageComponent?: FunctionComponent<ImageProps>;
+  LinkComponent?: FunctionComponent<LinkProps>;
 }
 
 const Feature = async ({
@@ -56,11 +56,9 @@ const Feature = async ({
   ImageComponent,
   LinkComponent,
 }: FeatureProps) => {
+  const over = await useOverride(defaultLinkComponent);
   const date = mkShortDate(created, updated);
-  const Link =
-    LinkComponent ||
-    (await override.get(defaultLinkComponent)).default ||
-    defaultLinkComponent;
+  const Link = LinkComponent || over || defaultLinkComponent;
   const Image = ImageComponent || defaultImageComponent;
   return (
     <div

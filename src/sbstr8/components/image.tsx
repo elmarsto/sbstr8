@@ -1,5 +1,4 @@
 'use client';
-import * as React from 'react';
 import useDimensions from 'react-cool-dimensions';
 import NextImage, { ImageProps as NextImageProps } from 'next/image';
 

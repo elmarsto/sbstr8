@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode, FunctionComponent, CSSProperties } from 'react';
 import {
   Link as defaultLinkComponent,
   LinkProps,
@@ -8,12 +8,12 @@ import cfg from '@/../sbstr8.config';
 import { menuLinks } from '@/sbstr8/lib/menu';
 
 export interface PageHeaderProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   logoClassName?: string;
   menuItemClassName?: string;
-  style?: React.CSSProperties;
-  LinkComponent?: React.FunctionComponent<LinkProps>;
+  style?: CSSProperties;
+  LinkComponent?: FunctionComponent<LinkProps>;
 }
 export const PageHeader = ({
   children,

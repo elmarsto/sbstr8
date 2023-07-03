@@ -1,4 +1,3 @@
-import * as React from 'react';
 import urlJoin from 'url-join';
 import ccn from '@sindresorhus/class-names';
 import { gql } from '@apollo/client';

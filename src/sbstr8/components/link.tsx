@@ -1,11 +1,11 @@
-import * as React from 'react';
+import { PropsWithChildren, CSSProperties } from 'react';
 import NextLink from 'next/link';
 import ccn from '@sindresorhus/class-names';
 
-export type LinkProps = React.PropsWithChildren<{
+export type LinkProps = PropsWithChildren<{
   className?: string;
   href?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   onClick?: () => void;
 }>;
 

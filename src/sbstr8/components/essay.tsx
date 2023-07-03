@@ -1,13 +1,13 @@
-import * as React from 'react';
+import { ReactNode, CSSProperties } from 'react';
 import ccn from '@sindresorhus/class-names';
 
 export interface EssayProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
-  title?: string | React.ReactNode;
+  title?: string | ReactNode;
   titleClassName?: string;
   contentClassName?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export const Essay = ({
