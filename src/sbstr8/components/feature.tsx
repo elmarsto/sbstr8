@@ -56,10 +56,11 @@ const Feature = async ({
   ImageComponent,
   LinkComponent,
 }: FeatureProps) => {
-  const over = await useOverride(defaultLinkComponent);
+  const overLink = await useOverride(defaultLinkComponent);
+  const overImage = await useOverride(defaultImageComponent);
   const date = mkShortDate(created, updated);
-  const Link = LinkComponent || over || defaultLinkComponent;
-  const Image = ImageComponent || defaultImageComponent;
+  const Link = LinkComponent || overLink;
+  const Image = ImageComponent || overImage;
   return (
     <div
       className={ccn(

@@ -6,6 +6,7 @@ import {
 import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
 import { menuLinks } from '@/sbstr8/lib/menu';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 export interface PageHeaderProps {
   children?: ReactNode;
@@ -15,7 +16,7 @@ export interface PageHeaderProps {
   style?: CSSProperties;
   LinkComponent?: FunctionComponent<LinkProps>;
 }
-export const PageHeader = ({
+export const PageHeader = async ({
   children,
   className,
   logoClassName,
@@ -23,7 +24,8 @@ export const PageHeader = ({
   style,
   LinkComponent,
 }: PageHeaderProps) => {
-  const Link = LinkComponent || defaultLinkComponent;
+  const overLink = await useOverride(defaultLinkComponent);
+  const Link = LinkComponent || overLink;
   return (
     <header style={style} className={ccn('sbstr8:page-header', className)}>
       <nav className="sbstr8:page-header-nav">

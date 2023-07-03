@@ -5,6 +5,7 @@ import {
   ClipboardButton as defaultClipboardButtonComponent,
   ClipboardButtonProps,
 } from '@/sbstr8/components/clipboard-button';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 export interface PreProps {
   className?: string;
@@ -14,7 +15,7 @@ export interface PreProps {
   ClipboardButtonComponent?: FunctionComponent<ClipboardButtonProps>;
 }
 
-export const Pre = ({
+export const Pre = async ({
   style,
   className,
   clipboardButtonClassName,
@@ -22,8 +23,8 @@ export const Pre = ({
   ClipboardButtonComponent,
 }: PreProps) => {
   const ref = useRef<HTMLPreElement>(null);
-  const ClipboardButton =
-    ClipboardButtonComponent || defaultClipboardButtonComponent;
+  const overCB = await useOverride(defaultClipboardButtonComponent);
+  const ClipboardButton = ClipboardButtonComponent || overCB;
   return (
     <pre
       ref={ref}

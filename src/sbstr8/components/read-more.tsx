@@ -6,6 +6,7 @@ import {
 import ccn from '@sindresorhus/class-names';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 const READ_MORE = 'Read More';
 export interface ReadMoreProps extends LinkProps {
@@ -14,14 +15,15 @@ export interface ReadMoreProps extends LinkProps {
   LinkComponent?: FunctionComponent<LinkProps>;
 }
 
-export const ReadMore = ({
+export const ReadMore = async ({
   children,
   iconClassName,
   className,
   LinkComponent,
   ...otherProps
 }: ReadMoreProps) => {
-  const Link = LinkComponent || defaultLinkComponent;
+  const overLink = await useOverride(defaultLinkComponent);
+  const Link = LinkComponent || overLink;
 
   const kids = children || <>{READ_MORE}</>;
   return (

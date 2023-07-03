@@ -4,6 +4,7 @@ import {
   Lede as defaultLedeComponent,
   LedeProps,
 } from '@/sbstr8/components/lede';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 export interface LedeListProps {
   children: LedeProps[];
@@ -13,14 +14,15 @@ export interface LedeListProps {
   ledeClassName?: string;
 }
 
-export const LedeList = ({
+export const LedeList = async ({
   children,
   className,
   ledeClassName,
   style,
   LedeComponent,
 }: LedeListProps) => {
-  const Lede = LedeComponent || defaultLedeComponent;
+  const overLede = await useOverride(defaultLedeComponent);
+  const Lede = LedeComponent || overLede;
   return (
     <ul className={ccn('sbstr8:lede-list', className)} style={style}>
       {children.map((p: LedeProps, i: number) => (
