@@ -5,7 +5,7 @@ import {
 } from '@/sbstr8/components/link';
 import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
-import { menuLinks } from '@/sbstr8/lib/menu';
+import { menu, MenuItem } from '@/sbstr8/lib/menu';
 import useOverride from '@/sbstr8/lib/hook/server/override';
 
 export interface PageHeaderProps {
@@ -33,7 +33,7 @@ export const PageHeader = async ({
           <Link href={cfg.link}>{children}</Link>
         </span>
         <menu className="sbstr8:page-header-nav-menu">
-          {menuLinks.map(({ href, title }, i) => (
+          {menu.map(({ href, title }: MenuItem, i: number) => (
             <h1
               key={i}
               className={ccn(
