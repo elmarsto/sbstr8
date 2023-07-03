@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Link from '@/sbstr8/components/link';
 import { HookProps } from '@/sbstr8/lib/types/post';
 import meta from './meta.json';

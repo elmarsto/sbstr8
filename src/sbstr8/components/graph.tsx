@@ -1,13 +1,12 @@
 'use client';
 import * as Plot from '@observablehq/plot';
 import ccn from '@sindresorhus/class-names';
-import * as React from 'react';
-import { useEffect, useRef } from 'react';
+import { CSSProperties, useEffect, useRef } from 'react';
 
 export interface GraphProps {
   plot: Plot.PlotOptions;
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export const Graph = ({ plot, className, style }: GraphProps) => {

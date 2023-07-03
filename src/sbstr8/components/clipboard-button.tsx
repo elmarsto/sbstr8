@@ -1,5 +1,5 @@
 'use client';
-import * as React from 'react';
+import { CSSProperties, useState, useCallback } from 'react';
 import { faClipboard as lightClipboard } from '@fortawesome/free-regular-svg-icons';
 import ccn from '@sindresorhus/class-names';
 import {
@@ -12,7 +12,7 @@ export interface ClipboardButtonProps {
   title?: string;
   children?: string; // intentionally not a React node! Must be a string!
   className?: string;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 }
 
 export const ClipboardButton = ({
@@ -21,15 +21,15 @@ export const ClipboardButton = ({
   className,
   style,
 }: ClipboardButtonProps) => {
-  const [down, setDown] = React.useState<boolean>(false);
-  const [copied, setCopied] = React.useState<boolean>(false);
-  const handleClick = React.useCallback(() => {
+  const [down, setDown] = useState<boolean>(false);
+  const [copied, setCopied] = useState<boolean>(false);
+  const handleClick = useCallback(() => {
     navigator.clipboard.writeText(children || '');
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   }, [children]);
-  const handleDown = React.useCallback(() => setDown(true), []);
-  const handleUp = React.useCallback(() => setDown(false), []);
+  const handleDown = useCallback(() => setDown(true), []);
+  const handleUp = useCallback(() => setDown(false), []);
   return (
     <button
       title={title || 'Copy to clipboard'}

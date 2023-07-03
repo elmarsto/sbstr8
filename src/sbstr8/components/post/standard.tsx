@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode } from 'react';
 import ccn from '@sindresorhus/class-names';
 import PageHeader from '@/sbstr8/components/page/header';
 import Image from '@/sbstr8/components/image';
@@ -15,13 +15,13 @@ const IMG_HEIGHT = 1024;
 export interface StandardProps {
   authorClassName?: string;
   authors?: Person[];
-  children: React.ReactNode;
+  children: ReactNode;
   contentClassName?: string;
   className?: string;
   created: string;
   dateClassName?: string;
   footnoteClassName?: string;
-  footnotes?: React.ReactNode;
+  footnotes?: ReactNode;
   image: string;
   title: string;
   titleClassName?: string;

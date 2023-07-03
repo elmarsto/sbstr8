@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { CSSProperties, FunctionComponent } from 'react';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 import ccn from '@sindresorhus/class-names';
 import { mkShortDate } from '@/sbstr8/lib/date';
 import { Post } from '@/sbstr8/lib/types/post';
@@ -29,12 +30,12 @@ export interface FeatureProps {
   imageClassName?: string;
   teaserClassName?: string;
   titleClassName?: string;
-  style?: React.CSSProperties;
-  ImageComponent?: React.FunctionComponent<ImageProps>;
-  LinkComponent?: React.FunctionComponent<LinkProps>;
+  style?: CSSProperties;
+  ImageComponent?: FunctionComponent<ImageProps>;
+  LinkComponent?: FunctionComponent<LinkProps>;
 }
 
-const Feature = ({
+const Feature = async ({
   link,
   post: {
     meta: { image, title, created, updated, authors },
@@ -55,9 +56,11 @@ const Feature = ({
   ImageComponent,
   LinkComponent,
 }: FeatureProps) => {
+  const overLink = await useOverride(defaultLinkComponent);
+  const overImage = await useOverride(defaultImageComponent);
   const date = mkShortDate(created, updated);
-  const Link = LinkComponent || defaultLinkComponent;
-  const Image = ImageComponent || defaultImageComponent;
+  const Link = LinkComponent || overLink;
+  const Image = ImageComponent || overImage;
   return (
     <div
       className={ccn(

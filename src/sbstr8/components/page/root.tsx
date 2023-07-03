@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { gql } from '@apollo/client';
 import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
@@ -39,7 +40,7 @@ export interface rootMakerParams {
   mainClassName?: string;
   readMoreClassName?: string;
   readMoreText?: string;
-  unfeaturedHeader?: React.ReactNode;
+  unfeaturedHeader?: ReactNode;
 }
 
 export const rootMaker =

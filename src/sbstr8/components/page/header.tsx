@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ReactNode, FunctionComponent, CSSProperties } from 'react';
 import {
   Link as defaultLinkComponent,
   LinkProps,
@@ -6,16 +6,17 @@ import {
 import ccn from '@sindresorhus/class-names';
 import cfg from '@/../sbstr8.config';
 import { menuLinks } from '@/sbstr8/lib/menu';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 export interface PageHeaderProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
   logoClassName?: string;
   menuItemClassName?: string;
-  style?: React.CSSProperties;
-  LinkComponent?: React.FunctionComponent<LinkProps>;
+  style?: CSSProperties;
+  LinkComponent?: FunctionComponent<LinkProps>;
 }
-export const PageHeader = ({
+export const PageHeader = async ({
   children,
   className,
   logoClassName,
@@ -23,7 +24,8 @@ export const PageHeader = ({
   style,
   LinkComponent,
 }: PageHeaderProps) => {
-  const Link = LinkComponent || defaultLinkComponent;
+  const overLink = await useOverride(defaultLinkComponent);
+  const Link = LinkComponent || overLink;
   return (
     <header style={style} className={ccn('sbstr8:page-header', className)}>
       <nav className="sbstr8:page-header-nav">

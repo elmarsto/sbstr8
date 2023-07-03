@@ -1,29 +1,30 @@
 'use client';
-import * as React from 'react';
+import { ReactNode, FunctionComponent, CSSProperties, useRef } from 'react';
 import ccn from '@sindresorhus/class-names';
 import {
   ClipboardButton as defaultClipboardButtonComponent,
   ClipboardButtonProps,
 } from '@/sbstr8/components/clipboard-button';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 export interface PreProps {
   className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
+  style?: CSSProperties;
+  children?: ReactNode;
   clipboardButtonClassName?: string;
-  ClipboardButtonComponent?: React.FunctionComponent<ClipboardButtonProps>;
+  ClipboardButtonComponent?: FunctionComponent<ClipboardButtonProps>;
 }
 
-export const Pre = ({
+export const Pre = async ({
   style,
   className,
   clipboardButtonClassName,
   children,
   ClipboardButtonComponent,
 }: PreProps) => {
-  const ref = React.useRef<HTMLPreElement>(null);
-  const ClipboardButton =
-    ClipboardButtonComponent || defaultClipboardButtonComponent;
+  const ref = useRef<HTMLPreElement>(null);
+  const overCB = await useOverride(defaultClipboardButtonComponent);
+  const ClipboardButton = ClipboardButtonComponent || overCB;
   return (
     <pre
       ref={ref}
