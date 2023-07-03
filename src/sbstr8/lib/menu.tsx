@@ -1,6 +1,6 @@
-import { faList, faRss, faHome } from '@fortawesome/free-solid-svg-icons';
 import { IconDefinition } from '@fortawesome/free-brands-svg-icons';
-import cfg from '@/../sbstr8.config';
+import defaults from '@/sbstr8/lib/default';
+import { override } from '@/../sbstr8.config';
 
 export interface MenuItem {
   icon: IconDefinition;
@@ -10,23 +10,8 @@ export interface MenuItem {
   iconic?: boolean;
 }
 
-export const menuLinks = [
-  {
-    href: cfg.link,
-    icon: faHome,
-    title: 'Home',
-  },
-  {
-    href: cfg.postPath,
-    icon: faList,
-    title: 'Posts',
-  },
-  {
-    href: cfg.feedPath,
-    icon: faRss,
-    title: 'RSS Feed',
-    iconic: true,
-  },
-];
+export const menu = override
+  ? override.get(defaults.menu) || defaults.menu
+  : defaults.menu;
 
-export default menuLinks;
+export default menu;

@@ -5,7 +5,7 @@ import {
 } from '@/sbstr8/lib/post';
 import cfg from '@/../sbstr8.config';
 import urlJoin from 'url-join';
-import { menuLinks } from '@/sbstr8/lib/menu';
+import { menu, MenuItem } from '@/sbstr8/lib/menu';
 
 export default function sitemap() {
   const posts = getSortedPost();
@@ -15,7 +15,7 @@ export default function sitemap() {
     lastModified: updated || created || new Date().toISOString(),
   }));
   sitemap.push({ url: cfg.link, lastModified });
-  menuLinks.map((ml) => {
+  menu.map((ml: MenuItem) => {
     if (/^(http|mailto).*$/.test(ml.href || '')) {
       return;
     }
