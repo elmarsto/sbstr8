@@ -11,6 +11,7 @@ import {
   Link as defaultLinkComponent,
   LinkProps,
 } from '@/sbstr8/components/link';
+import { override } from '@/../sbstr8.config';
 
 const defaultImageWidth = 1024;
 const defaultImageHeight = 512;
@@ -34,7 +35,7 @@ export interface FeatureProps {
   LinkComponent?: React.FunctionComponent<LinkProps>;
 }
 
-const Feature = ({
+const Feature = async ({
   link,
   post: {
     meta: { image, title, created, updated, authors },
@@ -56,7 +57,10 @@ const Feature = ({
   LinkComponent,
 }: FeatureProps) => {
   const date = mkShortDate(created, updated);
-  const Link = LinkComponent || defaultLinkComponent;
+  const Link =
+    LinkComponent ||
+    (await override.get(defaultLinkComponent)).default ||
+    defaultLinkComponent;
   const Image = ImageComponent || defaultImageComponent;
   return (
     <div

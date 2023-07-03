@@ -1,4 +1,6 @@
-import { Config, SwitchboardOverride } from '@/sbstr8/lib/types/config';
+import { Config } from '@/sbstr8/lib/types/config';
+import Link from '@/sbstr8/components/link';
+import Feature from '@/sbstr8/components/feature';
 export const env = process.env.NODE_ENV;
 export const isProd = env === 'production';
 export const defaultAuthor = {
@@ -22,4 +24,6 @@ export const config: Config = {
 };
 export default config;
 
-export const override: SwitchboardOverride = {};
+export const override = new WeakMap();
+override.set(Link, import('./src/components/my-link'));
+override.set(Feature, import('./src/components/my-feature'));
