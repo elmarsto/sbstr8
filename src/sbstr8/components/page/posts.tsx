@@ -2,16 +2,17 @@ import urlJoin from 'url-join';
 import ccn from '@sindresorhus/class-names';
 import { gql } from '@apollo/client';
 import cfg from '@/../sbstr8.config';
-import Card from '@/sbstr8/components/card';
-import Link from '@/sbstr8/components/link';
-import Image from '@/sbstr8/components/image';
-import PageHeader from '@/sbstr8/components/page/header';
-import Blurb from '@/sbstr8/components/blurb';
-import StandardPage from '@/sbstr8/components/page/standard';
+import defaultCard from '@/sbstr8/components/card';
+import defaultLink from '@/sbstr8/components/link';
+import defaultImage from '@/sbstr8/components/image';
+import defaultPageHeader from '@/sbstr8/components/page/header';
+import defaultBlurb from '@/sbstr8/components/blurb';
+import defaultStandardPage from '@/sbstr8/components/page/standard';
+import defaultMd from '@/sbstr8/components/md';
+import defaultReadMore from '@/sbstr8/components/read-more';
 import { CookedPostMetadata } from '@/sbstr8/lib/types/post';
-import { Md } from '@/sbstr8/components/md';
-import ReadMore from '@/sbstr8/components/read-more';
 import { sClient } from '@/sbstr8/lib/graphql/server';
+import useOverride from '@/sbstr8/lib/hook/server/override';
 
 const LOGO_SZ = 32;
 const defaultLogo = '/media/sbstr8.svg';
@@ -55,6 +56,14 @@ export const postsMaker =
     titleClassName,
   }: PostsParams) =>
   async () => {
+    const PageHeader = await useOverride(defaultPageHeader);
+    const Card = await useOverride(defaultCard);
+    const Link = await useOverride(defaultLink);
+    const Image = await useOverride(defaultImage);
+    const Blurb = await useOverride(defaultBlurb);
+    const StandardPage = await useOverride(defaultStandardPage);
+    const Md = await useOverride(defaultMd);
+    const ReadMore = await useOverride(defaultReadMore);
     const pic = cfg.icon || defaultLogo;
     const {
       data: { posts },
