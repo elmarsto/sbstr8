@@ -9,6 +9,7 @@ jobs:
 
     name: Run Type Check & Linters
     runs-on: ubuntu-latest
+    #TODO: rewrite to use nix flake
 
     steps:
       - name: Checkout repository
@@ -16,25 +17,22 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 7
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: lts/*
-          cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Check types
-        run: pnpm type-check
+        run: npm run type-check
 
       - name: Check linting
-        run: pnpm lint
+        run: npm run lint
 
       - name: Check commits messages
         uses: wagoid/commitlint-github-action@v5
+
+      - name: Attempt build
+        run: npm run build

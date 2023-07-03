@@ -19,7 +19,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </Link>
     ),
-    pre: Pre,
+    pre: ({ children }) => <Pre>{children}</Pre>,
     img: (
       props: React.DetailedHTMLProps<
         ImgHTMLAttributes<HTMLImageElement>,
