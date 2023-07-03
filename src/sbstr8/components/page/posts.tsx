@@ -107,14 +107,15 @@ export const postsMaker =
                     style={{ height: THUMB_SZ }}
                     className="sbstr8:page-posts-post-body"
                     title={
-                      <h2 className="sbstr8:page-posts-post-body-title">
-                        <Link
-                          href={slugToHref(slug)}
-                          className={titleClassName}
-                        >
-                          {title}
-                        </Link>
-                      </h2>
+                      <Link
+                        href={slugToHref(slug)}
+                        className={ccn(
+                          'sbstr8:page-posts-post-body-title',
+                          titleClassName,
+                        )}
+                      >
+                        {title}
+                      </Link>
                     }
                   >
                     <h3 className="sbstr8:page-posts-post-body-date">
