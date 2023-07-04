@@ -58,7 +58,7 @@
               cp -r ./public $out/public
               cp -r ./src $out/src
               cp -r ${nodeDeps}/lib/node_modules $out/node_modules;
-              ln -sf "${self.packages.${system}.default}/node_modules/next/dist/bin/next" $out/bin/sbstr8;
+              ln -sf $out/node_modules/next/dist/bin/next $out/bin/sbstr8;
               runHook postInstall
             '';
           };
