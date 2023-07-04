@@ -3,6 +3,7 @@
   description = "sbstr8";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/master";
+    kubenix.url = "github:hall/kubenix";
     flake-utils.url = "github:numtide/flake-utils";
     gitignore = {
       url = "github:hercules-ci/gitignore.nix";
@@ -12,6 +13,7 @@
   outputs =
     { self
     , nixpkgs
+    , kubenix
     , flake-utils
     , gitignore
     , ...
