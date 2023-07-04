@@ -9,11 +9,9 @@
     "type-check": "npx tsc --noEmit",
     "lint": "npx eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "npx prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "npx husky install",
     "storybook": "npx storybook dev -s ./public -p 6006",
     "build-storybook": "npx storybook build -s ./public",
-    "mirrorful": "npx mirrorful",
-    "test": "jest --passWithNoTests"
+    "test": "npx jest --passWithNoTests"
   },
   "repository": {
     "type": "git",
@@ -46,8 +44,8 @@
   "homepage": "https://github.com/elmarsto/sbstr8#readme",
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
-      "eslint --ignore-path .gitignore --fix",
-      "prettier --ignore-path .gitignore --write"
+      "npx eslint --ignore-path .gitignore --fix",
+      "npx prettier --ignore-path .gitignore --write"
     ]
   },
   "dependencies": {
