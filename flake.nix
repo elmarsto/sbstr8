@@ -58,6 +58,10 @@
               npm run build
               runHook postInstall
             '';
-          };
+         };
+         apps.default = {
+           type = "app";
+           program = "${self.packages.${system}.sbstr8}/bin/sbstr8"
+         };
       });
 }
