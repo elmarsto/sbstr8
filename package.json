@@ -9,7 +9,6 @@
     "type-check": "npx tsc --noEmit",
     "lint": "npx eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
     "format": "npx prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
-    "postinstall": "npx husky install",
     "storybook": "npx storybook dev -s ./public -p 6006",
     "build-storybook": "npx storybook build -s ./public",
     "test": "npx jest --passWithNoTests"

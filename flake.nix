@@ -37,7 +37,7 @@
         };
         packages.default = with pkgs; stdenv.mkDerivation {
             name = "sbstr8";
-            src = gitignore.lib.gitignoreSource "./";
+            src = gitignore.lib.gitignoreSource ./.;
             buildInputs = [ nodejs ];
             buildPhase = ''
               runHook preBuild
