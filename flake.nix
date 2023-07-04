@@ -36,14 +36,12 @@
           ];
         };
         packages = {
-          k8s = {
-            (kubenix.evalModules.${system} {
-                  module = { kubenix, ... }: {
-                    imports = with kubenix.modules; [k8s];
-                    kubernetes.resources.pods.example.spec.containers.nginx.image = "nginx";
-                  };
-                }).config.kubernetes.result;
-          };
+          k8s = (kubenix.evalModules.${system} {
+            module = { kubenix, ... }: {
+              imports = with kubenix.modules; [k8s];
+              kubernetes.resources.pods.example.spec.containers.nginx.image = "nginx";
+            };
+          }).config.kubernetes.result;
           docker = pkgs.dockerTools.buildImage {
             name = "sbstr8";
             config = {
