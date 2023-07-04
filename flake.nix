@@ -1,37 +1,62 @@
 {
-  inputs.pre-commit-hooks = {
-    url = "github:cachix/pre-commit-hooks.nix";
-    inputs.nixpkgs.follows = "nixpkgs";
-    inputs.flake-utils.follows = "flake-utils";
+  # a 2023-07-03 mashup of https://johns.codes/blog/building-typescript-node-apps-with-nix and https://github.com/akirak/flake-templates/tree/master/node-typescript
+  description = "sbstr8";
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    flake-utils.url = "github:numtide/flake-utils";
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs =
     { self
     , nixpkgs
     , flake-utils
-    , pre-commit-hooks
-    ,
+    , gitignore
+    , ...
     }:
     flake-utils.lib.eachDefaultSystem
       (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        nodejs = pkgs.nodejs;
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+        node2nixOutput = import ./nix { inherit pkgs nodejs system; };
+        nodeDeps = node2nixOutput.nodeDependencies;
       in
-      rec {
-        packages = flake-utils.lib.flattenTree {
-          nodejs = pkgs.nodejs;
-        };
-        checks = {
-          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              alejandra.enable = true;
-              # statix.enable = false;
-            };
-          };
-        };
+      {
         devShells.default = pkgs.mkShell {
-          inherit (self.checks.${system}.pre-commit-check) shellHook;
+          buildInputs = with pkgs; [
+            nodejs
+            node2nix
+            nodePackages.typescript
+            nodePackages.typescript-language-server
+          ];
         };
+        packages.default = with pkgs; stdenv.mkDerivation {
+            name = "sbstr8";
+            src = gitignore.lib.gitignoreSource "./";
+            buildInputs = [ nodejs ];
+            buildPhase = ''
+              runHook preBuild
+              ln -sf ${nodeDeps}/lib/node_modules ./node_modules
+              export PATH="${nodeDeps}/bin:$PATH"
+              npm run build
+              runHook postBuild
+            '';
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out/bin
+              cp bin/sbstr8 $out/bin/sbstr8
+              cp -r .next $out/.next
+              cp -r public $out/public
+              ln -sf ${nodeDeps}/lib/node_modules/ $out/node_modules;
+              export PATH="${nodeDeps}/bin:$PATH"
+              npm run build
+              runHook postInstall
+            '';
+          };
       });
 }
