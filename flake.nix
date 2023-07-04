@@ -38,7 +38,7 @@
             name = "sbstr8";
             config = {
               Cmd = [
-                "${self.packages.${system}.default}/bin/sbstr8"
+                "${self.packages.${system}.default}/next/dist/bin/next"
               ];
             };
           };
@@ -61,7 +61,7 @@
               cp -r ./public $out/public
               cp -r ./src $out/src
               cp -r ${nodeDeps}/lib/node_modules/ $out/node_modules;
-              export PATH="${nodeDeps}/bin:$PATH"
+              export PATH="$out/node_modules/bin:$PATH"
               npm run build
               runHook postInstall
             '';
