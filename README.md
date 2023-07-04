@@ -79,9 +79,16 @@ Yep, that’s it.
 Supporting the following on most installs of Nix supporting flakes:
 
  - `nix develop` -> minimal development shell, including typescript language server. You’ll need to `npm install`, and then `npm run dev`. Then, have at it!
- - `nix build` -> get a working distributable folder at `./result`
  - `nix run` -> build and spin up a distributable Nix derivation
- - `nix build '.#docker'`
+ - `nix build` -> get a working distributable folder at `./result`
+ - `nix build '.#k8s'` -> WIP: generates a currently-unusable kubernetes spec at ./result
+ - `nix build '.#docker'` -> next steps:
+ ```
+docker load < result
+# outputs something like localhost/sbstr8:1234567890ABCDEF
+rm -rf result
+docker run localhost/sbstr8:1234567890ABCDEF
+```
 
 ## Land acknowledgment
 
