@@ -61,10 +61,34 @@ Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking)
 ## Quick start
  1. `git clone https://github.com/elmarsto/substrate <your-project-name>`
  2. `npm install`
+ 3. `npx husky install` (you only have to do this once per repo)
  4. `npx storybook &` (design your components in a sandbox)
  5. `npx run dev` happy hacking
  6. `npx run build`
 
+## NEW! Even quicker start
+
+If you’re hashtag-blessed and run [Nix](//nix.dev) or, even better, [NixOS](https://nixos.org), with support for [Flakes](https://nixos.wiki/wiki/Flakes), then you can actually spin up a local demo with:
+
+`nix run github:elmarsto/sbstr8`
+
+Yep, that’s it.
+
+## Nix features
+
+Supporting the following on most installs of Nix supporting flakes:
+
+ - `nix develop` -> minimal development shell, including typescript language server. You’ll need to `npm install`, and then `npm run dev`. Then, have at it!
+ - `nix run` -> build and spin up a distributable Nix derivation
+ - `nix build` -> get a working distributable folder at `./result`
+ - `nix build '.#k8s'` -> WIP: generates a currently-unusable kubernetes spec at ./result
+ - `nix build '.#docker'` -> next steps:
+ ```
+docker load < result
+# outputs something like localhost/sbstr8:1234567890ABCDEF
+rm -rf result
+docker run localhost/sbstr8:1234567890ABCDEF
+```
 
 ## Land acknowledgment
 

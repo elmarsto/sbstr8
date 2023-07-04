@@ -3,6 +3,7 @@
   description = "sbstr8";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/master";
+    kubenix.url = "github:hall/kubenix";
     flake-utils.url = "github:numtide/flake-utils";
     gitignore = {
       url = "github:hercules-ci/gitignore.nix";
@@ -12,6 +13,7 @@
   outputs =
     { self
     , nixpkgs
+    , kubenix
     , flake-utils
     , gitignore
     , ...
@@ -20,9 +22,7 @@
       (system:
       let
         nodejs = pkgs.nodejs;
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+        pkgs = import nixpkgs { inherit system; };
         node2nixOutput = import ./nix { inherit pkgs nodejs system; };
         nodeDeps = node2nixOutput.nodeDependencies;
       in
@@ -35,33 +35,45 @@
             nodePackages.typescript-language-server
           ];
         };
-        packages.default = with pkgs; stdenv.mkDerivation {
+        packages = {
+          k8s = (kubenix.evalModules.${system} {
+            module = { kubenix, ... }: {
+              imports = with kubenix.modules; [k8s];
+              kubernetes.resources.pods.example.spec.containers.nginx.image = "nginx";
+            };
+          }).config.kubernetes.result;
+          docker = pkgs.dockerTools.buildImage {
+            name = "sbstr8";
+            config = {
+              Cmd = [ "./node_modules/next/dist/bin/next" ];
+              WorkingDir = "${self.packages.${system}.default}";
+            };
+          };
+          default = with pkgs; stdenv.mkDerivation {
             name = "sbstr8";
             src = gitignore.lib.gitignoreSource ./.;
             buildInputs = [ nodejs ];
             buildPhase = ''
               runHook preBuild
               ln -sf ${nodeDeps}/lib/node_modules ./node_modules
-              export PATH="${nodeDeps}/bin:$PATH"
               npm run build
               runHook postBuild
             '';
             installPhase = ''
               runHook preInstall
               mkdir -p $out/bin
-              cp ./bin/sbstr8 $out/bin/sbstr8
               cp -r ./.next $out/.next
               cp -r ./public $out/public
               cp -r ./src $out/src
-              ln -sf ${nodeDeps}/lib/node_modules/ $out/node_modules;
-              export PATH="${nodeDeps}/bin:$PATH"
-              npm run build
+              cp -r ${nodeDeps}/lib/node_modules $out/node_modules;
+              ln -sf $out/node_modules/next/dist/bin/next $out/bin/sbstr8;
               runHook postInstall
             '';
-         };
-         apps.default = {
-           type = "app";
-           program = "${self.packages.${system}.sbstr8}/bin/sbstr8"
-         };
+          };
+        };
+        apps.default = {
+          type = "app";
+          program = "${self.packages.${system}.default}/node_modules/next/dist/bin/next";
+        };
       });
-}
+    }
