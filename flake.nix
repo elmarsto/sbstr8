@@ -49,9 +49,10 @@
             installPhase = ''
               runHook preInstall
               mkdir -p $out/bin
-              cp bin/sbstr8 $out/bin/sbstr8
-              cp -r .next $out/.next
-              cp -r public $out/public
+              cp ./bin/sbstr8 $out/bin/sbstr8
+              cp -r ./.next $out/.next
+              cp -r ./public $out/public
+              cp -r ./src $out/src
               ln -sf ${nodeDeps}/lib/node_modules/ $out/node_modules;
               export PATH="${nodeDeps}/bin:$PATH"
               npm run build
