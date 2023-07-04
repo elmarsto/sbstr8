@@ -20,9 +20,7 @@
       (system:
       let
         nodejs = pkgs.nodejs;
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+        pkgs = import nixpkgs { inherit system; };
         node2nixOutput = import ./nix { inherit pkgs nodejs system; };
         nodeDeps = node2nixOutput.nodeDependencies;
       in
@@ -35,7 +33,16 @@
             nodePackages.typescript-language-server
           ];
         };
-        packages.default = with pkgs; stdenv.mkDerivation {
+        packages = {
+          docker = pkgs.dockerTools.buildImage {
+            name = "sbstr8";
+            config = {
+              Cmd = [
+                "${self.packages.${system}.default}/bin/sbstr8"
+              ];
+            };
+          };
+          default = with pkgs; stdenv.mkDerivation {
             name = "sbstr8";
             src = gitignore.lib.gitignoreSource ./.;
             buildInputs = [ nodejs ];
@@ -53,15 +60,16 @@
               cp -r ./.next $out/.next
               cp -r ./public $out/public
               cp -r ./src $out/src
-              ln -sf ${nodeDeps}/lib/node_modules/ $out/node_modules;
+              cp -r ${nodeDeps}/lib/node_modules/ $out/node_modules;
               export PATH="${nodeDeps}/bin:$PATH"
               npm run build
               runHook postInstall
             '';
-         };
-         apps.default = {
-           type = "app";
-           program = "${self.packages.${system}.sbstr8}/bin/sbstr8"
-         };
+          };
+        };
+        apps.default = {
+          type = "app";
+          program = "${self.packages.${system}.default}/bin/sbstr8";
+        };
       });
-}
+    }
