@@ -2,6 +2,7 @@ import urlJoin from 'url-join';
 import '@/sbstr8/lib/style.css';
 import pkg from '@/../package.json';
 import cfg, { defaultAuthor } from '@/../sbstr8.config';
+import defaults from '@/sbstr8/lib/default';
 
 const MainLayout = ({ children }: React.PropsWithChildren<unknown>) => (
   <html lang="en" className="sbstr8:layout-root">
@@ -22,6 +23,12 @@ export default MainLayout;
 export const metadata = {
   applicationName: cfg.title,
   authors: cfg.owners.map(({ name, link }) => ({ name, url: link })),
+  alternates: {
+    canonical: cfg.link,
+    types: {
+      'application/rss+xml': urlJoin(cfg.link, defaults.path.feed),
+    },
+  },
   category: cfg.categories.join('/'),
   creator: defaultAuthor.name,
   description: cfg.description,

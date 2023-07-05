@@ -1,12 +1,21 @@
 import { faList, faRss, faHome } from '@fortawesome/free-solid-svg-icons';
 // Defaults
 
+const feedPath = '/feed';
+const postsPath = '/posts';
+
 export const defaults = {
   menu: [
     { href: '/', title: 'Home', icon: faHome },
-    { href: '/feed', title: 'Feed', icon: faRss },
-    { href: '/posts', title: 'Posts', icon: faList },
+    { href: feedPath, title: 'Feed', icon: faRss },
+    { href: postsPath, title: 'Posts', icon: faList },
   ],
+  path: {
+    feed: feedPath,
+    posts: postsPath,
+    sitemap: '/sitemap.xml',
+    private: '/private',
+  },
   date: {
     created: 'Jan 01 2023',
   },
