@@ -47,6 +47,7 @@ By contrast, Sbstr8 is code-first and [clastic](https://en.wiktionary.org/wiki/c
  - Sitemap
  - Proper OpenGraph annotation
  - SSR-by-default, for great SEO
+ - **NEW!** not one but two theming systems: a CSS-based system, for simple themes, and a Dependency Injection model for overriding sbstr8's built-in React components with your own custom React components.
 
 
 Thanks to Next.js and [tree shaking](https://en.wikipedia.org/wiki/Tree_shaking), your finished site will only contain the libraries you choose to use, page by page. But it’s all there if you need it. <3
