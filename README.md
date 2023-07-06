@@ -1,5 +1,5 @@
 <center>
-  ![](https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg)
+  <img src="https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg" alt="sbstr8 logo" />
 </center>
 
 # SBSTR8
