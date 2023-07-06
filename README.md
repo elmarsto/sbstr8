@@ -1,4 +1,7 @@
-![](https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg)
+<center>
+  ![](https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg)
+</center>
+
 # SBSTR8
 
 # What is sbstr8? (Prounounced ‘substrate’)
