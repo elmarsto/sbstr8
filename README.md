@@ -1,6 +1,6 @@
-<center>
+<p align="center">
   <img src="https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg" alt="sbstr8 logo" />
-</center>
+</p>
 
 # SBSTR8
 
