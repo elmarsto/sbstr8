@@ -9,7 +9,7 @@ export interface ImageProps extends NextImageProps {
 
 export const Image = ({ className, style, ...otherProps }: ImageProps) => (
   <NextImage
-    className={ccn('sbstr8:image', className)}
+    className={ccn('s8-image', className)}
     style={{ overflow: 'hidden', ...style }}
     {...otherProps}
   />

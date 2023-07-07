@@ -8,7 +8,7 @@ export interface GridProps {
 }
 
 const gridClasses = ccn(
-  'sbstr8:grid',
+  's8-grid',
   'grid',
   'grid-cols-1',
   'lg:grid-cols-2',

@@ -26,7 +26,7 @@ export const Md = ({ children, className, style }: MdProps) => {
     // TODO: use S8 elements like in mdx-components.tsx
   });
   return (
-    <span className={ccn('sbstr8:md', className)} style={style}>
+    <span className={ccn('s8-md', className)} style={style}>
       {md}
     </span>
   );

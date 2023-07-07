@@ -19,12 +19,12 @@ export const Blurb = ({
   className,
   titleClassName,
 }: BlurbProps) => (
-  <article className={ccn('sbstr8:blurb', className)} style={style}>
+  <article className={ccn('s8-blurb', className)} style={style}>
     {title && (
-      <h1 className={ccn('sbstr8:blurb-title', titleClassName)}>{title}</h1>
+      <h1 className={ccn('s8-blurb-title', titleClassName)}>{title}</h1>
     )}
     {float && (
-      <div className={ccn('sbstr8:blurb-float', floatClasses)}>{float}</div>
+      <div className={ccn('s8-blurb-float', floatClasses)}>{float}</div>
     )}
     {children}
   </article>

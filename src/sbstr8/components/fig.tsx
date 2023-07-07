@@ -15,9 +15,9 @@ export const Fig = ({
   captionClassName,
   style,
 }: FigProps) => (
-  <figure className={ccn('sbstr8:fig', className)} style={style}>
+  <figure className={ccn('s8-fig', className)} style={style}>
     {children}
-    <figcaption className={ccn('sbstr8:fig-caption', captionClassName)}>
+    <figcaption className={ccn('s8-fig-caption', captionClassName)}>
       {caption}
     </figcaption>
   </figure>

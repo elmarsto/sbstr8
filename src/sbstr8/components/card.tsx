@@ -15,10 +15,8 @@ export const Card = ({
   titleClassName,
   style,
 }: CardProps) => (
-  <section className={ccn('sbstr8:card', className)} style={style}>
-    {title && (
-      <h1 className={ccn('sbstr8:card-title', titleClassName)}>{title}</h1>
-    )}
+  <section className={ccn('s8-card', className)} style={style}>
+    {title && <h1 className={ccn('s8-card-title', titleClassName)}>{title}</h1>}
     {children}
   </section>
 );

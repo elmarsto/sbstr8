@@ -23,7 +23,7 @@ export const Graph = ({ plot, className, style }: GraphProps) => {
   return (
     <div
       ref={containerRef}
-      className={ccn('sbstr8:graph', className)}
+      className={ccn('s8-graph', className)}
       style={style}
     />
   );

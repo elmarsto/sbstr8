@@ -24,9 +24,9 @@ export const LedeList = async ({
   const overLede = await useOverride(defaultLedeComponent);
   const Lede = LedeComponent || overLede;
   return (
-    <ul className={ccn('sbstr8:lede-list', className)} style={style}>
+    <ul className={ccn('s8-lede-list', className)} style={style}>
       {children.map((p: LedeProps, i: number) => (
-        <li className={ccn('sbstr8:lede-list-item', ledeClassName)} key={i}>
+        <li className={ccn('s8-lede-list-item', ledeClassName)} key={i}>
           <Lede {...p} />
         </li>
       ))}
