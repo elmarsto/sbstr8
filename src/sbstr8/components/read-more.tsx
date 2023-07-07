@@ -27,13 +27,13 @@ export const ReadMore = async ({
 
   const kids = children || <>{READ_MORE}</>;
   return (
-    <Link className={ccn('sbstr8:read-more', className)} {...otherProps}>
+    <Link className={ccn('s8-read-more', className)} {...otherProps}>
       <div className="flex flex-row items-center">
-        <div className={ccn('sbstr8:read-more-text', 'pr-1')}>{kids}</div>
+        <div className={ccn('s8-read-more-text', 'pr-1')}>{kids}</div>
         <FontAwesomeIcon
           icon={faPlay}
           style={{ width: '1rem', height: '1rem' }}
-          className={ccn('sbstr8:read-more-icon', iconClassName)}
+          className={ccn('s8-read-more-icon', iconClassName)}
         />
       </div>
     </Link>

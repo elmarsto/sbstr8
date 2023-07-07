@@ -22,12 +22,10 @@ export const StandardPage = ({
   titleClassName,
 }: StandardPageProps) => (
   <div
-    className={ccn('sbstr8:page-standard', className)}
+    className={ccn('s8-page-standard', className)}
     style={{ ...backgrounder(bg), ...style }}
   >
-    <h1 className={ccn('sbstr8:page-standard-title', titleClassName)}>
-      {title}
-    </h1>
+    <h1 className={ccn('s8-page-standard-title', titleClassName)}>{title}</h1>
     {children}
   </div>
 );

@@ -69,13 +69,11 @@ export const postsMaker =
       data: { posts },
     } = await sClient.query({ query });
     return (
-      <div className="sbstr8:page-posts">
-        <PageHeader
-          className={ccn('sbstr8:page-posts-header', headerClassName)}
-        >
+      <div className="s8-page-posts">
+        <PageHeader className={ccn('s8-page-posts-header', headerClassName)}>
           <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
         </PageHeader>
-        <StandardPage className="sbstr8:page-posts-page">
+        <StandardPage className="s8-page-posts-page">
           {posts.map(
             (
               {
@@ -91,10 +89,10 @@ export const postsMaker =
             ) => {
               const pic = thumbnail || image || THUMB_DEFAULT;
               return (
-                <Card key={i} className="sbstr8:page-posts-post">
+                <Card key={i} className="s8-page-posts-post">
                   <Link
                     href={slugToHref(slug)}
-                    className="sbstr8:page-posts-post-thumbnail"
+                    className="s8-page-posts-post-thumbnail"
                   >
                     <Image
                       src={pic}
@@ -105,12 +103,12 @@ export const postsMaker =
                   </Link>
                   <Blurb
                     style={{ height: THUMB_SZ }}
-                    className="sbstr8:page-posts-post-body"
+                    className="s8-page-posts-post-body"
                     title={
                       <Link
                         href={slugToHref(slug)}
                         className={ccn(
-                          'sbstr8:page-posts-post-body-title',
+                          's8-page-posts-post-body-title',
                           titleClassName,
                         )}
                       >
@@ -118,21 +116,21 @@ export const postsMaker =
                       </Link>
                     }
                   >
-                    <h3 className="sbstr8:page-posts-post-body-date">
+                    <h3 className="s8-page-posts-post-body-date">
                       <span
                         className={ccn(
-                          'sbstr8:page-posts-post-body-date-created-date',
+                          's8-page-posts-post-body-date-created-date',
                           dateClassName,
                         )}
                       >
                         {created}
                       </span>
                       {updated && (
-                        <em className="sbstr8:page-posts-post-body-date-updated">
+                        <em className="s8-page-posts-post-body-date-updated">
                           &mdash;updated{' '}
                           <span
                             className={ccn(
-                              'sbstr8:page-posts-post-body-date-updated-date',
+                              's8-page-posts-post-body-date-updated-date',
                               dateClassName,
                             )}
                           >
@@ -143,7 +141,7 @@ export const postsMaker =
                     </h3>
                     <Md
                       className={ccn(
-                        'sbstr8:page-posts-post-body-description',
+                        's8-page-posts-post-body-description',
                         descriptionClassName,
                       )}
                     >
@@ -152,7 +150,7 @@ export const postsMaker =
                     <ReadMore
                       href={slugToHref(slug)}
                       className={ccn(
-                        'sbstr8:page-posts-post-body-read-more',
+                        's8-page-posts-post-body-read-more',
                         readMoreClassName,
                       )}
                     />

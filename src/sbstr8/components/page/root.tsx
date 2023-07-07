@@ -63,16 +63,13 @@ export const rootMaker =
     const unfeaturedPosts = data.posts.slice(featureCount);
     const logo = cfg.icon || defaultLogo;
     return (
-      <div className="sbstr8:page-root">
-        <PageHeader className="sbstr8:page-root-header">
+      <div className="s8-page-root">
+        <PageHeader className="s8-page-root-header">
           <Image src={logo} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
         </PageHeader>
-        <main className={ccn('sbstr8:page-root-main', mainClassName)}>
+        <main className={ccn('s8-page-root-main', mainClassName)}>
           <section
-            className={ccn(
-              'sbstr8:page-root-section-featured-primary',
-              'md:pb-4',
-            )}
+            className={ccn('s8-page-root-section-featured-primary', 'md:pb-4')}
             style={{ minHeight: 1024 }}
           >
             {eins.map(({ post, link }: Feature, i: number) => (
@@ -81,7 +78,7 @@ export const rootMaker =
           </section>
           <section
             className={ccn(
-              'sbstr8:page-root-section-featured-secondary',
+              's8-page-root-section-featured-secondary',
               'grid',
               'grid-cols-1',
               'md:gap-4',
@@ -96,7 +93,7 @@ export const rootMaker =
           </section>
           <section
             className={ccn(
-              'sbstr8:page-root-section-featured-tertiary',
+              's8-page-root-section-featured-tertiary',
               'grid',
               'grid-cols-1',
               'grow',
@@ -113,13 +110,13 @@ export const rootMaker =
             ))}
           </section>
           {unfeaturedPosts && (
-            <section className="sbstr8:page-root-section-unfeatured">
+            <section className="s8-page-root-section-unfeatured">
               {unfeaturedHeader}
               <LedeList>{unfeaturedPosts}</LedeList>
               <ReadMore
                 href={cfg.postPath || defaultPostPath}
                 className={ccn(
-                  'sbstr8:page-root-section-unfeatured-read-more',
+                  's8-page-root-section-unfeatured-read-more',
                   'float-right',
                   'p-2',
                   'text-xs',

@@ -47,23 +47,23 @@ export const Standard = ({
   const author = authors && authors.length > 0 ? authors[0] : defaultAuthor;
   const pic = cfg.icon || defaultLogo;
   return (
-    <div className={ccn('sbstr8:post-standard', className)}>
-      <PageHeader className="sbstr8:post-standard-header">
+    <div className={ccn('s8-post-standard', className)}>
+      <PageHeader className="s8-post-standard-header">
         <Image src={pic} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
       </PageHeader>
       <main>
-        <article className="sbstr8:post-standard-article">
-          <header className="sbstr8:post-standard-article-header">
+        <article className="s8-post-standard-article">
+          <header className="s8-post-standard-article-header">
             <Image
               src={image}
               alt={title}
               width={IMG_WIDTH}
               height={IMG_HEIGHT}
-              className="sbstr8:post-standard-article-header-image"
+              className="s8-post-standard-article-header-image"
             />
             <h2
               className={ccn(
-                'sbstr8:post-standard-article-header-title',
+                's8-post-standard-article-header-title',
                 titleClassName,
               )}
             >
@@ -72,14 +72,14 @@ export const Standard = ({
             {author && (
               <h3
                 className={ccn(
-                  'sbstr8:post-standard-article-header-author',
+                  's8-post-standard-article-header-author',
                   authorClassName,
                 )}
               >
                 by{' '}
                 <span
                   className={ccn(
-                    'sbstr8:post-standard-article-header-author-name',
+                    's8-post-standard-article-header-author-name',
                     authorClassName,
                   )}
                 >
@@ -89,19 +89,19 @@ export const Standard = ({
             )}
             <h3
               className={ccn(
-                'sbstr8:post-standard-article-date-created',
+                's8-post-standard-article-date-created',
                 dateClassName,
               )}
             >
               {created}
             </h3>
             {updated && (
-              <h3 className={ccn('sbstr8:post-standard-article-date-updated')}>
+              <h3 className={ccn('s8-post-standard-article-date-updated')}>
                 <em>
                   Updated{' '}
                   <span
                     className={ccn(
-                      'sbstr8:post-standard-article-date-updated-date',
+                      's8-post-standard-article-date-updated-date',
                       dateClassName,
                     )}
                   >
@@ -113,8 +113,8 @@ export const Standard = ({
           </header>
           <div
             className={ccn(
-              'sbstr8:post-standard-article-body',
-              'sbstr8:article-body',
+              's8-post-standard-article-body',
+              's8-article-body',
               contentClassName,
             )}
           >
@@ -122,7 +122,7 @@ export const Standard = ({
           </div>
           <em
             className={ccn(
-              'sbstr8:post-standard-article-footnote',
+              's8-post-standard-article-footnote',
               footnoteClassName,
             )}
           >

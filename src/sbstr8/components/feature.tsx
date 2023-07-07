@@ -64,14 +64,14 @@ const Feature = async ({
   return (
     <div
       className={ccn(
-        'sbstr8:feature',
-        `sbstr8:feature-cut-${cut}`,
+        's8-feature',
+        `s8-feature-cut-${cut}`,
         clss[cut],
         className,
       )}
       style={style}
     >
-      <Link className="sbstr8:feature-image" href={link}>
+      <Link className="s8-feature-image" href={link}>
         <Image
           className={imageClassName}
           src={image || defaultImage}
@@ -80,34 +80,24 @@ const Feature = async ({
           alt={`Image for post entitled ${title}`}
         />
       </Link>
-      <h1
-        className={ccn('sbstr8:feature-title', clss['title'], titleClassName)}
-      >
+      <h1 className={ccn('s8-feature-title', clss['title'], titleClassName)}>
         <Link href={link}>{title}</Link>
       </h1>
-      <h2 className={ccn('sbstr8:feature-date', clss['date'], dateClassName)}>
+      <h2 className={ccn('s8-feature-date', clss['date'], dateClassName)}>
         {date}
       </h2>
       <h2
-        className={ccn(
-          'sbstr8:feature-authors',
-          clss['author'],
-          authorClassName,
-        )}
+        className={ccn('s8-feature-authors', clss['author'], authorClassName)}
       >
         {(authors || []).join(', ')}
       </h2>
       <div
-        className={ccn(
-          'sbstr8:feature-teaser',
-          clss['teaser'],
-          teaserClassName,
-        )}
+        className={ccn('s8-feature-teaser', clss['teaser'], teaserClassName)}
       >
         <Teaser />
       </div>
       <Link
-        className={ccn('sbstr8:feature-hook', clss['hook'], hookClassName)}
+        className={ccn('s8-feature-hook', clss['hook'], hookClassName)}
         href={link}
       >
         <Hook />

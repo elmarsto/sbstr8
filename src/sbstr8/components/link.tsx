@@ -20,14 +20,14 @@ export const Link = ({
     {href ? (
       <NextLink
         onClick={onClick}
-        className={ccn('sbstr8:link', className)}
+        className={ccn('s8-link', className)}
         href={href || '#'}
         style={style}
       >
         {children}
       </NextLink>
     ) : (
-      <span className={ccn('sbstr8:link', className)} style={style}>
+      <span className={ccn('s8-link', className)} style={style}>
         {children}
       </span>
     )}

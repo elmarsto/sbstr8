@@ -27,19 +27,16 @@ export const PageHeader = async ({
   const overLink = await useOverride(defaultLinkComponent);
   const Link = LinkComponent || overLink;
   return (
-    <header style={style} className={ccn('sbstr8:page-header', className)}>
-      <nav className="sbstr8:page-header-nav">
-        <span className={ccn('sbstr8:page-header-nav-logo', logoClassName)}>
+    <header style={style} className={ccn('s8-page-header', className)}>
+      <nav className="s8-page-header-nav">
+        <span className={ccn('s8-page-header-nav-logo', logoClassName)}>
           <Link href={cfg.link}>{children}</Link>
         </span>
-        <menu className="sbstr8:page-header-nav-menu">
+        <menu className="s8-page-header-nav-menu">
           {menu.map(({ href, title }: MenuItem, i: number) => (
             <h1
               key={i}
-              className={ccn(
-                'sbstr8:page-header-nav-menu-item',
-                menuItemClassName,
-              )}
+              className={ccn('s8-page-header-nav-menu-item', menuItemClassName)}
             >
               <Link href={href}>{title}</Link>
             </h1>

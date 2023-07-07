@@ -68,7 +68,7 @@ export const Video = (props: VideoProps) => {
   return (
     <div
       data-vjs-player
-      className={ccn('sbstr8:video', props.className)}
+      className={ccn('s8-video', props.className)}
       style={props.style}
     >
       <div ref={videoRef} />

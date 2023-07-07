@@ -36,7 +36,7 @@ export const ClipboardButton = ({
       onClick={handleClick}
       onMouseDown={handleDown}
       onMouseUp={handleUp}
-      className={ccn('sbstr8:clipboard-button', className)}
+      className={ccn('s8-clipboard-button', className)}
       style={style}
     >
       <span className="fa-layers">

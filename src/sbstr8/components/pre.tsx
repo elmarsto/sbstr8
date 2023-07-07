@@ -28,13 +28,13 @@ export const Pre = async ({
   return (
     <pre
       ref={ref}
-      className={ccn('sbstr8:pre', 'relative', className)}
+      className={ccn('s8-pre', 'relative', className)}
       style={style}
     >
       {children}
       <ClipboardButton
         className={ccn(
-          'sbstr8:pre-clipboard-button',
+          's8-pre-clipboard-button',
           'absolute',
           'm-1',
           'right-0',

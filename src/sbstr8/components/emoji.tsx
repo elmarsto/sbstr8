@@ -14,7 +14,7 @@ export const Emoji = ({ big, className, style, children }: EmojiProps) => (
   <span
     style={style}
     className={ccn(
-      'sbstr8:emoji',
+      's8-emoji',
       big ? bigEmojiClasses : normalEmojiClasses,
       className,
     )}
