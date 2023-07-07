@@ -52,6 +52,12 @@ export const rootMaker =
     unfeaturedHeader,
   }: rootMakerParams) =>
   async () => {
+    const postsPath =
+      cfg.postPath || (await useOverride(def.path))?.posts || def.path.posts;
+    const logo =
+      cfg.icon || (await useOverride(def.image))?.logo || def.image.logo;
+    const logoSz =
+      (await useOverride(def.dimension))?.logo || def.dimension.logo;
     const { data } = await sClient.query({ query });
     const eins: Feature[] = primary || [];
     const zwei: Feature[] = secondary || [];
@@ -59,10 +65,6 @@ export const rootMaker =
 
     const featureCount = eins.length + zwei.length + drei.length;
     const unfeaturedPosts = data.posts.slice(featureCount);
-    const logo =
-      cfg.icon || (await useOverride(def.image))?.logo || def.image.logo;
-    const logoSz =
-      (await useOverride(def.dimension))?.logo || def.dimension.logo;
     return (
       <div className="s8-page-root">
         <PageHeader className="s8-page-root-header">
@@ -115,7 +117,7 @@ export const rootMaker =
               {unfeaturedHeader}
               <LedeList>{unfeaturedPosts}</LedeList>
               <ReadMore
-                href={cfg.postPath || defaultPostPath}
+                href={postsPath}
                 className={ccn(
                   's8-page-root-section-unfeatured-read-more',
                   'float-right',
