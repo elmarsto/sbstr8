@@ -9,11 +9,9 @@ import { PageHeader } from '@/sbstr8/components/page/header';
 import { Post } from '@/sbstr8/lib/types/post';
 import LedeList from '@/sbstr8/components/lede-list';
 import { sClient } from '@/sbstr8/lib/graphql/server';
+import useOverride from '@/sbstr8/lib/hook/server/override';
+import def from '@/sbstr8/lib/default';
 
-const LOGO_SZ = 32;
-
-const defaultPostPath = '/posts/';
-const defaultLogo = '/media/sbstr8.svg';
 const query = gql`
   query {
     lastModified
@@ -54,6 +52,12 @@ export const rootMaker =
     unfeaturedHeader,
   }: rootMakerParams) =>
   async () => {
+    const postsPath =
+      cfg.postPath || (await useOverride(def.path))?.posts || def.path.posts;
+    const logo =
+      cfg.icon || (await useOverride(def.image))?.logo || def.image.logo;
+    const logoSz =
+      (await useOverride(def.dimension))?.logo || def.dimension.logo;
     const { data } = await sClient.query({ query });
     const eins: Feature[] = primary || [];
     const zwei: Feature[] = secondary || [];
@@ -61,11 +65,10 @@ export const rootMaker =
 
     const featureCount = eins.length + zwei.length + drei.length;
     const unfeaturedPosts = data.posts.slice(featureCount);
-    const logo = cfg.icon || defaultLogo;
     return (
       <div className="s8-page-root">
         <PageHeader className="s8-page-root-header">
-          <Image src={logo} width={LOGO_SZ} height={LOGO_SZ} alt="logo" />
+          <Image src={logo} width={logoSz} height={logoSz} alt="logo" />
         </PageHeader>
         <main className={ccn('s8-page-root-main', mainClassName)}>
           <section
@@ -114,7 +117,7 @@ export const rootMaker =
               {unfeaturedHeader}
               <LedeList>{unfeaturedPosts}</LedeList>
               <ReadMore
-                href={cfg.postPath || defaultPostPath}
+                href={postsPath}
                 className={ccn(
                   's8-page-root-section-unfeatured-read-more',
                   'float-right',

@@ -1,14 +1,12 @@
 'use client';
-import { useRef, useEffect, ComponentType } from 'react';
+import { useRef, useEffect } from 'react';
 import { override } from '@/../sbstr8.config';
 
-export const useOverride = (component: ComponentType<any>) => {
-  const ret = useRef<ComponentType>(component);
+export const useOverride = (obj: object) => {
+  const ret = useRef<object>(obj);
   useEffect(() => {
     (async () => {
-      ret.current = override
-        ? (await override.get(component)).default || component
-        : component;
+      ret.current = override ? (await override.get(obj)).default || obj : obj;
     })();
   });
   return ret.current;
