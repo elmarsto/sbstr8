@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/elmarsto/sbstr8/blob/main/public/media/sbstr8.svg" alt="sbstr8 logo" />
+  <img src="https://github.com/elmarsto/sbstr8/blob/main/public/media/logo-full.svg" width="409" height="555" alt="sbstr8 logo" />
 </p>
 
 # SBSTR8
