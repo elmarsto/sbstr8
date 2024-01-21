@@ -1,3 +1,31 @@
+# Jan 20 2024 - This project is now archived.
+
+## Why?
+
+Because the world doesn't need another JS site generator. 
+
+I'm proud of this project, but since completing it, I now have a job where I work in NextJS full-time, and I'm just not enthused to do more of the same work in the evening. Ironically, I used skills I earned building this site to get that job -- but that now means this project is not a priority.  What I want to do instead is *write*, and that means finding a platform that I'm also not making.
+
+I was really into this Wagnerian idea of 'Totallkunst', i.e. making _every part_ of the blog a piece of 'artwork' (if you could call it such.) 
+
+But realistically, I don't have _time_ to do my own blogging engine, just like I don't have time to make my own clothes, make paintings instead of smartphone pics, or, some nights, my own dinner. 
+
+If I'm going to do something, I want to do it well. And that means walking away from this. 
+
+I'm still using a personal version of this package to host my own website, but that will change shortly as well. I might do [blot.im](//blot.im), or I might use [lume](//lume.land). Or maybe [soupault](//soupault.app) again. Or maybe (and this is an idea that appeals to me greatly,
+
+I'm enormously grateful I did this project, and I'm enormously grateful to walk away.
+
+See you in the streets!
+
+
+
+
+
+
+
+
+
 <p align="center">
   <img src="https://github.com/elmarsto/sbstr8/blob/main/public/media/logo-full.svg" width="204" height="277" alt="sbstr8 logo" />
 </p>
